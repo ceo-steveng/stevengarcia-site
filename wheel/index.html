@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ancira Kia — Spin to Win</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1c1c28;
+    --border: #2a2a3d;
+    --accent: #e8002d;
+    --accent2: #ff6b35;
+    --gold: #f5c518;
+    --text: #f0f0f5;
+    --muted: #6b6b85;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  /* Animated background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(232,0,45,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,0,45,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-badge {
+    background: var(--accent);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: var(--text);
+  }
+
+  header span {
+    color: var(--accent);
+  }
+
+  .main {
+    display: flex;
+    gap: 32px;
+    padding: 32px 40px;
+    width: 100%;
+    max-width: 1300px;
+    position: relative;
+    z-index: 1;
+    align-items: flex-start;
+  }
+
+  /* LEFT PANEL */
+  .left-panel {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .panel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .panel-header {
+    padding: 14px 18px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-header .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .rep-list {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 420px;
+    overflow-y: auto;
+  }
+
+  .rep-list::-webkit-scrollbar { width: 4px; }
+  .rep-list::-webkit-scrollbar-track { background: transparent; }
+  .rep-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .rep-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rep-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transition: transform 0.15s;
+  }
+
+  .rep-item.active {
+    border-color: var(--accent);
+    background: rgba(232,0,45,0.08);
+  }
+
+  .rep-item.active::before {
+    transform: scaleY(1);
+  }
+
+  .rep-item:hover {
+    border-color: rgba(232,0,45,0.5);
+  }
+
+  .rep-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .rep-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .rep-check {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .rep-item.active .rep-check {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .rep-check::after {
+    content: '✓';
+    font-size: 11px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .rep-item.active .rep-check::after { opacity: 1; }
+
+  .rep-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+
+  .stat-box {
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--text);
+  }
+
+  .stat-val.calls { color: #4a9eff; }
+  .stat-val.texts { color: #a78bfa; }
+  .stat-val.overdue { color: #ff6b35; }
+  .stat-val.overdue.good { color: #22c55e; }
+
+  .stat-label {
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .weight-bar-wrap {
+    margin-top: 8px;
+    height: 3px;
+    background: var(--bg);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .weight-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.4s;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+  }
+
+  .weight-label {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 3px;
+    text-align: right;
+  }
+
+  /* CONTROLS */
+  .controls-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface2);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.5px;
+  }
+
+  .btn:hover { border-color: var(--accent); color: var(--text); }
+
+  /* STATS EDITOR */
+  .stat-editor {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-editor p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .stat-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-input-group label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stat-row span {
+    font-size: 12px;
+    color: var(--muted);
+    min-width: 60px;
+  }
+
+  input[type="number"] {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    padding: 6px 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 60px;
+  }
+
+  input[type="number"]:focus { border-color: var(--accent); }
+
+  /* CENTER - WHEEL */
+  .wheel-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .wheel-wrap {
+    position: relative;
+    width: 520px;
+    height: 520px;
+  }
+
+  #wheel-canvas {
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 4px var(--surface2),
+      0 0 0 6px var(--border),
+      0 0 60px rgba(232,0,45,0.2),
+      0 0 120px rgba(232,0,45,0.08);
+    transition: box-shadow 0.3s;
+  }
+
+  #wheel-canvas.spinning {
+    box-shadow:
+      0 0 0 4px var(--surface2),
+      0 0 0 6px var(--accent),
+      0 0 80px rgba(232,0,45,0.4),
+      0 0 160px rgba(232,0,45,0.15);
+  }
+
+  /* Pointer */
+  .pointer {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-right: 36px solid var(--accent);
+    filter: drop-shadow(0 0 8px rgba(232,0,45,0.8));
+    z-index: 10;
+  }
+
+  .wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--accent);
+    box-shadow: 0 0 20px rgba(232,0,45,0.4);
+  }
+
+  /* SPIN BUTTON */
+  .spin-btn {
+    background: var(--accent);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 4px;
+    padding: 16px 60px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spin-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  }
+
+  .spin-btn:hover:not(:disabled) {
+    background: #ff1a3d;
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(232,0,45,0.5);
+  }
+
+  .spin-btn:disabled {
+    background: var(--surface2);
+    color: var(--muted);
+    cursor: not-allowed;
+  }
+
+  /* WINNER OVERLAY */
+  .winner-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .winner-overlay.show {
+    display: flex;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .winner-card {
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 48px 64px;
+    text-align: center;
+    position: relative;
+    animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 60px rgba(232,0,45,0.3), 0 0 120px rgba(232,0,45,0.1);
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .winner-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .winner-trophy {
+    font-size: 64px;
+    margin-bottom: 12px;
+    animation: bounce 1s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .winner-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(245,197,24,0.5);
+    margin-bottom: 24px;
+  }
+
+  .winner-stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .winner-stat {
+    text-align: center;
+  }
+
+  .winner-stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--text);
+  }
+
+  .winner-stat-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .close-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    transition: all 0.15s;
+  }
+
+  .close-btn:hover { border-color: var(--accent); color: var(--text); }
+
+  /* Confetti */
+  .confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: confettiFall linear forwards;
+    z-index: 200;
+    border-radius: 2px;
+  }
+
+  @keyframes confettiFall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* SAVE TOAST */
+  #save-toast {
+    position: fixed;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid #22c55e;
+    color: #22c55e;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    transition: bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 999;
+    box-shadow: 0 0 20px rgba(34,197,94,0.3);
+  }
+  #save-toast.show { bottom: 32px; }
+
+  .no-reps {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+  }
+
+  .select-count {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    padding: 4px 0;
+  }
+
+  .select-count span { color: var(--accent); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-badge">ANCIRA KIA</div>
+  <h1>SPIN TO <span>WIN</span></h1>
+  <div style="margin-left:auto;">
+    <button onclick="saveToFile()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;padding:8px 20px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">
+      💾 SAVE &amp; SHARE
+    </button>
+  </div>
+</header>
+
+<div id="save-toast">✓ FILE SAVED — REPLACE ON ONEDRIVE</div>
+
+<div class="main">
+
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+
+    <div class="panel-card">
+      <div class="panel-header" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="dot"></div>
+          SALES TEAM
+        </div>
+        <button onclick="openManageReps()" style="background:transparent;border:1px solid var(--border);color:var(--muted);font-size:11px;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:1px;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">✏ EDIT</button>
+      </div>
+      <div class="rep-list" id="rep-list"></div>
+      <div style="padding: 8px 12px; border-top: 1px solid var(--border);">
+        <div class="select-count" id="select-count"><span>0</span> reps selected</div>
+        <div class="controls-row" style="margin-top: 8px;">
+          <button class="btn" onclick="selectAll()">Select All</button>
+          <button class="btn" onclick="deselectAll()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-card">
+      <div class="panel-header">⚙ CRM ACTIVITY INPUT</div>
+      <div class="stat-editor">
+        <p>Enter today's CRM activity for each rep. Calls & texts <strong>increase</strong> slice size. Overdue activities <strong>decrease</strong> it.</p>
+        <div id="stat-inputs"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WHEEL -->
+  <div class="wheel-section">
+    <div class="wheel-wrap">
+      <div class="pointer"></div>
+      <canvas id="wheel-canvas" width="520" height="520"></canvas>
+      <div class="wheel-center">KIA</div>
+    </div>
+    <button class="spin-btn" id="spin-btn" onclick="spin()">SPIN</button>
+    <div class="select-count" id="spin-hint">Select at least 2 reps to spin</div>
+  </div>
+
+</div>
+
+<!-- MANAGE REPS MODAL -->
+<div class="winner-overlay" id="manage-overlay">
+  <div class="winner-card" style="padding:32px;min-width:400px;max-width:480px;width:100%;animation:popIn 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;">MANAGE REPS</div>
+      <button onclick="closeManageReps()" style="background:transparent;border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">✕</button>
+    </div>
+    <div id="manage-rep-list" style="display:flex;flex-direction:column;gap:8px;max-height:360px;overflow-y:auto;margin-bottom:16px;padding-right:4px;"></div>
+    <div style="display:flex;gap:8px;">
+      <input type="text" id="new-rep-input" placeholder="New rep name..." maxlength="20"
+        style="flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color 0.15s;"
+        onkeydown="if(event.key==='Enter')addRep()"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
+      <button onclick="addRep()" style="background:var(--accent);color:white;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;transition:background 0.15s;" onmouseover="this.style.background='#ff1a3d'" onmouseout="this.style.background='var(--accent)'">ADD</button>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:var(--muted);text-align:center;">Changes are saved and persist between sessions</div>
+  </div>
+</div>
+
+<!-- WINNER OVERLAY -->
+<div class="winner-overlay" id="winner-overlay">
+  <div class="winner-card">
+    <div class="winner-label">🎉 Today's Winner</div>
+    <div class="winner-trophy">🏆</div>
+    <div class="winner-name" id="winner-name"></div>
+    <div class="winner-stats" id="winner-stats"></div>
+    <button class="close-btn" onclick="closeWinner()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+// ---- EMBEDDED DATA (editing this block saves to the file) ----
+// DATA_START
+const SAVED_DATA = {"reps":[{"name":"JD","calls":0,"texts":0,"overdue":0},{"name":"ARI","calls":0,"texts":0,"overdue":0},{"name":"BLANCA","calls":0,"texts":0,"overdue":0},{"name":"ROBERT","calls":0,"texts":0,"overdue":0},{"name":"AURIC","calls":0,"texts":0,"overdue":0},{"name":"DEANDRE","calls":0,"texts":0,"overdue":0},{"name":"STACEY","calls":0,"texts":0,"overdue":0},{"name":"CESAR","calls":0,"texts":0,"overdue":0},{"name":"NOAH","calls":0,"texts":0,"overdue":0},{"name":"JOEL","calls":0,"texts":0,"overdue":0},{"name":"JOHN","calls":0,"texts":0,"overdue":0}],"selected":["JD","ARI","BLANCA","ROBERT","AURIC","DEANDRE","STACEY","CESAR","NOAH","JOEL","JOHN"]};
+// DATA_END
+
+let REPS = SAVED_DATA.reps.map(r => ({ name: r.name }));
+const stats = {};
+SAVED_DATA.reps.forEach(r => {
+  stats[r.name] = { calls: r.calls || 0, texts: r.texts || 0, overdue: r.overdue || 0 };
+});
+const selected = new Set(SAVED_DATA.selected.filter(n => REPS.find(r => r.name === n)));
+
+// ---- SAVE TO FILE ----
+function buildSaveData() {
+  return {
+    reps: REPS.map(r => ({
+      name: r.name,
+      calls: stats[r.name]?.calls || 0,
+      texts: stats[r.name]?.texts || 0,
+      overdue: stats[r.name]?.overdue || 0
+    })),
+    selected: [...selected]
+  };
+}
+
+function saveReps() {
+  // No-op: saving happens via Save to File button
+}
+
+function saveToFile() {
+  const data = buildSaveData();
+  const jsonStr = JSON.stringify(data);
+
+  fetch(window.location.href)
+    .then(r => r.text())
+    .then(html => {
+      const startMarker = '// DATA_START';
+      const endMarker = '// DATA_END';
+      const startIdx = html.indexOf(startMarker);
+      const endIdx = html.indexOf(endMarker);
+      if (startIdx === -1 || endIdx === -1) throw new Error('Markers not found');
+      const updated =
+        html.slice(0, startIdx) +
+        startMarker + '\n' +
+        'const SAVED_DATA = ' + jsonStr + ';\n' +
+        html.slice(endIdx);
+      const blob = new Blob([updated], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'wheel-of-names.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      showSaveConfirmation();
+    })
+    .catch(() => {
+      // Fallback: build file from scratch using current page HTML
+      const html = document.documentElement.outerHTML;
+      const startMarker = '// DATA_START';
+      const endMarker = '// DATA_END';
+      const startIdx = html.indexOf(startMarker);
+      const endIdx = html.indexOf(endMarker);
+      if (startIdx !== -1 && endIdx !== -1) {
+        const updated =
+          html.slice(0, startIdx) +
+          startMarker + '\n' +
+          'const SAVED_DATA = ' + jsonStr + ';\n' +
+          html.slice(endIdx);
+        const blob = new Blob([updated], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'wheel-of-names.html';
+        a.click();
+        URL.revokeObjectURL(a.href);
+        showSaveConfirmation();
+      } else {
+        alert('Save failed. Please re-download the file from Claude and try again.');
+      }
+    });
+}
+
+function showSaveConfirmation() {
+  const toast = document.getElementById('save-toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ---- MANAGE REPS ----
+function openManageReps() {
+  renderManageList();
+  document.getElementById('manage-overlay').classList.add('show');
+}
+
+function closeManageReps() {
+  document.getElementById('manage-overlay').classList.remove('show');
+}
+
+function renderManageList() {
+  const container = document.getElementById('manage-rep-list');
+  container.innerHTML = '';
+  REPS.forEach((rep, i) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;transition:border-color 0.15s;';
+    row.innerHTML = `
+      <input type="text" value="${rep.name}" maxlength="20" data-idx="${i}"
+        style="flex:1;background:transparent;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;outline:none;min-width:0;"
+        onchange="renameRep(${i}, this.value)"
+        onfocus="this.closest('div').style.borderColor='var(--accent)'" 
+        onblur="this.closest('div').style.borderColor='var(--border)'">
+      <button onclick="deleteRep(${i})" title="Remove rep"
+        style="background:transparent;border:1px solid var(--border);color:var(--muted);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:14px;flex-shrink:0;transition:all 0.15s;display:flex;align-items:center;justify-content:center;"
+        onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" 
+        onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">✕</button>
+    `;
+    container.appendChild(row);
+  });
+  if (REPS.length === 0) {
+    container.innerHTML = '<div style="text-align:center;color:var(--muted);font-size:13px;padding:20px;">No reps — add some below</div>';
+  }
+}
+
+function addRep() {
+  const input = document.getElementById('new-rep-input');
+  const name = input.value.trim().toUpperCase();
+  if (!name) return;
+  if (REPS.find(r => r.name === name)) {
+    input.style.borderColor = 'var(--accent)';
+    input.placeholder = 'Name already exists!';
+    setTimeout(() => { input.style.borderColor = 'var(--border)'; input.placeholder = 'New rep name...'; }, 1500);
+    return;
+  }
+  REPS.push({ name });
+  stats[name] = { calls: 0, texts: 0, overdue: 0 };
+  selected.add(name);
+  markUnsaved();
+  input.value = '';
+  renderManageList();
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+}
+
+function renameRep(idx, newName) {
+  newName = newName.trim().toUpperCase();
+  if (!newName) return;
+  const oldName = REPS[idx].name;
+  if (newName === oldName) return;
+  if (REPS.find((r, i) => r.name === newName && i !== idx)) return;
+  stats[newName] = { ...stats[oldName] };
+  delete stats[oldName];
+  if (selected.has(oldName)) { selected.delete(oldName); selected.add(newName); }
+  REPS[idx].name = newName;
+  markUnsaved();
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+}
+
+function deleteRep(idx) {
+  if (REPS.length <= 1) return;
+  const name = REPS[idx].name;
+  selected.delete(name);
+  delete stats[name];
+  REPS.splice(idx, 1);
+  if (selected.size === 0) selected.add(REPS[0].name);
+  markUnsaved();
+  renderManageList();
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+}
+
+const COLORS = [
+  '#e8002d','#c0001e','#ff6b35','#d94f1e',
+  '#f5c518','#c9a000','#4a9eff','#2d7ed9',
+  '#a78bfa','#7c5fc5','#22c55e','#16963f'
+];
+
+let isSpinning = false;
+let currentAngle = 0;
+
+function getWeight(name) {
+  const s = stats[name];
+  const callScore = s.calls * 3;
+  const textScore = s.texts * 2;
+  const overdueScore = Math.max(0, 10 - s.overdue) * 1.5;
+  return Math.max(1, callScore + textScore + overdueScore);
+}
+
+function getMaxWeight() {
+  let max = 0;
+  REPS.forEach(r => {
+    if (selected.has(r.name)) max = Math.max(max, getWeight(r.name));
+  });
+  return max;
+}
+
+function getSelectedReps() {
+  return REPS.filter(r => selected.has(r.name));
+}
+
+// ---- RENDER REP LIST ----
+function renderRepList() {
+  const list = document.getElementById('rep-list');
+  list.innerHTML = '';
+  const maxW = getMaxWeight() || 1;
+
+  REPS.forEach((rep, i) => {
+    const w = getWeight(rep.name);
+    const pct = Math.round((w / maxW) * 100);
+    const isActive = selected.has(rep.name);
+
+    const div = document.createElement('div');
+    div.className = 'rep-item' + (isActive ? ' active' : '');
+    div.innerHTML = `
+      <div class="rep-top">
+        <div class="rep-name">
+          <div class="rep-check"></div>
+          ${rep.name}
+        </div>
+        <div style="font-size:11px;color:var(--muted)">wt: ${Math.round(w)}</div>
+      </div>
+      <div class="rep-stats">
+        <div class="stat-box">
+          <div class="stat-val calls">${stats[rep.name].calls}</div>
+          <div class="stat-label">Calls</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val texts">${stats[rep.name].texts}</div>
+          <div class="stat-label">Texts</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val overdue ${stats[rep.name].overdue === 0 ? 'good' : ''}">${stats[rep.name].overdue}</div>
+          <div class="stat-label">Overdue</div>
+        </div>
+      </div>
+      <div class="weight-bar-wrap">
+        <div class="weight-bar" style="width:${pct}%"></div>
+      </div>
+      <div class="weight-label">${pct}% max weight</div>
+    `;
+    div.addEventListener('click', () => toggleRep(rep.name));
+    list.appendChild(div);
+  });
+
+  const count = selected.size;
+  document.getElementById('select-count').innerHTML = `<span>${count}</span> rep${count !== 1 ? 's' : ''} selected`;
+  document.getElementById('spin-hint').textContent = count < 2 ? 'Select at least 2 reps to spin' : `${count} reps in the wheel`;
+  document.getElementById('spin-btn').disabled = count < 2 || isSpinning;
+}
+
+// ---- RENDER STAT INPUTS ----
+function renderStatInputs() {
+  const container = document.getElementById('stat-inputs');
+  container.innerHTML = '';
+  const activeReps = REPS.filter(rep => selected.has(rep.name));
+  if (activeReps.length === 0) {
+    container.innerHTML = '<div style="color:var(--muted);font-size:12px;text-align:center;padding:12px;">No reps selected</div>';
+    return;
+  }
+  activeReps.forEach(rep => {
+    const grp = document.createElement('div');
+    grp.style.cssText = 'border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:10px;';
+    grp.innerHTML = `
+      <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px;">${rep.name}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+        <div>
+          <label style="font-size:10px;color:#4a9eff;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:3px;">Calls</label>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" value="${stats[rep.name].calls}" 
+            onblur="updateStat('${rep.name}','calls',this.value)"
+            onkeydown="if(event.key==='Enter'){this.blur();}"
+            style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:#4a9eff;padding:6px 8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;outline:none;text-align:center;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#4a9eff';this.select()" onblur2="this.style.borderColor='var(--border)'">
+        </div>
+        <div>
+          <label style="font-size:10px;color:#a78bfa;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:3px;">Texts</label>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" value="${stats[rep.name].texts}"
+            onblur="updateStat('${rep.name}','texts',this.value)"
+            onkeydown="if(event.key==='Enter'){this.blur();}"
+            style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:#a78bfa;padding:6px 8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;outline:none;text-align:center;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#a78bfa';this.select()" onblur2="this.style.borderColor='var(--border)'">
+        </div>
+        <div>
+          <label style="font-size:10px;color:#ff6b35;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:3px;">Overdue</label>
+          <input type="text" inputmode="numeric" pattern="[0-9]*" value="${stats[rep.name].overdue}"
+            onblur="updateStat('${rep.name}','overdue',this.value)"
+            onkeydown="if(event.key==='Enter'){this.blur();}"
+            style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:#ff6b35;padding:6px 8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;outline:none;text-align:center;transition:border-color 0.15s;"
+            onfocus="this.style.borderColor='#ff6b35';this.select()" onblur2="this.style.borderColor='var(--border)'">
+        </div>
+      </div>
+    `;
+    container.appendChild(grp);
+  });
+}
+
+function updateStat(name, field, val) {
+  stats[name][field] = parseInt(val) || 0;
+  renderRepList();
+  drawWheel();
+  markUnsaved();
+}
+
+function markUnsaved() {
+  const btn = document.querySelector('[onclick="saveToFile()"]');
+  if (btn) btn.style.borderColor = 'var(--gold)';
+}
+
+function toggleRep(name) {
+  if (selected.has(name)) {
+    if (selected.size > 1) selected.delete(name);
+  } else {
+    selected.add(name);
+  }
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+  markUnsaved();
+}
+
+function selectAll() {
+  REPS.forEach(r => selected.add(r.name));
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+}
+
+function deselectAll() {
+  const first = REPS[0].name;
+  selected.clear();
+  selected.add(first);
+  renderRepList();
+  renderStatInputs();
+  drawWheel();
+}
+
+// ---- DRAW WHEEL ----
+function drawWheel(rotation) {
+  const canvas = document.getElementById('wheel-canvas');
+  const ctx = canvas.getContext('2d');
+  const cx = 260, cy = 260, r = 252;
+  const reps = getSelectedReps();
+  const totalWeight = reps.reduce((s, rep) => s + getWeight(rep.name), 0);
+
+  ctx.clearRect(0, 0, 520, 520);
+
+  const rot = (rotation !== undefined ? rotation : currentAngle) - Math.PI / 2;
+  let startAngle = rot;
+
+  reps.forEach((rep, i) => {
+    const w = getWeight(rep.name);
+    const slice = (w / totalWeight) * Math.PI * 2;
+    const color = COLORS[i % COLORS.length];
+
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+    ctx.closePath();
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.strokeStyle = '#0a0a0f';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Label
+    const mid = startAngle + slice / 2;
+    const labelR = r * 0.65;
+    const lx = cx + Math.cos(mid) * labelR;
+    const ly = cy + Math.sin(mid) * labelR;
+
+    ctx.save();
+    ctx.translate(lx, ly);
+    ctx.rotate(mid + Math.PI / 2);
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.font = 'bold 13px DM Sans';
+    ctx.textAlign = 'center';
+    ctx.fillText(rep.name, 1, 1);
+    ctx.fillStyle = 'white';
+    ctx.fillText(rep.name, 0, 0);
+    ctx.restore();
+
+    startAngle += slice;
+  });
+
+  // Center circle
+  ctx.beginPath();
+  ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fill();
+  ctx.strokeStyle = '#e8002d';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+// ---- SPIN ----
+function spin() {
+  if (isSpinning) return;
+  const reps = getSelectedReps();
+  if (reps.length < 2) return;
+
+  isSpinning = true;
+  document.getElementById('spin-btn').disabled = true;
+  document.getElementById('wheel-canvas').classList.add('spinning');
+
+  // Weighted random winner
+  const totalWeight = reps.reduce((s, r) => s + getWeight(r.name), 0);
+  let rand = Math.random() * totalWeight;
+  let winner = reps[reps.length - 1];
+  for (const rep of reps) {
+    rand -= getWeight(rep.name);
+    if (rand <= 0) { winner = rep; break; }
+  }
+
+  // Calculate winner's midpoint angle within the wheel (starting from angle 0)
+  let winnerMid = 0;
+  let cumAngle = 0;
+  for (const rep of reps) {
+    const slice = (getWeight(rep.name) / totalWeight) * Math.PI * 2;
+    if (rep.name === winner.name) {
+      winnerMid = cumAngle + slice / 2;
+      break;
+    }
+    cumAngle += slice;
+  }
+
+  // drawWheel draws slices starting at (currentAngle - PI/2).
+  // Pointer is at the RIGHT = angle 0 in canvas coords.
+  // We need: finalAngle - PI/2 + winnerMid = 0  =>  finalAngle = PI/2 - winnerMid
+  // Add a random offset within winner's slice for natural feel (±40% of slice)
+  const winnerSlice = (getWeight(winner.name) / totalWeight) * Math.PI * 2;
+  const sliceOffset = (Math.random() - 0.5) * winnerSlice * 0.4;
+  const finalAngle = Math.PI / 2 - winnerMid - sliceOffset;
+
+  // Full spins + adjustment from current angle
+  const fullSpins = (Math.PI * 2) * (18 + Math.floor(Math.random() * 4));
+  // Make sure we always spin forward (positive)
+  let delta = (finalAngle - currentAngle % (Math.PI * 2) + fullSpins) % (Math.PI * 2) + fullSpins;
+
+  const startTime = performance.now();
+  const duration = 20000;
+  const startAngle = currentAngle;
+
+  function animate(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    // Ease out quint for long dramatic deceleration
+    const ease = 1 - Math.pow(1 - t, 5);
+    const angle = startAngle + delta * ease;
+    currentAngle = angle;
+    drawWheel(angle);
+
+    if (t < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      isSpinning = false;
+      document.getElementById('wheel-canvas').classList.remove('spinning');
+      currentAngle = angle;
+      showWinner(winner);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function showWinner(rep) {
+  const s = stats[rep.name];
+  document.getElementById('winner-name').textContent = rep.name;
+  document.getElementById('winner-stats').innerHTML = `
+    <div class="winner-stat">
+      <div class="winner-stat-val" style="color:#4a9eff">${s.calls}</div>
+      <div class="winner-stat-lbl">CALLS</div>
+    </div>
+    <div class="winner-stat">
+      <div class="winner-stat-val" style="color:#a78bfa">${s.texts}</div>
+      <div class="winner-stat-lbl">TEXTS</div>
+    </div>
+    <div class="winner-stat">
+      <div class="winner-stat-val" style="color:${s.overdue === 0 ? '#22c55e' : '#ff6b35'}">${s.overdue}</div>
+      <div class="winner-stat-lbl">OVERDUE</div>
+    </div>
+    <div class="winner-stat">
+      <div class="winner-stat-val" style="color:var(--gold)">${Math.round(getWeight(rep.name))}</div>
+      <div class="winner-stat-lbl">WEIGHT</div>
+    </div>
+  `;
+  document.getElementById('winner-overlay').classList.add('show');
+  launchConfetti();
+}
+
+function closeWinner() {
+  document.getElementById('winner-overlay').classList.remove('show');
+  document.getElementById('spin-btn').disabled = selected.size < 2;
+}
+
+function launchConfetti() {
+  const colors = ['#e8002d','#f5c518','#4a9eff','#22c55e','#a78bfa','#ff6b35','#fff'];
+  for (let i = 0; i < 80; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left: ${Math.random() * 100}vw;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      width: ${6 + Math.random() * 8}px;
+      height: ${6 + Math.random() * 8}px;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      animation-duration: ${2 + Math.random() * 2}s;
+      animation-delay: ${Math.random() * 0.5}s;
+    `;
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+  }
+}
+
+// INIT
+renderRepList();
+renderStatInputs();
+drawWheel();
+</script>
+</body>
+</html>
