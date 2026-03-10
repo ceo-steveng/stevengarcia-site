@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steven Garcia — Automotive Operator. Disciplined Investor.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* TOP RULE — every major section gets it */
+  .top-rule { border-top: 2px solid var(--crimson); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-half {
+    padding: 96px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 2px solid var(--crimson);
+  }
+
+  .hero-half.left {
+    border-right: 1px solid var(--border);
+  }
+
+  .hero-half.right {
+    border-left: none;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 28px;
+  }
+
+  .hero-h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .hero-h1 em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .hero-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.75;
+    max-width: 400px;
+    margin-bottom: 40px;
+  }
+
+  .hero-body strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-outline {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid var(--mid);
+    padding: 14px 32px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--white);
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat {
+    padding: 40px 48px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .stat-num .currency {
+    font-size: 22px;
+    color: var(--crimson);
+    font-weight: 600;
+  }
+
+  .stat-num .unit {
+    font-size: 22px;
+    color: var(--crimson);
+    font-weight: 600;
+  }
+
+  .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 88px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .section-h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.5vw, 52px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--white);
+  }
+
+  /* ── PRODUCT SECTION ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .product-card {
+    background: var(--black);
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-top-rule {
+    height: 2px;
+    background: var(--crimson);
+    width: 100%;
+  }
+
+  .product-card.inactive .product-top-rule {
+    background: var(--border);
+  }
+
+  .product-inner {
+    padding: 48px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-status {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 24px;
+  }
+
+  .product-card.inactive .product-status {
+    color: var(--mid);
+  }
+
+  .product-title {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .product-list {
+    list-style: none;
+    margin-bottom: 0;
+    flex: 1;
+  }
+
+  .product-list li {
+    font-size: 13px;
+    color: var(--list);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .product-list li::before {
+    content: '—';
+    color: var(--crimson);
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 1px;
+  }
+
+  .product-footer {
+    padding: 28px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0e0e0e;
+  }
+
+  .product-price {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--white);
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+  }
+
+  .product-price .currency {
+    font-size: 20px;
+    color: var(--crimson);
+    font-weight: 600;
+  }
+
+  .price-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-top: 4px;
+  }
+
+  .product-card.inactive {
+    opacity: 0.45;
+  }
+
+  /* ── TOOLS GRID ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .tool-card {
+    background: var(--black);
+    padding: 36px 40px;
+    text-decoration: none;
+    display: block;
+    border-top: 2px solid var(--border);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .tool-card:hover {
+    background: #0e0e0e;
+    border-top-color: var(--crimson);
+  }
+
+  .tool-cat {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 12px;
+  }
+
+  .tool-name {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .tool-desc {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.65;
+  }
+
+  .tool-arrow {
+    font-size: 12px;
+    color: var(--label);
+    margin-top: 16px;
+    letter-spacing: 0.1em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: color 0.15s;
+  }
+
+  .tool-card:hover .tool-arrow { color: var(--crimson); }
+
+  /* ── EMAIL SECTION ── */
+  .email-section {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .email-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .free-label {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    border: 1px solid var(--crimson);
+    padding: 4px 10px;
+    margin-bottom: 24px;
+  }
+
+  .email-checklist {
+    list-style: none;
+    margin-top: 32px;
+  }
+
+  .email-checklist li {
+    font-size: 14px;
+    color: var(--list);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+  }
+
+  .email-checklist li .num {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--crimson);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  .form-box {
+    border-top: 2px solid var(--crimson);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--crimson);
+    padding: 48px;
+  }
+
+  .form-title {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-size: 13px;
+    color: var(--body);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 13px 16px;
+    outline: none;
+    margin-bottom: 16px;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus { border-color: var(--mid); }
+  .form-input::placeholder { color: #333; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--crimson);
+    color: var(--white);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    margin-top: 4px;
+  }
+
+  .form-submit:hover { opacity: 0.85; }
+
+  .form-note {
+    font-size: 11px;
+    color: var(--label);
+    margin-top: 14px;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-name {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .about-location {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+
+  .about-bio {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .about-bio strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--label);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── FADE IN ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.18s; }
+  .d3 { animation-delay: 0.30s; }
+  .d4 { animation-delay: 0.42s; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-half { padding: 56px 24px; }
+    .hero-half.left { border-right: none; border-bottom: 1px solid var(--border); }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 28px 24px; }
+    .section { padding: 64px 24px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
+    .email-layout { grid-template-columns: 1fr; gap: 40px; }
+    .about-layout { grid-template-columns: 1fr; gap: 32px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="#playbook">Playbook</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#access">Free Access</a></li>
+  </ul>
+  <a href="#playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+
+  <!-- LEFT: AUTOMOTIVE -->
+  <div class="hero-half left">
+    <div class="eyebrow fade d1">Automotive Operations</div>
+    <h1 class="hero-h1 fade d2">I Run<br>the <em>Floor.</em><br>I Built<br>the System.</h1>
+    <p class="hero-body fade d3">
+      New Car Manager, Ancira Kia. <strong>10+ years</strong> building sales process, enforcing accountability, and using AI to close more without adding headcount.
+    </p>
+    <a href="#playbook" class="btn-primary fade d4">Get the Dealer Playbook</a>
+  </div>
+
+  <!-- RIGHT: INVESTOR -->
+  <div class="hero-half right">
+    <div class="eyebrow fade d1">Disciplined Investor</div>
+    <h1 class="hero-h1 fade d2">Building<br><em>Wealth</em><br>on a<br>System.</h1>
+    <p class="hero-body fade d3">
+      <strong>SCHD. JEPI. BND. Bitcoin.</strong> Building toward $10K/month passive income and retirement at 55. No hype. Just compounding and discipline — documented in public.
+    </p>
+    <a href="#access" class="btn-outline fade d4">Follow the Build</a>
+  </div>
+
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">10<span class="unit">+</span></div>
+    <div class="stat-label">Years in Automotive</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="currency">$</span>197</div>
+    <div class="stat-label">Dealer AI Playbook</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="currency">$</span>10K</div>
+    <div class="stat-label">Passive Income Target / Mo</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">55</div>
+    <div class="stat-label">Target Retirement Age</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="playbook" style="padding-left:0;padding-right:0;padding-top:88px;padding-bottom:0;">
+  <div style="padding:0 48px 56px;">
+    <div class="section-eyebrow">Digital Products</div>
+    <h2 class="section-h2">Documented.<br>Tested. Available.</h2>
+  </div>
+  <div class="product-grid">
+
+    <!-- PRODUCT 1: LIVE -->
+    <div class="product-card">
+      <div class="product-top-rule"></div>
+      <div class="product-inner">
+        <div class="product-status">Available Now</div>
+        <h3 class="product-title">The AI-Powered<br>Dealership Playbook</h3>
+        <p class="product-desc">The exact system I use to run BDC automation, enforce process, and close more units without adding headcount. Built on AI tools any manager can implement today.</p>
+        <ul class="product-list">
+          <li>Where AI cuts cost before noon — leads, BDC, follow-up</li>
+          <li>VinSolutions + automation stack that actually works</li>
+          <li>BDC workflows I run in production (n8n templates included)</li>
+          <li>Manager accountability without micromanaging</li>
+          <li>Pay plan structures that drive the right behavior</li>
+          <li>Full tool stack with every affiliate link</li>
+        </ul>
+      </div>
+      <div class="product-footer">
+        <div>
+          <div class="product-price"><span class="currency">$</span>197</div>
+          <div class="price-note">One-time · Instant download</div>
+        </div>
+        <a href="#" class="btn-primary">Buy Now</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: COMING SOON -->
+    <div class="product-card inactive">
+      <div class="product-top-rule"></div>
+      <div class="product-inner">
+        <div class="product-status">Coming Soon — Join Waitlist</div>
+        <h3 class="product-title">The Dividend<br>Machine Guide</h3>
+        <p class="product-desc">How I'm building a $10K/month passive income stream using SCHD, JEPI, BND, and Bitcoin. The allocation model, the compound math, and the 55-retirement timeline.</p>
+        <ul class="product-list">
+          <li>My exact portfolio allocation and the reasoning behind it</li>
+          <li>How I position Bitcoin alongside dividend ETFs</li>
+          <li>The compound math to $10K/month — realistic timeline</li>
+          <li>Tools I use to track, automate, and reinvest</li>
+          <li>The retirement-at-55 breakdown, month by month</li>
+        </ul>
+      </div>
+      <div class="product-footer">
+        <div>
+          <div class="product-price"><span class="currency">$</span>97</div>
+          <div class="price-note">Launching soon</div>
+        </div>
+        <a href="#access" class="btn-outline" style="pointer-events:all;opacity:1">Join Waitlist</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools" style="padding-left:0;padding-right:0;">
+  <div style="padding: 0 48px 56px;">
+    <div class="section-eyebrow">My Stack</div>
+    <h2 class="section-h2">Tools I Use.<br>Not Ads.</h2>
+  </div>
+  <div class="tools-grid">
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">Automotive CRM</div>
+      <div class="tool-name">VinSolutions</div>
+      <div class="tool-desc">The CRM I build every sales process on. Only as good as the process you enforce inside it.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">AI Automation</div>
+      <div class="tool-name">n8n</div>
+      <div class="tool-desc">Self-hosted workflow automation. I run BDC scheduling, email triage, data pipelines, and my trading AI through it.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">Local AI</div>
+      <div class="tool-name">LM Studio</div>
+      <div class="tool-desc">Run AI models locally. Privacy-first, no cloud, no per-token cost. Running on M2 Max as part of my personal AI stack.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">Brokerage</div>
+      <div class="tool-name">Fidelity</div>
+      <div class="tool-desc">Where I hold SCHD, JEPI, and BND. Zero commission, solid DRIP, built for long-term compounding.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">Bitcoin</div>
+      <div class="tool-name">River</div>
+      <div class="tool-desc">Bitcoin-only exchange. Auto-DCA, no altcoin noise. Best option for treating BTC as a long-term savings asset.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+    <a href="#" class="tool-card">
+      <div class="tool-cat">AI Assistant</div>
+      <div class="tool-name">Claude</div>
+      <div class="tool-desc">Primary AI for strategy, writing, and code. Paired with n8n for automation and used daily for dealership analysis.</div>
+      <div class="tool-arrow">View →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="section email-section" id="access">
+  <div class="email-layout">
+    <div>
+      <div class="free-label">Free</div>
+      <div class="section-eyebrow">Get Instant Access</div>
+      <h2 class="section-h2">The AI Stack I'd<br>Build Today.</h2>
+      <p style="font-size:15px;color:#AAAAAA;line-height:1.75;margin-top:16px;max-width:420px;">
+        A no-fluff breakdown of every AI and automation tool I'd set up if I were opening a dealership from scratch. Links, costs, and setup priority.
+      </p>
+      <ul class="email-checklist">
+        <li><span class="num">01</span><span>Every tool — free, paid, and self-hosted</span></li>
+        <li><span class="num">02</span><span>What to set up in week one vs. month three</span></li>
+        <li><span class="num">03</span><span>How to connect VinSolutions to automation</span></li>
+        <li><span class="num">04</span><span>Updates when I have something worth saying — no schedule</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="form-box">
+        <h3 class="form-title">Get the Stack</h3>
+        <p class="form-sub">Free. No schedule. I send something when it's worth your time.</p>
+        <label class="form-label" for="fname">First Name</label>
+        <input class="form-input" type="text" id="fname" placeholder="Steven">
+        <label class="form-label" for="femail">Email Address</label>
+        <input class="form-input" type="email" id="femail" placeholder="you@example.com">
+        <button class="form-submit">Send Me the Stack</button>
+        <p class="form-note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="about-layout">
+    <div>
+      <div class="about-name">Steven<br>Garcia</div>
+      <div class="about-location">San Antonio, TX</div>
+    </div>
+    <div>
+      <p class="about-bio">
+        Military veteran. New Car Manager at Ancira Kia. Over a decade in automotive retail — from BDC and internet director to running full sales operations, pay plans, and manager accountability at the store level.
+      </p>
+      <p class="about-bio">
+        Outside the dealership, I'm building a <strong>passive income system</strong> through dividend ETFs and Bitcoin with one target: $10K/month and retirement at 55. No shortcuts. No hype. Compounding and discipline.
+      </p>
+      <p class="about-bio">
+        Everything I publish here I've <strong>built, tested, or run myself</strong>. If it's on this site, it's real.
+      </p>
+      <div class="tag-row">
+        <span class="tag">VinSolutions</span>
+        <span class="tag">n8n</span>
+        <span class="tag">AI Automation</span>
+        <span class="tag">SCHD / JEPI / BND</span>
+        <span class="tag">Bitcoin</span>
+        <span class="tag">Dealership Ops</span>
+        <span class="tag">Military Veteran</span>
+        <span class="tag">Sales Process</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="#playbook">Playbook</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#access">Free Access</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Steven Garcia</div>
+</footer>
+
+</body>
+</html>
