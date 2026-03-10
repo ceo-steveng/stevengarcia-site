@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI-Powered Dealership Playbook — Steven Garcia</title>
+<meta name="description" content="The exact system a 200+ unit manager uses to automate morning reports, enforce process, and close more deals — without adding headcount. $197.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--crimson); }
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--white);
+    background: var(--crimson); padding: 10px 22px; text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    margin-top: 60px;
+    padding: 96px 48px 80px;
+    border-bottom: 1px solid var(--border);
+    max-width: 800px;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 28px;
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: clamp(36px, 5vw, 56px); line-height: 1.05;
+    text-transform: uppercase; color: var(--white); margin-bottom: 24px;
+  }
+  h1 em { font-style: normal; color: var(--crimson); }
+  .hero-sub {
+    font-size: 16px; color: var(--body); line-height: 1.75;
+    max-width: 600px; margin: 0 auto 40px;
+  }
+  .hero-sub strong { color: var(--white); font-weight: 400; }
+
+  /* BUTTONS */
+  .btn-primary {
+    display: inline-block; font-family: 'DM Sans', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--white); background: var(--crimson);
+    padding: 16px 40px; text-decoration: none; transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-primary.large { font-size: 13px; padding: 20px 56px; }
+
+  /* PRICE TAG */
+  .price-hero {
+    display: flex; align-items: baseline; justify-content: center;
+    gap: 4px; margin-bottom: 8px;
+  }
+  .price-hero .currency {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 24px; color: var(--crimson);
+  }
+  .price-hero .amount {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 64px; color: var(--white); line-height: 1;
+  }
+  .price-note {
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--label); margin-bottom: 32px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .section.full-width { max-width: none; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--crimson); margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 44px); text-transform: uppercase;
+    letter-spacing: 0.02em; line-height: 1.05; color: var(--white);
+    margin-bottom: 24px;
+  }
+  h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 22px; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--white); margin-bottom: 12px; margin-top: 40px;
+  }
+  p { font-size: 15px; color: var(--body); line-height: 1.8; margin-bottom: 16px; }
+  p strong { color: var(--white); font-weight: 400; }
+
+  /* PAIN POINTS */
+  .pain-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  .pain-card {
+    background: var(--black); padding: 36px 40px;
+    border-top: 2px solid var(--crimson);
+  }
+  .pain-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 48px; color: var(--crimson); line-height: 1; margin-bottom: 8px;
+  }
+  .pain-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--white); margin-bottom: 10px;
+  }
+  .pain-desc { font-size: 14px; color: var(--body); line-height: 1.7; margin: 0; }
+
+  /* WHAT YOU GET */
+  .get-list { list-style: none; margin: 32px 0; }
+  .get-list li {
+    font-size: 15px; color: var(--list); padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .get-list li .num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 14px; color: var(--crimson); flex-shrink: 0; width: 28px;
+    padding-top: 2px;
+  }
+  .get-list li strong { color: var(--white); font-weight: 400; }
+
+  /* CHAPTER LIST */
+  .chapter-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 32px 0;
+  }
+  .chapter-item {
+    background: var(--black); padding: 24px 32px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .ch-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 32px; color: var(--crimson); line-height: 1; flex-shrink: 0;
+    width: 40px;
+  }
+  .ch-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 16px; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--white); margin-bottom: 4px;
+  }
+  .ch-desc { font-size: 13px; color: var(--body); line-height: 1.6; margin: 0; }
+
+  /* ROI BOX */
+  .roi-box {
+    border: 1px solid var(--border); border-top: 2px solid var(--crimson);
+    padding: 48px; margin: 40px 0; text-align: center;
+  }
+  .roi-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 64px; color: var(--white); line-height: 1; margin-bottom: 8px;
+  }
+  .roi-num .currency { font-size: 28px; color: var(--crimson); }
+  .roi-label {
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--label); margin-bottom: 20px;
+  }
+  .roi-desc { font-size: 15px; color: var(--body); max-width: 500px; margin: 0 auto; }
+
+  /* WHO THIS IS FOR */
+  .for-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    margin: 32px 0;
+  }
+  .for-list { list-style: none; }
+  .for-list li {
+    font-size: 14px; color: var(--list); padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 12px;
+  }
+  .for-list li::before { flex-shrink: 0; font-size: 14px; }
+  .for-yes li::before { content: '✓'; color: var(--crimson); }
+  .for-no li::before { content: '✗'; color: var(--label); }
+  .for-no li { color: var(--label); }
+
+  /* ABOUT AUTHOR */
+  .author-box {
+    border: 1px solid var(--border); border-top: 2px solid var(--crimson);
+    padding: 48px; display: flex; gap: 40px; align-items: flex-start;
+    margin: 32px 0;
+  }
+  .author-name {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 28px; text-transform: uppercase; color: var(--white);
+    margin-bottom: 4px; white-space: nowrap;
+  }
+  .author-title {
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--crimson); margin-bottom: 16px;
+  }
+  .author-bio { font-size: 14px; color: var(--body); line-height: 1.7; margin: 0; }
+
+  /* GUARANTEE */
+  .guarantee {
+    text-align: center; padding: 48px; border: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  .guarantee h3 { margin-top: 0; }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 96px 48px; text-align: center;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px; display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .footer-logo span { color: var(--crimson); }
+  .footer-copy { font-size: 11px; color: var(--label); letter-spacing: 0.1em; }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .hero { padding: 72px 24px 60px; }
+    .section { padding: 56px 24px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .chapter-grid { grid-template-columns: 1fr; }
+    .for-grid { grid-template-columns: 1fr; gap: 24px; }
+    .author-box { flex-direction: column; }
+    .cta-section { padding: 64px 24px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .price-hero .amount { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <a href="#buy" class="nav-cta">Get the Playbook — $197</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Digital Product</div>
+  <h1>The AI-Powered<br>Dealership <em>Playbook</em></h1>
+  <p class="hero-sub">
+    The exact system I use to run morning reports, automate BDC follow-up, enforce process, and close more units — <strong>without adding headcount.</strong>
+  </p>
+  <div class="price-hero">
+    <span class="currency">$</span>
+    <span class="amount">197</span>
+  </div>
+  <div class="price-note">One-time purchase · Instant PDF download · 37 pages</div>
+  <a href="#buy" class="btn-primary large">Buy Now — Instant Download</a>
+</div>
+
+<!-- THE PROBLEM -->
+<div class="section">
+  <div class="section-eyebrow">The Problem</div>
+  <h2>You're Spending Your Best Hours<br>on <em>Reports</em></h2>
+  <p>
+    Every morning, you log into five different systems. Screenshot the CRM dashboard. Export inventory. Copy numbers into a spreadsheet. Check NPS. Try to figure out who didn't get a T/O yesterday. Try to remember which pending finance deals need follow-up.
+  </p>
+  <p>
+    That's <strong>30 to 45 minutes before you've talked to a single person.</strong> And by the time the meeting starts, half the stuff you meant to bring up gets skipped.
+  </p>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-num">30</div>
+      <div class="pain-title">Minutes Lost Every Morning</div>
+      <div class="pain-desc">Manual data collection across CRM, inventory, desk log, and OEM portals. Every day. Before you've done anything productive.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-num">60%</div>
+      <div class="pain-title">CRM Tasks Are Noise</div>
+      <div class="pain-desc">System-generated junk, closed deals, duplicates. The real opportunities are buried. Most managers ignore the list entirely.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-num">3-5</div>
+      <div class="pain-title">Deals Lost to Pending Finance</div>
+      <div class="pain-desc">Every month, deals quietly die in F&I limbo because nobody tracks them separately. Cosigners don't show. Stips don't get done.</div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-num">20-30%</div>
+      <div class="pain-title">Walks Saved by T/O</div>
+      <div class="pain-desc">But if nobody flags which reps aren't turning customers, you don't know who to coach. The data is there. Nobody's looking at it.</div>
+    </div>
+  </div>
+
+  <p style="text-align:center;color:var(--white);font-weight:400;">
+    This playbook fixes all of it. Not with vendors. Not with code. With a system any manager can build.
+  </p>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="section">
+  <div class="section-eyebrow">What's Inside</div>
+  <h2>37 Pages of <em>Battle-Tested</em><br>Frameworks</h2>
+  <p>
+    Everything in this playbook runs in production, every day, at a real dealership doing 200+ units per month. No theory. No fluff. Just the system.
+  </p>
+
+  <ol class="get-list">
+    <li><span class="num">01</span><span><strong>The Morning Report Framework</strong> — 21 metrics, one page, five minutes. Replace 30-45 minutes of manual data collection with a PDF that's ready before you walk in.</span></li>
+    <li><span class="num">02</span><span><strong>The Save-a-Deal Meeting System</strong> — 10-minute morning meeting format. Every unsold customer categorized. Every no-T/O flagged. Every pending finance deal surfaced.</span></li>
+    <li><span class="num">03</span><span><strong>CRM Task Automation Rules</strong> — The three-bucket system: auto-clear, re-engage, needs-attention. Eliminate 60% of daily noise. Surface the 5 tasks that actually matter.</span></li>
+    <li><span class="num">04</span><span><strong>3 SMS Re-Engagement Templates</strong> — Tested messages that get responses. Not "just following up." Real templates with the psychology behind why they work.</span></li>
+    <li><span class="num">05</span><span><strong>BDC & Follow-Up Workflows</strong> — The 14-Day Rule, appointment confirmation sequences, lead lifecycle mapping, and where AI fits (and where it doesn't).</span></li>
+    <li><span class="num">06</span><span><strong>End-of-Day Automation</strong> — Desk log auto-fill, pending finance flagging, the daily journal system that gives you operational memory across days.</span></li>
+    <li><span class="num">07</span><span><strong>Dealer Trade Paperwork</strong> — Two-phase automation that turns 20 minutes of manual data entry into 5 minutes of review.</span></li>
+    <li><span class="num">08</span><span><strong>10-Category Performance Review Scorecard</strong> — Consistent, data-driven, tied to consequences. Same 10 categories for every rep, every month. A through F.</span></li>
+    <li><span class="num">09</span><span><strong>Complete Pay Plan Architecture</strong> — 30% commission base, tiered spiffs, fast-start bonuses, employment minimums, and bonus qualifiers that force the right behaviors.</span></li>
+    <li><span class="num">10</span><span><strong>4-Week Implementation Roadmap</strong> — Not "someday." Week by week. What to build, in what order, with realistic expectations for each phase.</span></li>
+    <li><span class="num">11</span><span><strong>Full AI Tool Stack</strong> — Every tool, what it costs, and how it connects. Total AI layer cost: $20/month.</span></li>
+  </ol>
+</div>
+
+<!-- CHAPTERS -->
+<div class="section full-width" style="padding-left:0;padding-right:0;">
+  <div style="padding:0 48px 32px;max-width:900px;margin:0 auto;">
+    <div class="section-eyebrow">12 Chapters</div>
+    <h2>Full Table of <em>Contents</em></h2>
+  </div>
+  <div class="chapter-grid" style="max-width:900px;margin:0 auto;">
+    <div class="chapter-item"><div class="ch-num">1</div><div><div class="ch-title">The Problem</div><div class="ch-desc">The manager trap. Why your best hours go to data collection instead of decision-making.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">2</div><div><div class="ch-title">The Stack</div><div class="ch-desc">Your existing tools + the AI layer. What connects to what. What it actually costs.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">3</div><div><div class="ch-title">The Morning Report</div><div class="ch-desc">21 metrics, one page. How to build your own version from scratch.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">4</div><div><div class="ch-title">The Save-a-Deal Meeting</div><div class="ch-desc">10-minute format. No-T/O flags. Pending finance tracking. Be-back action items.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">5</div><div><div class="ch-title">CRM Task Automation</div><div class="ch-desc">Three buckets. Auto-clear rules. SMS templates. The 14-Day Rule.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">6</div><div><div class="ch-title">BDC & Follow-Up Workflows</div><div class="ch-desc">Lead lifecycle. Appointment confirmations. Where AI fits and where it doesn't.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">7</div><div><div class="ch-title">End-of-Day Operations</div><div class="ch-desc">Desk log automation. Pending finance flagging. The daily journal system.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">8</div><div><div class="ch-title">Dealer Trade Paperwork</div><div class="ch-desc">Two-phase automation. Invoice reading. Contact database that builds itself.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">9</div><div><div class="ch-title">Performance Reviews</div><div class="ch-desc">10 categories. A through F. Data-driven. Tied to consequences.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">10</div><div><div class="ch-title">Pay Plan Architecture</div><div class="ch-desc">Commission structure. Bonus qualifiers. Tiered spiffs. Employment minimums.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">11</div><div><div class="ch-title">The Daily Operating Rhythm</div><div class="ch-desc">What every hour looks like when the system is running. 15 minutes of admin. All day on the floor.</div></div></div>
+    <div class="chapter-item"><div class="ch-num">12</div><div><div class="ch-title">Implementation Roadmap</div><div class="ch-desc">4 weeks. Step by step. Common obstacles and how to push through them.</div></div></div>
+  </div>
+</div>
+
+<!-- ROI -->
+<div class="section" style="text-align:center;">
+  <div class="section-eyebrow">The Math</div>
+  <h2>What This System Is <em>Worth</em></h2>
+  <p style="max-width:600px;margin:0 auto 40px;">
+    One extra deal per month from better follow-up. One pending finance deal that doesn't fall through. One be-back that comes in because the Save-a-Deal meeting caught them.
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);">
+    <div style="background:var(--black);padding:40px;text-align:center;border-top:2px solid var(--crimson);">
+      <div class="roi-num"><span class="currency">$</span>3-5K</div>
+      <div class="roi-label">Per recovered deal</div>
+    </div>
+    <div style="background:var(--black);padding:40px;text-align:center;border-top:2px solid var(--crimson);">
+      <div class="roi-num">2-3<span class="currency" style="font-size:22px;">hrs</span></div>
+      <div class="roi-label">Saved per day</div>
+    </div>
+    <div style="background:var(--black);padding:40px;text-align:center;border-top:2px solid var(--crimson);">
+      <div class="roi-num"><span class="currency">$</span>20</div>
+      <div class="roi-label">AI tools per month</div>
+    </div>
+  </div>
+
+  <p style="margin-top:32px;text-align:center;">
+    Conservatively, this system is worth <strong>$10,000 to $20,000 per month</strong> in recovered revenue and operational efficiency. You're paying $197 for the blueprint. The ROI hits in the first week.
+  </p>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<div class="section">
+  <div class="section-eyebrow">Is This for You?</div>
+  <h2>Built for <em>Working</em> Managers</h2>
+
+  <div class="for-grid">
+    <div>
+      <h3 style="margin-top:0;">This is for you if:</h3>
+      <ul class="for-list for-yes">
+        <li>You manage a dealership doing 100-300 units/month</li>
+        <li>You spend 30+ minutes every morning on reports</li>
+        <li>Your CRM task list is a mess and you know it</li>
+        <li>You want data-driven coaching conversations, not guessing</li>
+        <li>You're open to using AI tools (even if you're not technical)</li>
+        <li>You want a system, not another vendor</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-top:0;">This is NOT for you if:</h3>
+      <ul class="for-list for-no">
+        <li>You're looking for plug-and-play software</li>
+        <li>You want someone else to build it for you</li>
+        <li>You're not willing to spend 4 weeks implementing</li>
+        <li>You think AI is a gimmick (it's not, but I can't convince you)</li>
+        <li>You're already saving 2-3 hours a day with automation</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT AUTHOR -->
+<div class="section">
+  <div class="section-eyebrow">Who Built This</div>
+  <h2>Not a Consultant.<br>A <em>Manager.</em></h2>
+
+  <div class="author-box">
+    <div>
+      <div class="author-name">Steven Garcia</div>
+      <div class="author-title">New Car Manager · Ancira Kia · San Antonio, TX</div>
+    </div>
+    <div>
+      <p class="author-bio">
+        Army veteran. Over a decade in automotive retail. Currently running 200+ units per month at Ancira Kia. Built every system in this playbook himself, using AI tools available to anyone. No vendor contracts. No development team. Just a manager who got tired of spending his first two hours every morning on reports instead of revenue.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- COACHING UPSELL -->
+<div class="section" style="text-align:center;">
+  <div class="section-eyebrow">Go Further</div>
+  <h2>Want Me to Build It <em>With</em> You?</h2>
+  <p style="max-width:560px;margin:0 auto 32px;">
+    90-minute 1-on-1 strategy call. We audit your operation, map your data sources, and build a custom implementation plan for your store. <strong>$500.</strong>
+  </p>
+  <p style="max-width:560px;margin:0 auto 32px;font-size:14px;">
+    Email <strong style="color:var(--crimson);">coachstevengarcia@gmail.com</strong> with "Playbook Implementation" in the subject line. Limited availability — I run a store full-time.
+  </p>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cta-section" id="buy">
+  <div class="eyebrow" style="margin-bottom:20px;">Get the Playbook</div>
+  <h2 style="margin-bottom:8px;">Stop Building Reports.<br>Start <em>Reading</em> Them.</h2>
+  <p style="max-width:500px;margin:0 auto 40px;">
+    37 pages. 12 chapters. Every framework you need to automate your morning, clean up your CRM, enforce process, and get back on the floor.
+  </p>
+  <div class="price-hero">
+    <span class="currency">$</span>
+    <span class="amount">197</span>
+  </div>
+  <div class="price-note">One-time purchase · Instant PDF download</div>
+  <!-- REPLACE THIS HREF WITH YOUR GUMROAD PRODUCT URL -->
+  <a href="#buy" class="btn-primary large" id="buy-button">Buy Now — Instant Download</a>
+  <p style="font-size:12px;color:var(--label);margin-top:24px;letter-spacing:0.1em;">
+    Secure checkout via Gumroad. Instant delivery to your email.
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <div class="footer-copy">&copy; 2026 Steven Garcia. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
