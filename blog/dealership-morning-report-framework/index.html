@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet — Steven Garcia</title>
+<meta name="description" content="How to build a one-page morning report that replaces 30 minutes of manual data collection. 21 metrics, 5 minutes, every day.">
+<link rel="canonical" href="https://stevengarcia.me/blog/dealership-morning-report-framework/">
+<meta property="og:title" content="The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet">
+<meta property="og:description" content="How to build a one-page morning report that replaces 30 minutes of manual data collection. 21 metrics, 5 minutes, every day.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stevengarcia.me/blog/dealership-morning-report-framework/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet">
+<meta name="twitter:description" content="How to build a one-page morning report that replaces 30 minutes of manual data collection.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "datePublished": "2026-03-13",
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "description": "How to build a one-page morning report that replaces 30 minutes of manual data collection. 21 metrics, 5 minutes, every day.",
+  "mainEntityOfPage": "https://stevengarcia.me/blog/dealership-morning-report-framework/"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-eyebrow">Operations</div>
+  <div class="article-date">March 13, 2026</div>
+  <h1>The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet</h1>
+</div>
+
+<article>
+<div class="article-body">
+
+<p>Every dealership manager I know starts the day the same way. Log into the CRM. Screenshot the dashboard. Open vAuto. Export inventory. Pull NPS. Check the desk log. Copy numbers into a spreadsheet. Try to turn all of that into something useful before the floor opens.</p>
+
+<p>That's 30 to 45 minutes. Five different systems. Multiple logins. And by the time you've got your numbers, the first customer is already on the lot and you haven't talked to a single rep about yesterday's misses.</p>
+
+<p>I did this for years. Then I stopped. Built a one-page morning report that pulls from every system automatically and lands in my inbox before I walk in the door. Twenty-one metrics. Five minutes to read. Zero minutes to build.</p>
+
+<p>Here's the framework.</p>
+
+<h2>The Problem with Manual Reports</h2>
+
+<p>The data you need already exists. It's in VinSolutions. It's in vAuto. It's in the desk log. It's in the OEM portal. The problem isn't access. The problem is assembly.</p>
+
+<p>Most managers are the human API between five different systems. You're logging in, reading screens, copying numbers, and pasting them somewhere else. That's not management. That's data entry.</p>
+
+<p>And because it takes so long, you cut corners. Skip the NPS check. Don't cross-reference the visit log. Forget to pull aged inventory. Walk into the morning meeting with half the picture and hope nobody asks about the other half.</p>
+
+<p>The cost isn't just your time. It's the deals you miss because you didn't catch them. The rep who skipped three T/Os yesterday that nobody flagged. The pending finance deal that's been sitting for four days. The be-back customer who should've gotten a call this morning but didn't because she was buried in a CSV nobody sorted.</p>
+
+<h2>The 21 Metrics</h2>
+
+<p>I spent months figuring out which numbers actually drive decisions. Started with 40+. Cut it down to 21. The rule is simple: if a metric doesn't change what I do today, it's off the report.</p>
+
+<p>Here's what made the cut, organized by category.</p>
+
+<h3>Column 1: MTD Performance</h3>
+
+<ul>
+<li><strong>New units sold MTD</strong> and where you stand against objective</li>
+<li><strong>Used units sold MTD</strong> and pace</li>
+<li><strong>Total gross</strong> (new, used, and combined)</li>
+<li><strong>Gross pace</strong> at current daily run rate, where you'll land end of month</li>
+<li><strong>Unit track</strong> ahead or behind on volume</li>
+<li><strong>Front and back gross per unit</strong> for new and used, separated</li>
+<li><strong>Monthly objective vs. actual</strong> gap or surplus</li>
+</ul>
+
+<p>This column answers one question: are we on track?</p>
+
+<h3>Column 2: Daily Activity</h3>
+
+<ul>
+<li><strong>Yesterday's showroom visits</strong> (total ups)</li>
+<li><strong>Demos given</strong></li>
+<li><strong>Write-ups</strong></li>
+<li><strong>Desk turns</strong></li>
+<li><strong>T/O count</strong></li>
+<li><strong>Units sold yesterday</strong></li>
+<li><strong>Internet leads received</strong></li>
+<li><strong>Phone ups</strong></li>
+<li><strong>Walk-in count</strong></li>
+<li><strong>NPS score vs. district average</strong></li>
+</ul>
+
+<p>This column tells you what happened yesterday and whether the process is working. Low T/O count with high traffic? You've got a process problem. High demos but low write-ups? Reps aren't landing customers on numbers.</p>
+
+<h3>Column 3: Inventory and Flags</h3>
+
+<ul>
+<li><strong>Total new car inventory</strong></li>
+<li><strong>Total used car inventory</strong></li>
+<li><strong>Aged units</strong> (60+ days, flagged red)</li>
+<li><strong>Open customer issues</strong> (if any)</li>
+</ul>
+
+<p>This column catches problems before they cost money. Every aged unit is a carrying cost. Every open customer issue is a potential NPS hit.</p>
+
+<h2>The Format</h2>
+
+<p>Single page. Landscape orientation. Three columns. Everything fits without scrolling, clicking, or flipping pages.</p>
+
+<p>I print mine. One sheet of paper. I can hold it in my hand during the morning meeting, glance at any number in two seconds, and circle things I want to talk about.</p>
+
+<p>Could it be a dashboard on a screen? Sure. But paper forces brevity. If it doesn't fit on one page, you're tracking too much.</p>
+
+<p>Color coding is minimal. Green means ahead of pace. Red means behind or flagged. Everything else is neutral. If the whole page is red, you've got a bad month. If it's mostly green, keep doing what you're doing.</p>
+
+<h2>Where the Data Comes From</h2>
+
+<p>Here's the collection breakdown for each source:</p>
+
+<ul>
+<li><strong>VinSolutions</strong> provides the showroom visit log, activity counts, lead volume, and phone ups via CSV export</li>
+<li><strong>vAuto</strong> provides inventory counts and aged unit data via spreadsheet export</li>
+<li><strong>Google Sheets desk log</strong> provides units sold, gross figures, front/back splits</li>
+<li><strong>kDealer (OEM portal)</strong> provides NPS scores and district averages</li>
+<li><strong>Calendar math</strong> provides days elapsed, selling days remaining, and pace projections</li>
+</ul>
+
+<p>Five sources. That's why doing it manually takes 30+ minutes. Each system has its own login, its own export process, its own format.</p>
+
+<p>The automation handles all of this. Browser scripts log into each system, pull the data, and pass it to the AI for formatting. The AI reads everything, calculates the derived metrics (pace, per-unit averages, track vs. objective), and renders the PDF.</p>
+
+<h2>The Five Metrics That Matter Most</h2>
+
+<p>If 21 feels like a lot, start with five. These are the ones that move the needle on any given day.</p>
+
+<p><strong>Close rate.</strong> Yesterday's sold divided by yesterday's total ups. When this drops, something changed on the floor. Find out what.</p>
+
+<p><strong>Gross per unit.</strong> Front plus back, new and used separated. This tells you if you're holding gross or giving it away to move metal.</p>
+
+<p><strong>Aged inventory count.</strong> Units over 60 days. Every one of these is bleeding money. This number should go down week over week.</p>
+
+<p><strong>T/O percentage.</strong> T/Os divided by total ups. If reps aren't turning customers to a manager before they walk out, you're leaving deals on the table. A properly executed T/O recovers 20 to 30 percent of walks.</p>
+
+<p><strong>NPS vs. district.</strong> Your score compared to your peers. OEM money is tied to this at most manufacturers. Don't let it slip below district average.</p>
+
+<p>Start with these five. Build the report around them. Add more as the system matures and you figure out which other numbers change your behavior.</p>
+
+<h2>What This Actually Changes</h2>
+
+<p>The report itself isn't magic. It's what it replaces that matters.</p>
+
+<p>Before: 30 to 45 minutes of manual data collection, an incomplete picture, and a morning meeting where half the opportunities get missed because you didn't have time to prep.</p>
+
+<p>After: five minutes reading a report that's already done, walking into the meeting knowing exactly which reps need coaching, which customers need callbacks, and which deals need saving.</p>
+
+<p>The morning report is the foundation. Everything else I've automated builds on it. The Save-a-Deal meeting. The CRM task cleanup. The performance reviews. They all start with the same question: what does the data say? And the morning report is how the data gets to me without me spending half my shift pulling it together.</p>
+
+</div>
+</article>
+
+<!-- CTA -->
+<div class="article-cta">
+  <h2>Want the Complete Framework?</h2>
+  <p>This article covers the metrics and the format. The playbook covers the full implementation: automation scripts, data collection setup, report templates, and a 4-week rollout roadmap.</p>
+  <a href="/playbook" class="btn-primary">Get the Playbook &mdash; $197</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>Free Morning Report Template — Steven Garcia</title>
+<meta name="description" content="Free one-page morning report template for car dealership managers. 21 metrics, one page, five minutes. Stop building reports and start reading them.">
+<link rel="canonical" href="https://stevengarcia.me/template/">
+<meta property="og:title" content="Free Morning Report Template — Steven Garcia">
+<meta property="og:description" content="Free one-page morning report template for car dealership managers. 21 metrics, one page, five minutes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stevengarcia.me/template/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Morning Report Template — Steven Garcia">
+<meta name="twitter:description" content="Free one-page morning report template for car dealership managers. 21 metrics, one page, five minutes.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .template-hero {
+    margin-top: 60px;
+    border-top: 2px solid var(--crimson);
+    padding: 88px 48px 64px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .template-hero h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .template-hero h1 em {
+    font-style: normal;
+    color: var(--crimson);
+  }
+
+  .template-hero .lead {
+    font-size: 17px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  /* WHAT YOU GET */
+  .what-section {
+    border-top: 2px solid var(--crimson);
+    padding: 64px 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .what-section h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 40px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .checklist li {
+    font-size: 15px;
+    color: var(--list);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 12px;
+    height: 2px;
+    background: var(--crimson);
+  }
+
+  /* FORM SECTION */
+  .form-section {
+    border-top: 2px solid var(--crimson);
+    padding: 64px 48px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .form-section h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 40px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .form-sub {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .form-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .form-input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .form-input:focus { border-color: var(--mid); }
+  .form-input::placeholder { color: #333; }
+
+  .form-submit {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    border: none;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    width: 100%;
+  }
+
+  .form-submit:hover { opacity: 0.85; }
+
+  .form-note {
+    font-size: 11px;
+    color: var(--label);
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* PLAYBOOK CTA */
+  .cta-section {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cta-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .cta-h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 44px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .cta-body {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.75;
+    max-width: 500px;
+    margin: 0 auto 28px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* FADE */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.18s; }
+  .d3 { animation-delay: 0.30s; }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .template-hero { padding: 64px 24px 48px; }
+    .what-section { padding: 48px 24px; }
+    .form-section { padding: 48px 24px; }
+    .cta-section { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+
+<!-- HERO -->
+<div class="template-hero">
+  <div class="eyebrow fade d1">Free Template</div>
+  <h1 class="fade d2">The Morning Report<br>That Replaced My <em>Spreadsheet</em></h1>
+  <p class="lead fade d3">
+    I used to spend 30-45 minutes every morning logging into five systems, screenshotting dashboards, and copying numbers into a spreadsheet nobody read. Now it takes five minutes and fits on one page. This is the template.
+  </p>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="what-section">
+  <h2>What You Get</h2>
+  <ul class="checklist">
+    <li>One-page morning report layout with 21 metrics organized into three columns: MTD performance, daily activity, and inventory flags</li>
+    <li>The five metrics that actually matter (and why most managers track the wrong ones)</li>
+    <li>Data source mapping: which system feeds which metric, so you know exactly where to pull from</li>
+    <li>A sample filled-in report from a real 200+ unit store so you can see what "done" looks like</li>
+    <li>The 5-minute workflow: the exact order to pull data so nothing gets missed</li>
+  </ul>
+</div>
+
+<!-- FORM -->
+<div class="form-section" id="get-template">
+  <h2>Get the Template</h2>
+  <p class="form-sub">Drop your email and I'll send it over. No drip sequence. No pitch deck. Just the template.</p>
+  <!-- TODO: Replace with ConvertKit form embed when account is set up -->
+  <label class="form-label" for="fname">First Name</label>
+  <input class="form-input" type="text" id="fname" placeholder="Steven">
+  <label class="form-label" for="femail">Email Address</label>
+  <input class="form-input" type="email" id="femail" placeholder="you@example.com">
+  <button class="form-submit">Send Me the Template</button>
+  <p class="form-note">No spam. Unsubscribe anytime.</p>
+</div>
+
+<!-- PLAYBOOK CTA -->
+<div class="cta-section">
+  <div class="cta-eyebrow">Go Deeper</div>
+  <h2 class="cta-h2">Want the Full System?</h2>
+  <p class="cta-body">The template gives you the layout. The playbook gives you the automation, the Save-a-Deal meeting format, CRM task rules, pay plan architecture, and a 4-week implementation roadmap.</p>
+  <a href="/playbook" class="btn-primary">Get the Playbook &mdash; $197</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+</body>
+</html>

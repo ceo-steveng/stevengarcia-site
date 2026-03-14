@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>Blog — Steven Garcia</title>
+<meta name="description" content="Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.">
+<link rel="canonical" href="https://stevengarcia.me/blog">
+<meta property="og:title" content="Blog — Steven Garcia">
+<meta property="og:description" content="Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stevengarcia.me/blog">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — Steven Garcia">
+<meta name="twitter:description" content="Articles on dealership management, AI automation for car dealers, and sales process.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .top-rule { border-top: 2px solid var(--crimson); }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-top: 60px;
+    padding: 88px 48px 64px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .page-h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 4.5vw, 64px);
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* BLOG CARDS */
+  .blog-grid {
+    padding: 0;
+  }
+
+  .blog-card {
+    display: block;
+    padding: 48px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    border-top: 2px solid var(--border);
+    transition: border-top-color 0.15s, background 0.15s;
+  }
+
+  .blog-card:hover {
+    background: #0e0e0e;
+    border-top-color: var(--crimson);
+  }
+
+  .blog-card-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 12px;
+  }
+
+  .blog-card-title {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .blog-card-desc {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .blog-card-arrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-top: 20px;
+    transition: color 0.15s;
+  }
+
+  .blog-card:hover .blog-card-arrow { color: var(--crimson); }
+
+  /* CTA SECTION */
+  .cta-section {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 88px 48px;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .cta-h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.5vw, 52px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .cta-body {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    max-width: 500px;
+    margin: 0 auto 32px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* FADE */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.18s; }
+  .d3 { animation-delay: 0.30s; }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .page-header { padding: 64px 24px 48px; }
+    .blog-card { padding: 36px 24px; }
+    .cta-section { padding: 64px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow fade d1">Blog</div>
+  <h1 class="page-h1 fade d2">From the Floor</h1>
+</div>
+
+<!-- BLOG CARDS -->
+<div class="blog-grid">
+
+  <a href="/blog/how-i-use-ai-to-run-200-unit-store/" class="blog-card fade d1">
+    <div class="blog-card-date">March 2026</div>
+    <h2 class="blog-card-title">How I Use AI to Run a 200-Unit Kia Store</h2>
+    <p class="blog-card-desc">The AI stack a New Car Manager uses daily to automate BDC follow-up, morning reports, and CRM tasks at a 200+ unit store.</p>
+    <div class="blog-card-arrow">Read Article &rarr;</div>
+  </a>
+
+  <a href="/blog/dealership-morning-report-framework/" class="blog-card fade d2">
+    <div class="blog-card-date">March 2026</div>
+    <h2 class="blog-card-title">The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet</h2>
+    <p class="blog-card-desc">How to build a one-page morning report that replaces 30 minutes of manual data collection. 21 metrics, 5 minutes, every day.</p>
+    <div class="blog-card-arrow">Read Article &rarr;</div>
+  </a>
+
+  <a href="/blog/save-a-deal-meeting-format/" class="blog-card fade d3">
+    <div class="blog-card-date">March 2026</div>
+    <h2 class="blog-card-title">The Save-a-Deal Meeting: A 10-Minute Format That Catches Every Missed Deal</h2>
+    <p class="blog-card-desc">A 10-minute morning meeting format that surfaces every unsold customer, missed T/O, and pending finance deal. No prep required.</p>
+    <div class="blog-card-arrow">Read Article &rarr;</div>
+  </a>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-eyebrow">The Full System</div>
+  <h2 class="cta-h2">Get the Full System</h2>
+  <p class="cta-body">These articles give you the framework. The playbook gives you the implementation: templates, automation scripts, pay plans, and a 4-week rollout roadmap.</p>
+  <a href="/playbook" class="btn-primary">Get the Playbook &mdash; $197</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+</body>
+</html>
