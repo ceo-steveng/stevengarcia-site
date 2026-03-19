@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XKFXV07FHV');
+</script>
+<title>How I Automated My Morning Report | Steven Garcia</title>
+<meta name="description" content="I used to spend 45 minutes pulling numbers from VinSolutions, vAuto, and kDealer every morning. Now a PDF hits my phone at 6:30am. Here's exactly how I built it.">
+<meta name="keywords" content="automate dealership morning report, AI morning report car dealership, VinSolutions report automation, dealership manager automation, morning report automation">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/blog/automate-dealership-morning-report">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I Automated My Morning Report as a Dealership Manager">
+<meta property="og:description" content="I used to spend 45 minutes pulling numbers from 4 systems every morning. Now a PDF hits my phone at 6:30am. Here's exactly how.">
+<meta property="og:url" content="https://stevengarcia.me/blog/automate-dealership-morning-report">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="article:published_time" content="2026-03-18T00:00:00-05:00">
+<meta property="article:author" content="Steven Garcia">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
+<meta name="twitter:title" content="How I Automated My Morning Report as a Dealership Manager">
+<meta name="twitter:description" content="45 minutes of pulling numbers from 4 systems. Every single morning. Now a PDF lands on my phone before my alarm. Here's the whole setup.">
+
+<!-- Schema.org BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How I Automated My Morning Report as a Dealership Manager",
+  "description": "I used to spend 45 minutes pulling numbers from VinSolutions, vAuto, and kDealer every morning. Now a PDF hits my phone at 6:30am. Here's exactly how I built it.",
+  "datePublished": "2026-03-18",
+  "dateModified": "2026-03-18",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia"
+    },
+    "url": "https://stevengarcia.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stevengarcia.me/blog/automate-dealership-morning-report"
+  },
+  "keywords": ["automate dealership morning report", "AI morning report car dealership", "VinSolutions report automation"],
+  "wordCount": 1850,
+  "timeRequired": "PT8M"
+}
+</script>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-2: #1a1a26;
+    --border: #2a2a3a;
+    --text: #e8e8ef;
+    --text-dim: #8888a0;
+    --accent: #4f8cff;
+    --accent-glow: rgba(79, 140, 255, 0.15);
+    --green: #34d399;
+    --orange: #f59e0b;
+    --red: #ef4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  nav .container { display: flex; justify-content: space-between; align-items: center; }
+  .nav-left { display: flex; align-items: center; gap: 24px; }
+  .nav-name { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
+  .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-link:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ARTICLE */
+  .article-header {
+    padding: 80px 0 48px;
+    max-width: 720px;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .article-date {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .article-reading-time {
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: var(--accent-glow);
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .article-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .article-subtitle {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+  }
+
+  .article-body {
+    max-width: 720px;
+    padding-bottom: 80px;
+  }
+  .article-body p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .article-body h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 48px 0 20px;
+  }
+  .article-body h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 36px 0 14px;
+  }
+  .article-body ul, .article-body ol {
+    margin: 0 0 20px 20px;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+  .article-body li {
+    margin-bottom: 8px;
+  }
+  .article-body strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+  .article-body em {
+    color: var(--text-dim);
+  }
+  .article-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 28px 0;
+    background: var(--surface);
+    border-radius: 0 10px 10px 0;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+  }
+  .article-body a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(79, 140, 255, 0.4);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--accent);
+  }
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .callout h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .callout p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  /* CTA BANNER */
+  .article-cta {
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 14px;
+    padding: 40px;
+    text-align: center;
+    margin: 48px 0;
+    max-width: 720px;
+  }
+  .article-cta h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .article-cta p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .article-cta a {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+  .article-cta a:hover { opacity: 0.85; }
+
+  /* RELATED */
+  .related {
+    border-top: 1px solid var(--border);
+    padding: 60px 0;
+    max-width: 720px;
+  }
+  .related h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dim);
+  }
+  .related-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .related-card:hover { border-color: var(--accent); }
+  .related-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .related-card p {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .article-header { padding: 50px 0 32px; }
+    .article-body { padding-bottom: 50px; }
+    .article-cta { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-left">
+      <a href="https://stevengarcia.me" class="nav-name">Steven Garcia</a>
+      <a href="https://stevengarcia.me/ai-setup" class="nav-link">AI Setup</a>
+      <a href="https://stevengarcia.me/blog/" class="nav-link">Blog</a>
+    </div>
+    <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<article>
+  <div class="container">
+    <div class="article-header">
+      <div class="article-meta">
+        <span class="article-date">March 18, 2026</span>
+        <span class="article-reading-time">8 min read</span>
+      </div>
+      <h1>How I Automated My Morning Report as a Dealership Manager</h1>
+      <p class="article-subtitle">I used to spend 45 minutes every morning pulling numbers from four different systems. Now a finished PDF hits my phone at 6:30am. I don't even have to be awake.</p>
+    </div>
+
+    <div class="article-body">
+
+<p>January was the month I almost lost it.</p>
+
+<p>I'm the new car manager at a high-volume Kia store in San Antonio. We push 200+ units a month. And every single morning, I was waking up at 5:45am to build a morning report by hand. VinSolutions for sales data. vAuto for inventory numbers. kDealer for manufacturer stuff. Then I'd open the desk log spreadsheet and start copying yesterday's deals in.</p>
+
+<p>45 minutes. Every morning. Before I even got to the store.</p>
+
+<p>My wife noticed before I did. She said something like "you're on your laptop before you brush your teeth." She wasn't wrong. I was sitting at the kitchen counter in my boxers, squinting at VinSolutions on a 13-inch screen, eating cereal with one hand and typing with the other. Real glamorous stuff.</p>
+
+<h2>What the report actually needed</h2>
+
+<p>My morning report isn't complicated. It's just annoying. Here's what goes into it:</p>
+
+<ul>
+<li><strong>MTD new car sales</strong> (units and gross, broken down by rep)</li>
+<li><strong>Used car numbers</strong> (same breakdown)</li>
+<li><strong>Finance penetration</strong> and product averages</li>
+<li><strong>Inventory levels</strong> from vAuto (days supply, aging, incoming units)</li>
+<li><strong>Manufacturer scorecard data</strong> from kDealer (KFA allocations, CSI, NPS)</li>
+<li><strong>Yesterday's sold log</strong> (who sold what, front gross, back gross)</li>
+<li><strong>Pace to objective</strong> (are we ahead or behind, and by how much)</li>
+</ul>
+
+<p>None of this data lives in one place. That's the whole problem. VinSolutions has the CRM side. vAuto has inventory. kDealer has manufacturer metrics. The desk log is a Google Sheet I manually update. Four tabs, four logins, forty-five minutes of copying and pasting.</p>
+
+<p>And the worst part? Nobody even reads the full thing. My GM glances at the topline. My reps look at their own numbers. I'm the only person who looks at all of it, and I'm the one building it.</p>
+
+<h2>I just wanted it done before I woke up</h2>
+
+<p>That was the bar. Not "make it pretty." Not "build a dashboard." Just: can this PDF be sitting on my phone when my alarm goes off at 6:45?</p>
+
+<p>I started messing with AI automation in February. Not the ChatGPT-write-me-an-email kind. The kind where you connect an AI assistant to your actual tools and let it do work for you. Browser automation that logs into your systems, pulls the data, and assembles the report.</p>
+
+<p>Took me about two weeks to get it working the first time. Honestly, the hardest part wasn't the AI. It was figuring out how to get data out of VinSolutions reliably. Their interface isn't exactly designed for automation. You're clicking through like eight screens just to get to the sold log export.</p>
+
+<h2>What it does now</h2>
+
+<p>Every morning at 6:15am, this thing wakes up and starts working. Nobody has to touch it.</p>
+
+<p><strong>Step 1:</strong> It logs into VinSolutions. Pulls the MTD sales data, rep-by-rep. Gets the sold log from yesterday. Grabs any pending deals in finance.</p>
+
+<p><strong>Step 2:</strong> Logs into vAuto. Pulls current inventory counts, days supply, aging buckets. Checks incoming units that are in transit.</p>
+
+<p><strong>Step 3:</strong> Hits kDealer for manufacturer data. KFA allocations, CSI scores, any flags or alerts from Kia.</p>
+
+<p><strong>Step 4:</strong> Opens the desk log Google Sheet. Reads yesterday's entries (which the AI also filled the night before, but that's a different article).</p>
+
+<p><strong>Step 5:</strong> Assembles everything into a formatted PDF. Clean layout. Sections for each department. Pace calculations. Comparison to same day last month.</p>
+
+<p><strong>Step 6:</strong> Sends it to my phone via Telegram. I get a notification at 6:30am.</p>
+
+<p>By the time my alarm goes off, it's done.</p>
+
+<h2>It catches stuff I missed</h2>
+
+<p>This is the part I didn't expect. When I was building the report manually, I was rushing through it. Copying numbers, not really analyzing them. I'd miss stuff.</p>
+
+<p>The automated report does math I never bothered with. It calculates daily run rate and compares it to where we need to be. It flags any rep who's been on the board for three days without a deal. It shows me if our days supply on a specific model jumped overnight (usually means a transport came in).</p>
+
+<p>Last Tuesday it caught that our Sportage days supply went from 22 to 41 overnight because a rail shipment hit. That's the kind of thing I would've noticed at the lot by Wednesday. Now I see it Tuesday morning before I leave the house.</p>
+
+<p>It also tracks trends I was too lazy to track manually. Like week-over-week gross averages, or which days of the month we historically sell the most. That data was always there. I just didn't have time to look at it when I was busy copying and pasting.</p>
+
+<h2>The math on 45 minutes</h2>
+
+<p>I'm a numbers guy, so I did the math because of course I did.</p>
+
+<p>45 minutes a day. I work about 26 days a month (car business, you know). That's 19.5 hours a month on morning reports. 234 hours a year.</p>
+
+<p>Actually, it's worse than that. The 45 minutes assumes everything works. VinSolutions loads fast, kDealer doesn't time out, I don't fat-finger a number and have to go back and fix it. On a bad day it was over an hour. On the 1st of the month when I'm also resetting the desk log tabs, more like 90 minutes.</p>
+
+<p>Call it 195 hours a year to be conservative. That's basically five 40-hour work weeks. A month of my life, every year, copying numbers between browser tabs.</p>
+
+<p>Gone.</p>
+
+<h2>What I do with that time now</h2>
+
+<p>Honestly? The first week, I just slept later. That alone was worth it.</p>
+
+<p>But after the novelty of sleeping until 6:45 wore off (two days), I started using the mornings differently. I get to the store earlier but calmer. I already know the numbers. I can walk the lot with fresh eyes instead of rushing from my laptop to my car. I actually eat breakfast sitting down now, which my wife appreciates more than the automation itself.</p>
+
+<p>The bigger thing is what happens at the store. When I walk in already knowing that Joel is three deals behind pace, or that we're heavy on Fortes and light on Sportages, I can start the day with a plan instead of spending the first hour figuring out where we stand.</p>
+
+<p>My GM noticed within a week. He said something like "you seem less frantic in the mornings." I told him a robot does my homework now. He laughed but then asked me to build him one too.</p>
+
+<h2>What would break</h2>
+
+<p>I'm not going to pretend it's bulletproof. VinSolutions changes their UI every few months. When they do, the automation breaks until I update it. Happened twice since February. Both times it took me about 20 minutes to fix. Annoying but not a dealbreaker when you're saving 45 minutes a day.</p>
+
+<p>kDealer is actually the most stable. Their interface barely changes. vAuto is somewhere in the middle.</p>
+
+<p>The other thing is it needs a computer that stays on. I have a Mac Mini at my house that runs 24/7. If your dealership has a back-office computer that nobody turns off, that works too. It doesn't need to be powerful. It just needs to be on.</p>
+
+<h2>Could you build this yourself?</h2>
+
+<p>Maybe. If you're technical and you've got two weeks to mess with it, yeah. I'm not going to gatekeep.</p>
+
+<p>But most managers I know don't have two weeks. They barely have two hours. You're managing a team, working deals, sitting in meetings, trying to hit a number. The last thing you want to do at 9pm is debug why your VinSolutions scraper broke.</p>
+
+<p>That's why I started offering to <a href="https://stevengarcia.me/ai-setup">build this for other managers</a>. I already figured out all the annoying parts. The login flows, the data extraction, the edge cases where VinSolutions shows you a different page depending on your permissions. I can set up the same system at your store in about a week.</p>
+
+<div class="article-cta">
+  <h3>Want your report done before you wake up?</h3>
+  <p>I'll build the same morning report automation for your store. Same setup, same result. Takes about a week. We'll hop on a call and I'll show you exactly what it looks like.</p>
+  <a href="https://calendly.com/stevengarcia/30min">Book a free call →</a>
+</div>
+
+<h2>What's next</h2>
+
+<p>The morning report was the first thing I automated. Since then I've added <a href="ai-crm-task-automation-dealership.html">CRM task cleanup</a>, email triage, desk log automation, and a bunch of other stuff. The morning report was the gateway drug. Once you see what 45 minutes of free time looks like, you start looking at every repetitive task differently.</p>
+
+<p>I'm writing about all of it on this blog. Not theory. Not "10 ways AI can transform your dealership." Just what I actually built, how it works, and whether it's worth your time.</p>
+
+<p>If you're a manager waking up early to build reports by hand, you don't have to. That era is over. Your phone should be doing that for you.</p>
+
+    </div>
+
+    <div class="related">
+      <h3>Keep reading</h3>
+      <a href="ai-crm-task-automation-dealership.html" class="related-card">
+        <h4>I Had 847 CRM Tasks. AI Cleared 790 of Them.</h4>
+        <p>How I automated CRM task cleanup in VinSolutions and got 35 minutes back every morning.</p>
+      </a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Steven Garcia · <a href="https://stevengarcia.me">stevengarcia.me</a> · <a href="https://x.com/ceo_steveng">@ceo_steveng</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
