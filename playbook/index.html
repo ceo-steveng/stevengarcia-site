@@ -66,6 +66,54 @@
   }
   .nav-cta:hover { opacity: 0.85; }
 
+  /* Hamburger menu for mobile */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show {
+    display: block;
+  }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
   /* HERO */
   .hero {
     margin-top: 60px;
@@ -282,6 +330,8 @@
   /* MOBILE */
   @media (max-width: 860px) {
     nav { padding: 0 20px; }
+    .nav-right { display: none; }
+    .nav-hamburger { display: flex; }
     .hero { padding: 72px 24px 60px; }
     .section { padding: 56px 24px; }
     .pain-grid { grid-template-columns: 1fr; }
@@ -318,11 +368,19 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
-  <div style="display:flex;align-items:center;gap:32px;">
-    <a href="/ai-setup" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);text-decoration:none;">AI Setup</a>
+  <div style="display:flex;align-items:center;gap:32px;" class="nav-right">
+    <a href="/ai-setup" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);text-decoration:none;" class="nav-link-inline">AI Setup</a>
     <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="nav-cta">Get the Playbook — $197</a>
   </div>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/ai-setup">AI Setup</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -535,6 +593,13 @@
   <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
   <div class="footer-copy">&copy; 2026 Steven Garcia. All rights reserved.</div>
 </footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
 
 </body>
 </html>

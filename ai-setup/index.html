@@ -555,13 +555,26 @@
     .hero { padding: 60px 0 50px; }
     section { padding: 50px 0; }
   }
+
+  @media (max-width: 480px) {
+    nav .container { flex-wrap: wrap; gap: 12px; }
+    .nav-name { font-size: 1rem; }
+    .nav-cta { font-size: 0.8rem; padding: 8px 16px; }
+    .hero-cta { min-height: 48px; }
+    .price-btn { min-height: 48px; }
+    .ba-card li { padding: 12px 0; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="container">
-    <div class="nav-name">Steven Garcia</div>
+    <div style="display:flex;align-items:center;gap:24px;">
+      <a href="/" class="nav-name" style="text-decoration:none;color:var(--text);">Steven Garcia</a>
+      <a href="/blog" style="color:var(--text-dim);text-decoration:none;font-size:0.9rem;">Blog</a>
+      <a href="/playbook" style="color:var(--text-dim);text-decoration:none;font-size:0.9rem;">Playbook</a>
+    </div>
     <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
   </div>
 </nav>

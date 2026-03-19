@@ -108,6 +108,53 @@
 
   .nav-cta:hover { opacity: 0.85; }
 
+  /* Hamburger menu for mobile */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+  }
+
+  .nav-mobile-menu.show {
+    display: block;
+  }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
   /* ── HERO ── */
   .hero {
     margin-top: 60px;
@@ -737,6 +784,7 @@
   @media (max-width: 860px) {
     nav { padding: 0 20px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; }
     .hero-half { padding: 56px 24px; }
     .hero-half.left { border-right: none; border-bottom: 1px solid var(--border); }
@@ -787,8 +835,21 @@
     <li><a href="#about">About</a></li>
     <li><a href="#access">Free Access</a></li>
   </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <a href="/playbook" class="nav-cta">Get the Playbook</a>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="#playbook">Playbook</a>
+  <a href="/ai-setup">Consulting</a>
+  <a href="#tools">Tools</a>
+  <a href="#about">About</a>
+  <a href="#access">Free Access</a>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -1023,6 +1084,13 @@
   </ul>
   <div class="footer-copy">© 2026 Steven Garcia</div>
 </footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
 
 </body>
 </html>

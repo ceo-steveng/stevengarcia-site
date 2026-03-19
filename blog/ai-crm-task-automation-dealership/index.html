@@ -267,8 +267,15 @@
 
   @media (max-width: 768px) {
     .article-header { padding: 50px 0 32px; }
-    .article-body { padding-bottom: 50px; }
+    .article-body { padding-bottom: 50px; word-wrap: break-word; overflow-wrap: break-word; }
     .article-cta { padding: 28px; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-left { gap: 12px; }
+    .nav-link { display: none; }
+    .nav-name { font-size: 0.95rem; }
+    .nav-cta { font-size: 0.8rem; padding: 8px 14px; }
   }
 </style>
 </head>
