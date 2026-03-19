@@ -19,6 +19,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://stevengarcia.me/blog/vinsolutions-automation-stack/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://stevengarcia.me/blog/automate-dealership-morning-report/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

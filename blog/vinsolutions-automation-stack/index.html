@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>The Exact VinSolutions Automation Stack I Run in Production — Steven Garcia</title>
+<meta name="description" content="The full VinSolutions automation stack running at a 200-unit Kia store. Browser automation, task triage, re-engagement texts, morning reports — every piece explained with real numbers.">
+<meta name="keywords" content="VinSolutions automation, dealership CRM automation, VinSolutions Playwright, automate VinSolutions tasks, car dealer AI automation, dealership AI stack">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/blog/vinsolutions-automation-stack/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Exact VinSolutions Automation Stack I Run in Production">
+<meta property="og:description" content="Browser automation, task triage, re-engagement texts, morning data pulls. The full VinSolutions automation stack at a 200-unit Kia store.">
+<meta property="og:url" content="https://stevengarcia.me/blog/vinsolutions-automation-stack/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="article:published_time" content="2026-03-19T00:00:00-05:00">
+<meta property="article:author" content="Steven Garcia">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
+<meta name="twitter:title" content="The Exact VinSolutions Automation Stack I Run in Production">
+<meta name="twitter:description" content="The full VinSolutions automation stack at a 200-unit Kia store. Every piece, every tool, real numbers.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show {
+    display: block;
+  }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
+  /* ARTICLE */
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-body a {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .article-body a:hover {
+    border-bottom-color: var(--crimson);
+  }
+
+  /* CTA */
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Exact VinSolutions Automation Stack I Run in Production",
+  "description": "The full VinSolutions automation stack running at a 200-unit Kia store. Browser automation, task triage, re-engagement texts, morning data pulls — every piece with real numbers.",
+  "datePublished": "2026-03-19",
+  "dateModified": "2026-03-19",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia"
+    },
+    "url": "https://stevengarcia.me",
+    "knowsAbout": ["Dealership AI Automation", "Automotive Sales Management", "BDC Automation", "VinSolutions CRM", "Browser Automation", "Playwright"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stevengarcia.me/blog/vinsolutions-automation-stack/"
+  },
+  "keywords": ["VinSolutions automation", "dealership CRM automation", "VinSolutions Playwright", "car dealer AI stack", "automate VinSolutions"],
+  "wordCount": 2100,
+  "timeRequired": "PT9M"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">AI Setup</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/#about">About</a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-eyebrow">AI + Automotive</div>
+  <div class="article-date">March 19, 2026</div>
+  <h1>The Exact VinSolutions Automation Stack I Run in Production</h1>
+</div>
+
+<article>
+<div class="article-body">
+
+<p>People keep asking me what tools I use. Not in the vague "what AI do you like" way. They want the actual stack. What logs in. What clicks what. What happens at 6:30 AM before I'm out of bed.</p>
+
+<p>Fair enough. I've written about <a href="/blog/automate-dealership-morning-report/">automating my morning report</a> and <a href="/blog/ai-crm-task-automation-dealership/">clearing 790 CRM tasks</a> with AI, but I haven't laid out the full system in one place. The whole thing. Every layer, every tool, how they connect.</p>
+
+<p>This is the production stack running right now at a Kia store doing 200+ units a month in San Antonio. Not a proof of concept. Not a demo. This runs every single day.</p>
+
+<h2>The Architecture (Simple Version)</h2>
+
+<p>A Mac Mini sits at my house running 24/7. That's the server. It runs an AI assistant I built called AIDEN that connects to VinSolutions, vAuto, kDealer, Google Sheets, and a few other systems through browser automation.</p>
+
+<p>No APIs. VinSolutions doesn't give you an API unless you're a vendor partner paying six figures. So the system opens a real Chrome browser, logs in with real credentials, and navigates the same screens I would. Clicks the same buttons. Reads the same dashboards. Exports the same CSVs.</p>
+
+<p>If that sounds hacky, I get it. But it works. And it works because dealership software wasn't built for automation. It was built for humans clicking through screens. So that's what my system does. It just does it at 6:15 AM while I'm asleep.</p>
+
+<h2>Layer 1: Browser Automation (Playwright)</h2>
+
+<p>Playwright is an open-source tool from Microsoft that controls a web browser programmatically. Same thing Selenium does, but faster and more reliable. It's what QA engineers use to test web apps. I use it to log into VinSolutions.</p>
+
+<p>The browser stays open in a persistent session. Same Chrome profile every time, so cookies persist, sessions stay alive longer, and I'm not re-authenticating every single run. When a session does expire (kDealer loves to do this at random), the system handles re-login automatically.</p>
+
+<p>What Playwright does in my stack:</p>
+
+<ul>
+<li>Logs into VinSolutions and navigates to the activity dashboard, task list, and showroom visit log</li>
+<li>Exports CSV data from vAuto (inventory aging, stock counts, pricing)</li>
+<li>Pulls NPS scores and survey counts from kDealer's BoostCX portal</li>
+<li>Reads the Google Sheets desk log for deal data</li>
+<li>Clicks through individual CRM tasks to read customer context before deciding what to do with them</li>
+</ul>
+
+<p>Each of those is a separate automation script. They share the same browser instance but run independently. If the vAuto pull fails, the morning report still generates with what it has. Nothing blocks everything else.</p>
+
+<h2>Layer 2: The AI Brain (Claude)</h2>
+
+<p>Playwright collects raw data. Claude makes sense of it.</p>
+
+<p>The AI layer reads the scraped data, cross-references it, and decides what matters. It's not just formatting numbers into a PDF. It's reasoning about them.</p>
+
+<p>Example from last Tuesday. The morning report showed 6 ups on Monday, 2 sold. Normally that's a 33% close rate, which is fine. But the AI flagged that 3 of the 4 unsold customers had no T/O logged. That's not a close rate problem. That's a process problem. Three customers walked without seeing a manager.</p>
+
+<p>I wouldn't have caught that scanning a spreadsheet at 7 AM. The AI caught it because I told it to look for exactly that pattern.</p>
+
+<p>The same reasoning applies to CRM tasks. When the system reads a task, it doesn't just check the task type. It checks the customer's last activity date, whether they responded to the last outreach, whether the assigned rep still works here, and whether there's a duplicate task for the same customer. Then it decides: auto-clear, re-engage, or flag for me.</p>
+
+<p>That decision tree didn't come from a textbook. I built it from watching myself sort through tasks for months. Every rule maps to something I was already doing manually. The AI just does it without getting bored or skipping one because it's 8:47 AM and the first customer just walked in.</p>
+
+<h2>Layer 3: Data Storage (Supabase)</h2>
+
+<p>Every morning's numbers go into a database. Units sold, gross, close rate, showroom traffic, NPS, aged inventory count. Every single day.</p>
+
+<p>This matters more than people think. When Brian asks me "how's March pacing?" I don't pull up a spreadsheet. I query the database. "We're at 89 new through the 14th, pacing to 191. Need 11 more than pace to hit 200. Gross is pacing to $580K, which is $20K short of target."</p>
+
+<p>I can answer that in 10 seconds because the data is structured and stored, not scattered across five browser tabs.</p>
+
+<p>Supabase is free for this use case. It's an open-source Postgres database with a simple API. I'm storing maybe 50 rows a month. It'll be free forever at this volume.</p>
+
+<h2>Layer 4: Notifications (Telegram)</h2>
+
+<p>Everything surfaces through Telegram. Morning report PDF. Task summary. Deal alerts. Calendar reminders. If something needs my attention, it shows up in one place.</p>
+
+<p>Why Telegram and not text messages or email? Two reasons. First, it's free and has a bot API that takes 5 minutes to set up. Second, it keeps work notifications separate from my actual text messages. When I see a Telegram notification, I know it's AIDEN. I can check it when I'm ready instead of having it mixed in with everything else.</p>
+
+<p>The task manager sends a summary like this every morning:</p>
+
+<p><strong>"10 tasks auto-cleared. 7 re-engagement texts sent. 2 need your attention: Joel has a finance callback pending on the Gonzalez deal, and Blanca's customer from Saturday never got a follow-up."</strong></p>
+
+<p>Two items. That's my to-do list from a system that had 50+ open tasks. I can act on both before the morning meeting starts.</p>
+
+<h2>Layer 5: Scheduling (Cron Jobs)</h2>
+
+<p>Everything runs on a schedule. The morning report fires at 6:15 AM. Task manager runs at 6:30. Save-a-deal prep builds at 7:00. An end-of-day summary runs at 6 PM.</p>
+
+<p>These are cron jobs. Timed triggers that say "run this script at this time." Nothing fancy. The Mac Mini is always on, always connected, and the jobs fire whether I'm awake or not.</p>
+
+<p>On Mondays, an extra job runs: content batch generation for social media. On Fridays, it checks content metrics. The system adapts to the day of the week because different days need different things.</p>
+
+<p>If a job fails (VinSolutions is down, Chrome crashes, session expired), I get a Telegram alert about that too. Most of the time it self-recovers. When it doesn't, I SSH into the Mini from my phone and restart whatever broke. Takes 30 seconds.</p>
+
+<h2>What a Typical Day Looks Like</h2>
+
+<p>6:15 AM. Morning report runs. Playwright opens VinSolutions, vAuto, kDealer. Pulls yesterday's metrics. Claude reads everything, writes the report, generates the PDF. Stores numbers in Supabase. Sends PDF to my phone via Telegram. I haven't woken up yet.</p>
+
+<p>6:30 AM. Task manager runs. Reads every open CRM task. Auto-clears the noise. Sends re-engagement texts to stale leads. Flags the real ones. Summary hits Telegram.</p>
+
+<p>7:00 AM. Save-a-deal prep runs. Pulls yesterday's showroom visits, categorizes unsold customers, flags missing T/Os. PDF ready for the 9 AM meeting.</p>
+
+<p>7:30 AM. My alarm goes off. I check Telegram while making coffee. Read the morning report. Glance at the 2-3 flagged tasks. Know exactly what to cover in the meeting. I haven't opened a laptop yet.</p>
+
+<p>8:30 AM. I walk in with more context about yesterday's business than anyone else in the building. Not because I worked harder. Because the system worked while I slept.</p>
+
+<h2>The Cost</h2>
+
+<p>I'm going to be honest about this because every vendor tool for dealerships starts at $1,000/month and goes up from there.</p>
+
+<ul>
+<li><strong>Claude (AI)</strong> $20/month</li>
+<li><strong>Mac Mini</strong> already owned (any old Mac or Linux box works)</li>
+<li><strong>Playwright</strong> free, open source</li>
+<li><strong>Supabase</strong> free tier</li>
+<li><strong>Telegram bot</strong> free</li>
+<li><strong>GitHub Pages (site hosting)</strong> free</li>
+</ul>
+
+<p>Total: $20/month. Call it $240 a year.</p>
+
+<p>I recovered $9,800 in gross from re-engagement texts alone last month. The math isn't even close.</p>
+
+<h2>What I'd Tell You Before You Build This</h2>
+
+<p>This didn't happen overnight. The first version of the morning report was ugly. The task manager miscategorized things for the first week until I tuned the rules. Playwright scripts break when VinSolutions changes their UI, which happens more than you'd think.</p>
+
+<p>But each piece I built freed up time to build the next piece. Morning report saved 30 minutes. I used those 30 minutes to build the task manager. That saved another 25 minutes. Used that time to build the save-a-deal prep. Compound effect.</p>
+
+<p>You don't need to build all of this at once. Start with the <a href="/blog/dealership-morning-report-framework/">morning report framework</a>. Get your numbers automated. Then tackle <a href="/blog/ai-crm-task-automation-dealership/">CRM tasks</a>. Then the meeting prep. Each one stands on its own.</p>
+
+<p>And you don't need to be a programmer. I'm a car guy who learned enough Python to be dangerous. The AI writes most of the code. I just tell it what I need and fix what breaks.</p>
+
+<p>That's the whole stack. No vendor contracts. No $50K platform. A Mac Mini, some open-source tools, and an AI that costs less than a car wash membership.</p>
+
+</div>
+</article>
+
+<!-- CTA -->
+<div class="article-cta">
+  <h2>Want the Full Playbook?</h2>
+  <p>This article shows you the stack. The playbook gives you the implementation: automation scripts, CRM rules, meeting formats, and a 4-week rollout plan to get this running at your store.</p>
+  <a href="/playbook" class="btn-primary">Get the Playbook &mdash; $197</a>
+  <p style="margin-top:24px;font-size:14px;color:var(--body);">
+    Want me to build it for your store instead? <a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;">Book a free call →</a>
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
