@@ -44,4 +44,8 @@
     <loc>https://stevengarcia.me/template/</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://stevengarcia.me/wheel/</loc>
+    <priority>0.5</priority>
+  </url>
 </urlset>
