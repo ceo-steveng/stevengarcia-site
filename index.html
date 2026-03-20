@@ -1130,8 +1130,8 @@
         <input class="form-input" type="text" id="fname" placeholder="Steven">
         <label class="form-label" for="femail">Email Address</label>
         <input class="form-input" type="email" id="femail" placeholder="you@example.com">
-        <button class="form-submit">Send Me the Stack</button>
-        <p class="form-note">No spam. Unsubscribe anytime.</p>
+        <button class="form-submit" onclick="submitEmail(event)">Send Me the Stack</button>
+        <p class="form-note" id="form-status">No spam. Unsubscribe anytime.</p>
       </div>
     </div>
   </div>
@@ -1200,6 +1200,55 @@
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   menu.classList.toggle('show');
+}
+
+function submitEmail(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const status = document.getElementById('form-status');
+  
+  if (!email || !email.includes('@')) {
+    status.textContent = 'Enter a valid email address.';
+    status.style.color = '#FF4444';
+    return;
+  }
+  
+  status.textContent = 'Sending...';
+  status.style.color = '#AAAAAA';
+  
+  // Google Sheets via Google Forms backend
+  const formData = new FormData();
+  formData.append('entry.1', name);
+  formData.append('entry.2', email);
+  formData.append('entry.3', new Date().toISOString());
+  formData.append('entry.4', document.referrer || 'direct');
+  
+  // Fallback: store in Supabase edge function
+  fetch('https://oirwaifnycglpxsyiivp.supabase.co/rest/v1/email_subscribers', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'sb_publishable_5S5PE0SBHa8yldgid_-n3A_5vcz9w5d',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ name: name, email: email, source: 'website', subscribed_at: new Date().toISOString() })
+  })
+  .then(r => {
+    if (r.ok || r.status === 201) {
+      status.textContent = "You're in. Check your inbox soon.";
+      status.style.color = '#22C55E';
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+    } else {
+      status.textContent = "Something went wrong. Try again.";
+      status.style.color = '#FF4444';
+    }
+  })
+  .catch(() => {
+    status.textContent = "Something went wrong. Try again.";
+    status.style.color = '#FF4444';
+  });
 }
 </script>
 
