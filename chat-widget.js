@@ -229,37 +229,30 @@ RULES:
     #sg-chat-send:hover { background: #E74C3C; }
     #sg-chat-send:disabled { background: #333; cursor: not-allowed; }
 
+    #sg-chat-window.sg-mobile {
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: auto !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      border-radius: 0 !important;
+      border: none !important;
+      z-index: 10000 !important;
+    }
+    #sg-chat-window.sg-mobile #sg-chat-header {
+      padding-top: max(16px, env(safe-area-inset-top));
+    }
+    #sg-chat-window.sg-mobile #sg-chat-input-area {
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+    #sg-chat-window.sg-mobile #sg-chat-close {
+      font-size: 28px;
+      padding: 8px 12px;
+      min-width: 44px;
+      min-height: 44px;
+    }
     @media (max-width: 600px) {
-      #sg-chat-window {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        max-width: 100% !important;
-        max-height: 100% !important;
-        border-radius: 0 !important;
-        z-index: 10000 !important;
-      }
-      #sg-chat-window.open ~ #sg-chat-btn {
-        display: none !important;
-      }
-      #sg-chat-header {
-        padding-top: max(16px, env(safe-area-inset-top)) !important;
-      }
-      #sg-chat-input-area {
-        padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
-      }
-      #sg-chat-close {
-        font-size: 28px !important;
-        padding: 8px 12px !important;
-        min-width: 44px;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
       #sg-chat-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
       #sg-chat-btn svg { width: 22px; height: 22px; }
     }
@@ -305,12 +298,35 @@ RULES:
   // Welcome message
   addBotMessage("Hey! I'm Steven's AI assistant. Ask me about his consulting services, the dealership playbook, blog posts, or how he uses AI to run a 200-unit store. What can I help with?");
 
+  function isMobile() { return window.innerWidth <= 600; }
+
+  function setMobileSize() {
+    if (!isMobile() || !isOpen) return;
+    // Use window.innerHeight — the REAL visible viewport (handles Safari address bar)
+    win.style.height = window.innerHeight + 'px';
+    win.style.maxHeight = window.innerHeight + 'px';
+  }
+
+  window.addEventListener('resize', setMobileSize);
+  window.addEventListener('orientationchange', function() {
+    setTimeout(setMobileSize, 100);
+  });
+
   function toggleChat() {
     isOpen = !isOpen;
     win.classList.toggle('open', isOpen);
-    // On mobile, hide the fab button when chat is open
-    if (window.innerWidth <= 600) {
+    if (isMobile()) {
+      win.classList.toggle('sg-mobile', isOpen);
       btn.style.display = isOpen ? 'none' : 'flex';
+      if (isOpen) {
+        setMobileSize();
+        // Prevent body scroll when chat is open
+        document.body.style.overflow = 'hidden';
+      } else {
+        win.style.height = '';
+        win.style.maxHeight = '';
+        document.body.style.overflow = '';
+      }
     }
     if (isOpen) {
       document.getElementById('sg-chat-input').focus();
