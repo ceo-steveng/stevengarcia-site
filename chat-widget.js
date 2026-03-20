@@ -233,12 +233,24 @@ RULES:
       #sg-chat-window {
         bottom: 0;
         right: 0;
-        width: 100vw;
-        height: 100vh;
-        max-height: 100vh;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
         border-radius: 0;
+        position: fixed;
+        top: 0;
       }
-      #sg-chat-btn { bottom: 16px; right: 16px; }
+      #sg-chat-window #sg-chat-header {
+        padding: 16px 20px;
+        padding-top: max(16px, env(safe-area-inset-top));
+      }
+      #sg-chat-window #sg-chat-input-area {
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+      }
+      #sg-chat-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+      #sg-chat-btn svg { width: 22px; height: 22px; }
     }
   `;
   document.head.appendChild(style);
