@@ -231,32 +231,36 @@ RULES:
 
     #sg-chat-window.sg-mobile {
       position: fixed !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      height: 100dvh !important;
-      max-width: none !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
       max-height: none !important;
       border-radius: 0 !important;
       border: none !important;
       z-index: 10000 !important;
       box-sizing: border-box !important;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
     #sg-chat-window.sg-mobile #sg-chat-header {
-      padding-top: max(16px, env(safe-area-inset-top));
+      padding-top: 48px;
     }
     #sg-chat-window.sg-mobile #sg-chat-input-area {
-      padding-bottom: max(12px, env(safe-area-inset-bottom));
+      padding-bottom: 16px;
     }
     #sg-chat-window.sg-mobile #sg-chat-close {
-      font-size: 28px;
-      padding: 8px 12px;
-      min-width: 44px;
-      min-height: 44px;
+      font-size: 32px;
+      padding: 8px 16px;
+      min-width: 48px;
+      min-height: 48px;
       color: #FFFFFF;
     }
+    .sg-chat-hidden { display: none !important; }
     @media (max-width: 600px) {
-      #sg-chat-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+      #sg-chat-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; }
       #sg-chat-btn svg { width: 22px; height: 22px; }
     }
   `;
@@ -305,49 +309,44 @@ RULES:
 
   function setMobileSize() {
     if (!isMobile() || !isOpen) return;
-    // visualViewport gives the actual visible area (accounts for keyboard + Safari chrome)
-    var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-    var vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-    var offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
-    win.style.height = vh + 'px';
-    win.style.maxHeight = vh + 'px';
-    win.style.width = vw + 'px';
-    win.style.top = offsetTop + 'px';
+    // Use innerHeight — Safari reports the visible area after chrome
+    win.style.height = window.innerHeight + 'px';
   }
 
-  // Listen to visualViewport for keyboard open/close on iOS
+  window.addEventListener('resize', setMobileSize);
   if (window.visualViewport) {
     window.visualViewport.addEventListener('resize', setMobileSize);
-    window.visualViewport.addEventListener('scroll', setMobileSize);
   }
-  window.addEventListener('resize', setMobileSize);
-  window.addEventListener('orientationchange', function() {
-    setTimeout(setMobileSize, 150);
-  });
 
   function toggleChat() {
     isOpen = !isOpen;
     win.classList.toggle('open', isOpen);
     if (isMobile()) {
       win.classList.toggle('sg-mobile', isOpen);
-      btn.style.display = isOpen ? 'none' : 'flex';
+      // Fully hide/show the FAB
+      if (isOpen) {
+        btn.classList.add('sg-chat-hidden');
+      } else {
+        btn.classList.remove('sg-chat-hidden');
+      }
       if (isOpen) {
         setMobileSize();
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
+        document.body.style.height = '100%';
       } else {
         win.style.height = '';
-        win.style.maxHeight = '';
-        win.style.width = '';
-        win.style.top = '';
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.width = '';
+        document.body.style.height = '';
       }
     }
     if (isOpen) {
-      document.getElementById('sg-chat-input').focus();
+      setTimeout(function() {
+        document.getElementById('sg-chat-input').focus();
+      }, 100);
     }
   }
 
