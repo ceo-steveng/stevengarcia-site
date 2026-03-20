@@ -231,33 +231,133 @@ RULES:
 
     .sg-chat-hidden { display: none !important; }
 
+    /* Mobile overlay - wraps the chat window to prevent iOS scroll issues */
+    #sg-chat-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+      background: #0A0A0A;
+    }
+    #sg-chat-overlay.open {
+      display: flex;
+      flex-direction: column;
+    }
+    #sg-chat-overlay #sg-chat-header-m {
+      padding: 12px 16px;
+      padding-top: 54px;
+      border-bottom: 1px solid #1F1F1F;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      background: #0A0A0A;
+    }
+    #sg-chat-overlay #sg-chat-header-m h3 {
+      color: #FFFFFF;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    #sg-chat-overlay #sg-chat-header-m span {
+      color: #666;
+      font-size: 11px;
+    }
+    #sg-chat-overlay .sg-close-m {
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 8px 16px;
+      min-width: 48px;
+      min-height: 48px;
+      line-height: 1;
+    }
+    #sg-chat-overlay #sg-chat-messages-m {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    #sg-chat-overlay .sg-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #FFFFFF;
+      word-wrap: break-word;
+    }
+    #sg-chat-overlay .sg-msg.bot {
+      align-self: flex-start;
+      background: #1A1A1A;
+      border: 1px solid #2A2A2A;
+      border-top-left-radius: 4px;
+    }
+    #sg-chat-overlay .sg-msg.user {
+      align-self: flex-end;
+      background: #C0392B;
+      border-top-right-radius: 4px;
+    }
+    #sg-chat-overlay .sg-msg.typing {
+      align-self: flex-start;
+      background: #1A1A1A;
+      border: 1px solid #2A2A2A;
+      color: #666;
+      font-style: italic;
+    }
+    #sg-chat-overlay .sg-msg a {
+      color: #E74C3C;
+      text-decoration: underline;
+    }
+    #sg-chat-overlay #sg-chat-input-area-m {
+      padding: 12px 16px;
+      padding-bottom: 20px;
+      border-top: 1px solid #1F1F1F;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      background: #0A0A0A;
+    }
+    #sg-chat-overlay #sg-chat-input-m {
+      flex: 1;
+      background: #111;
+      border: 1px solid #2A2A2A;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    #sg-chat-overlay #sg-chat-input-m::placeholder { color: #555; }
+    #sg-chat-overlay #sg-chat-input-m:focus { border-color: #C0392B; }
+    #sg-chat-overlay #sg-chat-send-m {
+      background: #C0392B;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    #sg-chat-overlay #sg-chat-send-m:disabled { background: #333; }
+
     @media (max-width: 600px) {
-      #sg-chat-window.open {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        max-width: 100% !important;
-        max-height: 100% !important;
-        border-radius: 0 !important;
-        border: none !important;
-        z-index: 999999 !important;
-      }
-      #sg-chat-window.open #sg-chat-header {
-        padding-top: 50px;
-      }
-      #sg-chat-window.open #sg-chat-input-area {
-        padding-bottom: 20px;
-      }
-      #sg-chat-window.open #sg-chat-close {
-        font-size: 32px;
-        padding: 8px 16px;
-        min-width: 48px;
-        min-height: 48px;
-        color: #FFFFFF;
-      }
       #sg-chat-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; }
       #sg-chat-btn svg { width: 22px; height: 22px; }
     }
@@ -291,83 +391,114 @@ RULES:
   `;
   document.body.appendChild(win);
 
+  // Mobile overlay — completely separate DOM element
+  var overlay = document.createElement('div');
+  overlay.id = 'sg-chat-overlay';
+  overlay.innerHTML = '<div id="sg-chat-header-m"><div><h3>Ask me anything</h3><span>AI assistant</span></div><button class="sg-close-m" aria-label="Close">&times;</button></div><div id="sg-chat-messages-m"></div><div id="sg-chat-input-area-m"><input id="sg-chat-input-m" type="text" placeholder="Type a question..." autocomplete="off" /><button id="sg-chat-send-m">Send</button></div>';
+  document.body.appendChild(overlay);
+
+  // Desktop bindings
   document.getElementById('sg-chat-close').onclick = toggleChat;
   document.getElementById('sg-chat-send').onclick = sendMessage;
   document.getElementById('sg-chat-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  // Mobile bindings
+  overlay.querySelector('.sg-close-m').onclick = toggleChat;
+  document.getElementById('sg-chat-send-m').onclick = sendMessage;
+  document.getElementById('sg-chat-input-m').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
   });
 
   // Welcome message
   addBotMessage("Hey! I'm Steven's AI assistant. Ask me about his consulting services, the dealership playbook, blog posts, or how he uses AI to run a 200-unit store. What can I help with?");
 
+  function isMobile() { return window.innerWidth <= 600; }
+
   function toggleChat() {
     isOpen = !isOpen;
-    win.classList.toggle('open', isOpen);
-    var mobile = window.innerWidth <= 600;
-    if (mobile) {
+    if (isMobile()) {
+      overlay.classList.toggle('open', isOpen);
       btn.classList.toggle('sg-chat-hidden', isOpen);
+      // Sync messages from desktop to mobile on open
       if (isOpen) {
-        // Set height explicitly to window.innerHeight for iOS Safari
-        win.style.height = window.innerHeight + 'px';
+        syncMessages();
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
       } else {
-        win.style.height = '';
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
       }
-    }
-    if (isOpen) {
-      setTimeout(function() {
+    } else {
+      win.classList.toggle('open', isOpen);
+      if (isOpen) {
         document.getElementById('sg-chat-input').focus();
-      }, 300);
+      }
     }
+  }
+
+  function syncMessages() {
+    // Copy messages from desktop chat to mobile overlay
+    var src = document.getElementById('sg-chat-messages');
+    var dst = document.getElementById('sg-chat-messages-m');
+    dst.innerHTML = src.innerHTML;
+    dst.scrollTop = dst.scrollHeight;
+  }
+
+  function getMessageContainers() {
+    var containers = [document.getElementById('sg-chat-messages')];
+    var mc = document.getElementById('sg-chat-messages-m');
+    if (mc) containers.push(mc);
+    return containers;
   }
 
   function addBotMessage(text) {
-    const messages = document.getElementById('sg-chat-messages');
-    const div = document.createElement('div');
-    div.className = 'sg-msg bot';
-    div.textContent = text;
-    // Auto-link URLs
-    div.innerHTML = div.textContent.replace(
-      /(https?:\/\/[^\s<]+|calendly\.com\/[^\s<]+|stevengarcia\.me[^\s<]*)/g,
-      '<a href="$1" target="_blank" rel="noopener">$1</a>'
-    ).replace(
-      /href="(?!https?:\/\/)/g,
-      'href="https://'
-    );
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+    getMessageContainers().forEach(function(messages) {
+      var div = document.createElement('div');
+      div.className = 'sg-msg bot';
+      div.textContent = text;
+      div.innerHTML = div.textContent.replace(
+        /(https?:\/\/[^\s<]+|calendly\.com\/[^\s<]+|stevengarcia\.me[^\s<]*)/g,
+        '<a href="$1" target="_blank" rel="noopener">$1</a>'
+      ).replace(
+        /href="(?!https?:\/\/)/g,
+        'href="https://'
+      );
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    });
   }
 
   function addUserMessage(text) {
-    const messages = document.getElementById('sg-chat-messages');
-    const div = document.createElement('div');
-    div.className = 'sg-msg user';
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+    getMessageContainers().forEach(function(messages) {
+      var div = document.createElement('div');
+      div.className = 'sg-msg user';
+      div.textContent = text;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    });
   }
 
   function showTyping() {
-    const messages = document.getElementById('sg-chat-messages');
-    const div = document.createElement('div');
-    div.className = 'sg-msg typing';
-    div.id = 'sg-typing';
-    div.textContent = 'Thinking...';
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+    getMessageContainers().forEach(function(messages) {
+      var existing = messages.querySelector('.sg-msg.typing');
+      if (existing) return;
+      var div = document.createElement('div');
+      div.className = 'sg-msg typing';
+      div.textContent = 'Thinking...';
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    });
   }
 
   function removeTyping() {
-    const el = document.getElementById('sg-typing');
-    if (el) el.remove();
+    document.querySelectorAll('.sg-msg.typing').forEach(function(el) { el.remove(); });
   }
 
   async function sendMessage() {
-    const input = document.getElementById('sg-chat-input');
+    var inputId = isMobile() ? 'sg-chat-input-m' : 'sg-chat-input';
+    const input = document.getElementById(inputId);
     const text = input.value.trim();
     if (!text || isTyping) return;
 
@@ -378,6 +509,8 @@ RULES:
 
     isTyping = true;
     document.getElementById('sg-chat-send').disabled = true;
+    var sm = document.getElementById('sg-chat-send-m');
+    if (sm) sm.disabled = true;
     showTyping();
 
     try {
@@ -424,7 +557,8 @@ RULES:
     } finally {
       isTyping = false;
       document.getElementById('sg-chat-send').disabled = false;
-      document.getElementById('sg-chat-input').focus();
+      var sm = document.getElementById('sg-chat-send-m');
+      if (sm) sm.disabled = false;
     }
   }
 })();
