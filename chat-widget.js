@@ -230,15 +230,17 @@ RULES:
     #sg-chat-send:disabled { background: #333; cursor: not-allowed; }
 
     #sg-chat-window.sg-mobile {
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: auto !important;
+      position: fixed !important;
+      inset: 0 !important;
       width: 100vw !important;
-      max-width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-width: none !important;
+      max-height: none !important;
       border-radius: 0 !important;
       border: none !important;
       z-index: 10000 !important;
+      box-sizing: border-box !important;
     }
     #sg-chat-window.sg-mobile #sg-chat-header {
       padding-top: max(16px, env(safe-area-inset-top));
@@ -251,6 +253,7 @@ RULES:
       padding: 8px 12px;
       min-width: 44px;
       min-height: 44px;
+      color: #FFFFFF;
     }
     @media (max-width: 600px) {
       #sg-chat-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
@@ -302,14 +305,24 @@ RULES:
 
   function setMobileSize() {
     if (!isMobile() || !isOpen) return;
-    // Use window.innerHeight — the REAL visible viewport (handles Safari address bar)
-    win.style.height = window.innerHeight + 'px';
-    win.style.maxHeight = window.innerHeight + 'px';
+    // visualViewport gives the actual visible area (accounts for keyboard + Safari chrome)
+    var vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    var vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+    var offsetTop = window.visualViewport ? window.visualViewport.offsetTop : 0;
+    win.style.height = vh + 'px';
+    win.style.maxHeight = vh + 'px';
+    win.style.width = vw + 'px';
+    win.style.top = offsetTop + 'px';
   }
 
+  // Listen to visualViewport for keyboard open/close on iOS
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setMobileSize);
+    window.visualViewport.addEventListener('scroll', setMobileSize);
+  }
   window.addEventListener('resize', setMobileSize);
   window.addEventListener('orientationchange', function() {
-    setTimeout(setMobileSize, 100);
+    setTimeout(setMobileSize, 150);
   });
 
   function toggleChat() {
@@ -320,12 +333,17 @@ RULES:
       btn.style.display = isOpen ? 'none' : 'flex';
       if (isOpen) {
         setMobileSize();
-        // Prevent body scroll when chat is open
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
       } else {
         win.style.height = '';
         win.style.maxHeight = '';
+        win.style.width = '';
+        win.style.top = '';
         document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
       }
     }
     if (isOpen) {
