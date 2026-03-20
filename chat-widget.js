@@ -100,7 +100,7 @@ RULES:
       background: #0A0A0A;
       border: 1px solid #1F1F1F;
       border-radius: 16px;
-      z-index: 9998;
+      z-index: 99999;
       display: none;
       flex-direction: column;
       overflow: hidden;
@@ -229,37 +229,35 @@ RULES:
     #sg-chat-send:hover { background: #E74C3C; }
     #sg-chat-send:disabled { background: #333; cursor: not-allowed; }
 
-    #sg-chat-window.sg-mobile {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      right: 0 !important;
-      bottom: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      max-height: none !important;
-      border-radius: 0 !important;
-      border: none !important;
-      z-index: 10000 !important;
-      box-sizing: border-box !important;
-      padding-top: env(safe-area-inset-top, 0px);
-      padding-bottom: env(safe-area-inset-bottom, 0px);
-    }
-    #sg-chat-window.sg-mobile #sg-chat-header {
-      padding-top: 48px;
-    }
-    #sg-chat-window.sg-mobile #sg-chat-input-area {
-      padding-bottom: 16px;
-    }
-    #sg-chat-window.sg-mobile #sg-chat-close {
-      font-size: 32px;
-      padding: 8px 16px;
-      min-width: 48px;
-      min-height: 48px;
-      color: #FFFFFF;
-    }
     .sg-chat-hidden { display: none !important; }
+
     @media (max-width: 600px) {
+      #sg-chat-window.open {
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 0 !important;
+        border: none !important;
+        z-index: 999999 !important;
+      }
+      #sg-chat-window.open #sg-chat-header {
+        padding-top: 50px;
+      }
+      #sg-chat-window.open #sg-chat-input-area {
+        padding-bottom: 20px;
+      }
+      #sg-chat-window.open #sg-chat-close {
+        font-size: 32px;
+        padding: 8px 16px;
+        min-width: 48px;
+        min-height: 48px;
+        color: #FFFFFF;
+      }
       #sg-chat-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; }
       #sg-chat-btn svg { width: 22px; height: 22px; }
     }
@@ -305,48 +303,25 @@ RULES:
   // Welcome message
   addBotMessage("Hey! I'm Steven's AI assistant. Ask me about his consulting services, the dealership playbook, blog posts, or how he uses AI to run a 200-unit store. What can I help with?");
 
-  function isMobile() { return window.innerWidth <= 600; }
-
-  function setMobileSize() {
-    if (!isMobile() || !isOpen) return;
-    // Use innerHeight — Safari reports the visible area after chrome
-    win.style.height = window.innerHeight + 'px';
-  }
-
-  window.addEventListener('resize', setMobileSize);
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', setMobileSize);
-  }
-
   function toggleChat() {
     isOpen = !isOpen;
     win.classList.toggle('open', isOpen);
-    if (isMobile()) {
-      win.classList.toggle('sg-mobile', isOpen);
-      // Fully hide/show the FAB
+    var mobile = window.innerWidth <= 600;
+    if (mobile) {
+      btn.classList.toggle('sg-chat-hidden', isOpen);
       if (isOpen) {
-        btn.classList.add('sg-chat-hidden');
-      } else {
-        btn.classList.remove('sg-chat-hidden');
-      }
-      if (isOpen) {
-        setMobileSize();
+        // Set height explicitly to window.innerHeight for iOS Safari
+        win.style.height = window.innerHeight + 'px';
         document.body.style.overflow = 'hidden';
-        document.body.style.position = 'fixed';
-        document.body.style.width = '100%';
-        document.body.style.height = '100%';
       } else {
         win.style.height = '';
         document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.height = '';
       }
     }
     if (isOpen) {
       setTimeout(function() {
         document.getElementById('sg-chat-input').focus();
-      }, 100);
+      }, 300);
     }
   }
 
