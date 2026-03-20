@@ -229,25 +229,36 @@ RULES:
     #sg-chat-send:hover { background: #E74C3C; }
     #sg-chat-send:disabled { background: #333; cursor: not-allowed; }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       #sg-chat-window {
-        bottom: 0;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        max-width: 100%;
-        border-radius: 0;
-        position: fixed;
-        top: 0;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 0 !important;
+        z-index: 10000 !important;
       }
-      #sg-chat-window #sg-chat-header {
-        padding: 16px 20px;
-        padding-top: max(16px, env(safe-area-inset-top));
+      #sg-chat-window.open ~ #sg-chat-btn {
+        display: none !important;
       }
-      #sg-chat-window #sg-chat-input-area {
-        padding-bottom: max(12px, env(safe-area-inset-bottom));
+      #sg-chat-header {
+        padding-top: max(16px, env(safe-area-inset-top)) !important;
+      }
+      #sg-chat-input-area {
+        padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+      }
+      #sg-chat-close {
+        font-size: 28px !important;
+        padding: 8px 12px !important;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       #sg-chat-btn { bottom: 16px; right: 16px; width: 50px; height: 50px; }
       #sg-chat-btn svg { width: 22px; height: 22px; }
@@ -297,6 +308,10 @@ RULES:
   function toggleChat() {
     isOpen = !isOpen;
     win.classList.toggle('open', isOpen);
+    // On mobile, hide the fab button when chat is open
+    if (window.innerWidth <= 600) {
+      btn.style.display = isOpen ? 'none' : 'flex';
+    }
     if (isOpen) {
       document.getElementById('sg-chat-input').focus();
     }
