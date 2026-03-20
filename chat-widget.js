@@ -6,7 +6,7 @@
 (function() {
   'use strict';
 
-  const GEMINI_KEY = 'AIzaSyBQrDb-zf66h5ix34EQU6v-itYdawj8eG8';
+  const GEMINI_KEY = 'AIzaSyAGxWSr__PNEywT_MNuJBJ0alayhus1vus';
   const GEMINI_MODEL = 'gemini-2.0-flash';
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_KEY}`;
 
