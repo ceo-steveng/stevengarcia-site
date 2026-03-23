@@ -619,6 +619,23 @@
   }
 
   .select-count span { color: var(--accent); font-weight: 700; }
+
+  .live-badge {
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 16px;
+  }
+  .live-badge .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s infinite;
+  }
+  .live-badge.stale .live-dot { background: var(--gold); }
+  .live-badge.offline .live-dot { background: var(--muted); }
 </style>
 </head>
 <body>
@@ -626,7 +643,11 @@
 <header>
   <div class="logo-badge">ANCIRA KIA</div>
   <h1>SPIN TO <span>WIN</span></h1>
-  <div style="margin-left:auto;">
+  <div id="live-indicator" class="live-badge offline" style="margin-left:auto;margin-right:12px;">
+    <div class="live-dot"></div>
+    <span id="live-text">Loading...</span>
+  </div>
+  <div>
     <button onclick="saveToFile()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;padding:8px 20px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text)'">
       💾 SAVE &amp; SHARE
     </button>
@@ -1240,10 +1261,97 @@ function launchConfetti() {
   }
 }
 
+// ---- SUPABASE LIVE DATA ----
+const SUPABASE_URL = 'https://oirwaifnycglpxsyiivp.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_5S5PE0SBHa8yldgid_-n3A_5vcz9w5d';
+
+async function fetchLiveData() {
+  const indicator = document.getElementById('live-indicator');
+  const liveText = document.getElementById('live-text');
+
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+
+    // Try today's data first
+    let data = await supabaseFetch(today);
+
+    // Fall back to most recent date if no data today
+    if (!data || data.length === 0) {
+      data = await supabaseFetchLatest();
+    }
+
+    if (!data || data.length === 0) {
+      indicator.className = 'live-badge offline';
+      liveText.textContent = 'No data';
+      return;
+    }
+
+    // Merge into stats
+    const reportDate = data[0].report_date;
+    let merged = 0;
+    data.forEach(row => {
+      const name = row.rep_name.toUpperCase();
+      if (stats[name]) {
+        stats[name].calls = row.calls || 0;
+        stats[name].texts = row.texts || 0;
+        stats[name].overdue = row.overdue || 0;
+        merged++;
+      }
+    });
+
+    // Update UI
+    renderRepList();
+    renderStatInputs();
+    drawWheel();
+
+    // Show status
+    const isToday = reportDate === today;
+    indicator.className = isToday ? 'live-badge' : 'live-badge stale';
+    if (isToday) {
+      const updated = data[0].updated_at;
+      if (updated) {
+        const d = new Date(updated);
+        liveText.textContent = `Live · ${d.toLocaleTimeString('en-US', {hour:'numeric',minute:'2-digit'})}`;
+      } else {
+        liveText.textContent = 'Live · Today';
+      }
+    } else {
+      liveText.textContent = `Data from ${reportDate}`;
+    }
+  } catch (err) {
+    console.warn('Supabase fetch failed (offline mode):', err);
+    indicator.className = 'live-badge offline';
+    liveText.textContent = 'Offline';
+  }
+}
+
+async function supabaseFetch(dateStr) {
+  const url = `${SUPABASE_URL}/rest/v1/rep_activity?report_date=eq.${dateStr}&select=*`;
+  const res = await fetch(url, {
+    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+async function supabaseFetchLatest() {
+  const url = `${SUPABASE_URL}/rest/v1/rep_activity?select=*&order=report_date.desc,updated_at.desc&limit=20`;
+  const res = await fetch(url, {
+    headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const rows = await res.json();
+  if (rows.length === 0) return [];
+  // Get all rows from the most recent date
+  const latestDate = rows[0].report_date;
+  return rows.filter(r => r.report_date === latestDate);
+}
+
 // INIT
 renderRepList();
 renderStatInputs();
 drawWheel();
+fetchLiveData();
 </script>
 </body>
 </html>
