@@ -17,6 +17,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-XKFXV07FHV');
+  document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.href){if(a.href.includes('calendly.com')){gtag('event','consultation_click',{event_category:'conversion',event_label:a.textContent.trim()});}}});
 </script>
 
 <!-- Open Graph (Facebook, LinkedIn) -->
