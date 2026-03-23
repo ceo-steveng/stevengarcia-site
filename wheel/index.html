@@ -894,10 +894,13 @@ let currentAngle = 0;
 
 function getWeight(name) {
   const s = stats[name];
-  const callScore = s.calls * 3;
-  const textScore = s.texts * 2;
-  const overdueScore = Math.max(0, 10 - s.overdue) * 1.5;
-  return Math.max(1, callScore + textScore + overdueScore);
+  // Base weight = 1 (everyone starts equal)
+  // calls * 2, texts * 1
+  // overdue PENALTY: subtract overdue * 3 from total, floor at 1
+  const callScore = s.calls * 2;
+  const textScore = s.texts * 1;
+  const overdueScore = s.overdue * 3; // penalty
+  return Math.max(1, 1 + callScore + textScore - overdueScore);
 }
 
 function getMaxWeight() {
@@ -1115,13 +1118,26 @@ function spin() {
   document.getElementById('spin-btn').disabled = true;
   document.getElementById('wheel-canvas').classList.add('spinning');
 
-  // Weighted random winner
+  // Blended winner selection: 70% weighted by activity, 30% equal chance
   const totalWeight = reps.reduce((s, r) => s + getWeight(r.name), 0);
-  let rand = Math.random() * totalWeight;
+  const equalWeight = 1 / reps.length;
+  
+  // Calculate blended weights for each rep
+  const blendedWeights = reps.map(rep => {
+    const normalizedActivityWeight = getWeight(rep.name) / totalWeight;
+    return 0.7 * normalizedActivityWeight + 0.3 * equalWeight;
+  });
+  
+  const totalBlendedWeight = blendedWeights.reduce((s, w) => s + w, 0);
+  let rand = Math.random() * totalBlendedWeight;
   let winner = reps[reps.length - 1];
-  for (const rep of reps) {
-    rand -= getWeight(rep.name);
-    if (rand <= 0) { winner = rep; break; }
+  
+  for (let i = 0; i < reps.length; i++) {
+    rand -= blendedWeights[i];
+    if (rand <= 0) { 
+      winner = reps[i]; 
+      break; 
+    }
   }
 
   // Calculate winner's midpoint angle within the wheel (starting from angle 0)
