@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Steven Garcia — Dealership AI Automation Blog</title>
+    <link>https://stevengarcia.me/blog/</link>
+    <description>Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Mar 2026 06:00:00 -0500</lastBuildDate>
+    <atom:link href="https://stevengarcia.me/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI for Car Dealerships: What Actually Works in 2026</title>
+      <link>https://stevengarcia.me/blog/ai-for-car-dealerships/</link>
+      <guid>https://stevengarcia.me/blog/ai-for-car-dealerships/</guid>
+      <pubDate>Tue, 25 Mar 2026 00:00:00 -0500</pubDate>
+      <description>Most AI-for-dealerships content is written by vendors selling you something. I'm a manager who built it myself. Here's what actually works, what doesn't, and what it costs.</description>
+    </item>
+    <item>
+      <title>BDC Automation for Car Dealers: What Works and What's a Waste</title>
+      <link>https://stevengarcia.me/blog/bdc-automation-car-dealers/</link>
+      <guid>https://stevengarcia.me/blog/bdc-automation-car-dealers/</guid>
+      <pubDate>Sun, 23 Mar 2026 00:00:00 -0500</pubDate>
+      <description>Real BDC automation results from a 200-unit Kia store. What actually works: follow-up sequences, task triage, response monitoring. What's a waste: chatbots, generic drips.</description>
+    </item>
+    <item>
+      <title>Why Most Dealer AI Tools Fail (And What to Do Instead)</title>
+      <link>https://stevengarcia.me/blog/why-dealer-ai-tools-fail/</link>
+      <guid>https://stevengarcia.me/blog/why-dealer-ai-tools-fail/</guid>
+      <pubDate>Sun, 23 Mar 2026 00:00:00 -0500</pubDate>
+      <description>Most vendor AI tools fail at dealerships because they're bolted onto broken processes. A New Car Manager's take on why dashboards don't work and what dealers actually need.</description>
+    </item>
+    <item>
+      <title>The Follow-Up System That Replaced 2 BDC Reps</title>
+      <link>https://stevengarcia.me/blog/dealership-follow-up-system/</link>
+      <guid>https://stevengarcia.me/blog/dealership-follow-up-system/</guid>
+      <pubDate>Sun, 23 Mar 2026 00:00:00 -0500</pubDate>
+      <description>How one dealership manager built an automated follow-up system handling task triage, SMS re-engagement, and internet lead monitoring. 847 tasks triaged, 790 auto-cleared.</description>
+    </item>
+    <item>
+      <title>The Exact VinSolutions Automation Stack I Run in Production</title>
+      <link>https://stevengarcia.me/blog/vinsolutions-automation-stack/</link>
+      <guid>https://stevengarcia.me/blog/vinsolutions-automation-stack/</guid>
+      <pubDate>Wed, 19 Mar 2026 00:00:00 -0500</pubDate>
+      <description>The full VinSolutions automation stack running at a 200-unit Kia store. Browser automation, task triage, re-engagement texts, morning reports — every piece explained.</description>
+    </item>
+    <item>
+      <title>I Had 847 CRM Tasks. AI Cleared 790 of Them.</title>
+      <link>https://stevengarcia.me/blog/ai-crm-task-automation-dealership/</link>
+      <guid>https://stevengarcia.me/blog/ai-crm-task-automation-dealership/</guid>
+      <pubDate>Tue, 18 Mar 2026 00:00:00 -0500</pubDate>
+      <description>Every dealership manager knows the VinSolutions task wall. 847 tasks, most are noise. My AI clears the junk, texts cold leads, and flags the real ones.</description>
+    </item>
+    <item>
+      <title>How I Automated My Morning Report</title>
+      <link>https://stevengarcia.me/blog/automate-dealership-morning-report/</link>
+      <guid>https://stevengarcia.me/blog/automate-dealership-morning-report/</guid>
+      <pubDate>Tue, 18 Mar 2026 00:00:00 -0500</pubDate>
+      <description>I used to spend 45 minutes pulling numbers from VinSolutions, vAuto, and kDealer every morning. Now a PDF hits my phone at 6:30am. Here's exactly how I built it.</description>
+    </item>
+    <item>
+      <title>The Dealership Morning Report: 21 Metrics That Replace Your Spreadsheet</title>
+      <link>https://stevengarcia.me/blog/dealership-morning-report-framework/</link>
+      <guid>https://stevengarcia.me/blog/dealership-morning-report-framework/</guid>
+      <pubDate>Thu, 13 Mar 2026 00:00:00 -0500</pubDate>
+      <description>How to build a one-page morning report that replaces 30 minutes of manual data collection. 21 metrics, 5 minutes, every day.</description>
+    </item>
+    <item>
+      <title>How I Use AI to Run a 200-Unit Kia Store</title>
+      <link>https://stevengarcia.me/blog/how-i-use-ai-to-run-200-unit-store/</link>
+      <guid>https://stevengarcia.me/blog/how-i-use-ai-to-run-200-unit-store/</guid>
+      <pubDate>Thu, 13 Mar 2026 00:00:00 -0500</pubDate>
+      <description>The AI stack a New Car Manager uses daily to automate BDC follow-up, morning reports, and CRM tasks at a 200+ unit Kia store.</description>
+    </item>
+    <item>
+      <title>The Save-a-Deal Meeting: A 10-Minute Format That Catches Every Missed Deal</title>
+      <link>https://stevengarcia.me/blog/save-a-deal-meeting-format/</link>
+      <guid>https://stevengarcia.me/blog/save-a-deal-meeting-format/</guid>
+      <pubDate>Thu, 13 Mar 2026 00:00:00 -0500</pubDate>
+      <description>A 10-minute morning meeting format that surfaces every unsold customer, missed T/O, and pending finance deal. No prep required.</description>
+    </item>
+  </channel>
+</rss>
