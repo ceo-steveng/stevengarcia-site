@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>The Follow-Up System That Replaced 2 BDC Reps — Steven Garcia</title>
+<meta name="description" content="How one dealership manager built an automated follow-up system handling task triage, SMS re-engagement, and internet lead monitoring. 847 tasks triaged, 790 auto-cleared, response times under 5 minutes.">
+<meta name="keywords" content="dealership follow-up system, BDC replacement automation, CRM task triage, dealership SMS automation, internet lead response time, car dealer follow-up automation">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/blog/dealership-follow-up-system/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Follow-Up System That Replaced 2 BDC Reps">
+<meta property="og:description" content="Automated follow-up system: 847 tasks triaged, 790 auto-cleared, internet response under 5 minutes. Built by a dealership manager, not a vendor.">
+<meta property="og:url" content="https://stevengarcia.me/blog/dealership-follow-up-system/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="article:published_time" content="2026-03-23T00:00:00-05:00">
+<meta property="article:author" content="Steven Garcia">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
+<meta name="twitter:title" content="The Follow-Up System That Replaced 2 BDC Reps">
+<meta name="twitter:description" content="847 tasks triaged. 790 auto-cleared. Internet response under 5 minutes. No additional headcount.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show {
+    display: block;
+  }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
+  /* ARTICLE */
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-body a {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .article-body a:hover {
+    border-bottom-color: var(--crimson);
+  }
+
+  /* CTA */
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Follow-Up System That Replaced 2 BDC Reps",
+  "description": "How one dealership manager built an automated follow-up system that handles task triage, SMS re-engagement, and internet lead monitoring. 847 tasks triaged, 790 auto-cleared.",
+  "datePublished": "2026-03-23",
+  "dateModified": "2026-03-23",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia"
+    },
+    "url": "https://stevengarcia.me",
+    "knowsAbout": ["Dealership AI Automation", "Automotive Sales Management", "BDC Automation", "VinSolutions CRM", "Browser Automation"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stevengarcia.me/blog/dealership-follow-up-system/"
+  },
+  "keywords": ["dealership follow-up system", "BDC automation", "CRM task triage", "dealership SMS automation", "internet lead response"],
+  "wordCount": 1700,
+  "timeRequired": "PT8M"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">AI Setup</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/#about">About</a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-eyebrow">AI + Automotive</div>
+  <div class="article-date">March 23, 2026</div>
+  <h1>The Follow-Up System That Replaced 2 BDC Reps</h1>
+</div>
+
+<article>
+<div class="article-body">
+
+<p>Last January, I had 4 BDC reps. Two quit within three weeks of each other. One left for a finance job at the Toyota store down the road. The other just stopped showing up. Classic dealership turnover.</p>
+
+<p>I had two choices: hire and train replacements (6-8 week ramp, assuming I could even find someone), or figure out how to handle their workload differently.</p>
+
+<p>I chose differently.</p>
+
+<p>It's now March. I still have 2 BDC reps instead of 4. Our internet response time is under 5 minutes. Our follow-up completion rate is higher than it was with the full team. And last month, re-engagement texts from the automated system generated $9,800 in recovered gross.</p>
+
+<p>I'm going to break down the entire system. What it does, how it works, and the specific numbers behind it.</p>
+
+<h2>The Problem With a 4-Person BDC</h2>
+
+<p>When I had 4 BDC reps, here's what they actually spent their time on:</p>
+
+<ul>
+<li>Sorting through the VinSolutions task list (30-40 minutes per rep, per day)</li>
+<li>Clearing tasks that were obviously stale, duplicates, or assigned to people who left (maybe 70% of all tasks)</li>
+<li>Making calls and sending texts to active leads (the actual job)</li>
+<li>Logging activities in the CRM</li>
+<li>Arguing about whose lead was whose</li>
+</ul>
+
+<p>That first item is the one that kills you. Four people each spending 30-40 minutes every morning doing the same thing: scrolling through a giant task list trying to figure out what's real. That's 2+ hours of combined labor spent on sorting, not selling.</p>
+
+<p>When I lost two reps, I couldn't afford to have the remaining two waste their mornings on triage. Every minute they spent sorting tasks was a minute they weren't calling customers. So I built a system to do the sorting for them.</p>
+
+<h2>Part 1: Task Triage (The Biggest Win)</h2>
+
+<p>Every morning at 6:30 AM, the system logs into VinSolutions and reads every open task. Not just the task type and due date. It reads the full customer record: last activity, last response, assigned rep, vehicle interest, previous outreach attempts, showroom visit history.</p>
+
+<p>Then it makes a decision on each task. Three possible outcomes:</p>
+
+<h3>Auto-Clear (93% of Tasks)</h3>
+
+<p>These are tasks that no human needs to touch. The rules are specific:</p>
+
+<ul>
+<li>Customer has had 6+ outreach attempts with zero response in 90+ days. Done. They're not buying from us</li>
+<li>Task assigned to a rep who no longer works here and the customer's last activity was 60+ days ago. Clear it</li>
+<li>Duplicate task on a customer who already has a newer task from a current rep. Remove the duplicate</li>
+<li>Service reminder task on a customer who already has a service appointment booked. Redundant</li>
+<li>Follow-up task on a customer who already purchased. VinSolutions doesn't always catch this</li>
+</ul>
+
+<p>Last month: <strong>847 tasks triaged. 790 auto-cleared.</strong> That's 93%. My two remaining BDC reps walked in every morning to a task list of 12-15 real items instead of 200+ pieces of noise.</p>
+
+<p>Those 790 tasks would have taken a human about 4 hours to sort through manually. Every single day. That's the equivalent of one full-time person just doing triage.</p>
+
+<h3>Auto Re-engage (5% of Tasks)</h3>
+
+<p>These are customers who went cold but showed enough prior interest to warrant one more shot. The system sends a text message (not an email, texts get read) with specific context from their CRM record.</p>
+
+<p>Not "Hi, still interested in a new vehicle?" That's garbage and everyone knows it.</p>
+
+<p>More like: "Hey Maria, this is Steven at Ancira Kia. You came in a few weeks ago and looked at the Sportage. Just wanted to let you know we've got some March incentives that weren't available when you were here. Worth a look if you're still shopping."</p>
+
+<p>The AI writes these based on the customer's actual vehicle interest, visit history, and time since last contact. Different templates for different scenarios. A customer who test drove but didn't buy gets a different message than someone who only submitted a web lead.</p>
+
+<p>Last month: 43 re-engagement texts sent. 11 responses. 3 appointments set. 2 sold. One of those was a Telluride that had been sitting for 39 days. The customer originally came in 6 weeks earlier, liked the car, but couldn't make the numbers work. The text caught them at the right time with the right incentive. $2,400 front gross on that deal alone.</p>
+
+<h3>Flag for Human (2% of Tasks)</h3>
+
+<p>These are the ones that actually need a person. Hot leads with recent activity. Finance callbacks pending. Customers who responded to outreach but nobody followed up. Manager T/O requests that fell through the cracks.</p>
+
+<p>The system sends these to my Telegram as a priority list every morning. Usually 8-12 items. Each one includes the customer name, what's pending, and why it was flagged. My BDC reps get a matching list in a shared doc.</p>
+
+<p>When Blanca and Joel (my two remaining reps) walk in at 8:30, they don't sort anything. They open the priority list and start calling. First call by 8:35. That's the kind of speed you get when the noise is already gone.</p>
+
+<h2>Part 2: Internet Lead Response Monitoring</h2>
+
+<p>Before the automation, our internet response time was 22 minutes on average. Some leads waited over an hour if they came in during lunch or a busy Saturday afternoon. We didn't even know the real number because nobody was tracking it consistently.</p>
+
+<p>Now the system monitors VinSolutions every few minutes during business hours. When an internet lead comes in, it starts a timer. If no outreach is logged within 5 minutes, I get an alert on my phone. Not an email. A Telegram notification that buzzes in my pocket.</p>
+
+<p>The first week I turned this on, I was getting 4-5 alerts a day. Leads sitting for 15, 20, sometimes 30 minutes. My team didn't realize how slow they were because nobody was watching.</p>
+
+<p>Now I get maybe one alert a week. Our average is under 5 minutes. Blanca usually has the first call out within 3.</p>
+
+<p>The math on this: our internet close rate went from 8% to 11% after we got response times under control. On about 120 internet leads a month, that's roughly 3-4 extra units. Call it $4,000-5,000 in additional gross per month, just from answering the phone faster.</p>
+
+<h2>Part 3: Automated SMS Re-Engagement</h2>
+
+<p>This runs separately from the task triage. It targets a specific group: customers who showed real interest (showroom visit, test drive, credit app) but went cold in the 2-6 week window after their visit.</p>
+
+<p>That window matters. Under 2 weeks, the assigned rep should still be working them. Over 6 weeks, they've probably bought somewhere else. But that 2-6 week gap is where deals hide. Customers who liked the car but needed to think about it. Customers waiting for a payoff letter. Customers whose spouse needed to come see the car.</p>
+
+<p>The system checks for these customers every morning. If they match the criteria (showroom visit in the last 2-6 weeks, no activity in 10+ days, no pending appointment, didn't purchase elsewhere), it sends a context-aware text.</p>
+
+<p>Last month's numbers:</p>
+
+<ul>
+<li><strong>43 texts sent</strong> to qualified be-back candidates</li>
+<li><strong>11 responses</strong> (25.6% response rate, compared to about 2% for email drips)</li>
+<li><strong>3 appointments</strong> booked</li>
+<li><strong>2 units sold</strong></li>
+<li><strong>$9,800 in gross</strong> recovered from deals that would have been lost</li>
+</ul>
+
+<p>The 2 BDC reps I still have couldn't do this. Not because they're not good. They are. But they don't have time to research 43 cold customers, write personalized messages, and track responses while also handling fresh leads and phone-ups. The automation does the research and the initial outreach. When a customer responds, the human takes over.</p>
+
+<h2>What This Actually Cost</h2>
+
+<p>I'm going to compare this to what two BDC reps cost, because that's what the system replaced.</p>
+
+<ul>
+<li><strong>2 BDC reps (loaded cost):</strong> roughly $7,000-8,000/month combined (salary, benefits, taxes, training, turnover)</li>
+<li><strong>The automation:</strong> $20/month for Claude AI, plus the Mac Mini I already owned. Call it $25/month total</li>
+</ul>
+
+<p>I'm saving about $7,500/month in labor. Generating an additional $9,800/month in recovered gross. And my two remaining reps are more productive than the four ever were because they spend zero time on triage.</p>
+
+<p>I didn't build this to eliminate jobs. I built it because two people left and I realized most of what they did every day wasn't actually selling. It was sorting. Machines are better at sorting than people.</p>
+
+<h2>How the Pieces Connect</h2>
+
+<p>This isn't three separate tools bolted together. It's one system built on the same <a href="/blog/vinsolutions-automation-stack/">VinSolutions automation stack</a> I use for everything else. Same browser automation. Same AI layer. Same notification system.</p>
+
+<p>The task triage feeds into the re-engagement system (customers identified during triage as good re-engagement candidates get queued for outreach). The response monitoring feeds into the <a href="/blog/automate-dealership-morning-report/">morning report</a> (daily response time averages show up automatically). Everything connects because it all reads from and writes to the same CRM.</p>
+
+<p>That's why vendor tools usually fail at this. They build one piece (a chatbot, a drip tool, a dashboard) and it sits alone, disconnected from everything else. My system works because every piece sees the full picture.</p>
+
+<h2>Could You Build This?</h2>
+
+<p>Honestly, it depends on how much time you want to invest. The task triage logic took me about two weeks to get right. The re-engagement texting took another week. The response monitoring was actually the easiest part, maybe two days.</p>
+
+<p>But the hard part wasn't the code. It was documenting the rules. Deciding which tasks are safe to auto-clear. Figuring out which customers deserve a re-engagement text and which ones should be left alone. Writing text templates that don't sound like spam.</p>
+
+<p>If you're interested in the approach but don't want to build it from scratch, I've documented the whole framework in the <a href="/playbook">playbook</a>. Decision trees, text templates, triage rules, the whole thing.</p>
+
+<p>Or if you want me to build a version of this for your store, that's what <a href="/ai-setup/">the AI Setup service</a> is. We do a 30-minute call to look at your current CRM setup, map your processes, and figure out what's worth automating first. No pitch. Just an honest assessment of where automation would actually help.</p>
+
+<p>Two BDC reps. Better numbers than four. That's not a theory. That's my store right now.</p>
+
+</div>
+</article>
+
+<!-- CTA -->
+<div class="article-cta">
+  <h2>Want This System at Your Store?</h2>
+  <p>I built this for Ancira Kia. I can help you build a version for your store, your CRM, your process. Free 30-minute call to figure out where to start.</p>
+  <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Free 30-Min Call</a>
+  <p style="margin-top:24px;font-size:14px;color:var(--body);">
+    Or build it yourself with the full framework: <a href="/playbook" style="color:var(--crimson);text-decoration:none;">Get the Playbook &rarr;</a>
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/#about">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
+
+<script src="/chat-widget.js" defer></script>
+</body>
+</html>

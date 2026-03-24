@@ -19,6 +19,21 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://stevengarcia.me/blog/bdc-automation-car-dealers/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://stevengarcia.me/blog/why-dealer-ai-tools-fail/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://stevengarcia.me/blog/dealership-follow-up-system/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://stevengarcia.me/blog/vinsolutions-automation-stack/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
