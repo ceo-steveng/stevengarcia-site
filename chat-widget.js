@@ -24,7 +24,7 @@ CONSULTING SERVICES (stevengarcia.me/ai-setup/):
 - Full Stack Package ($7,500): Everything in Full Desk + complete AI infrastructure + CRM integration + 90-day support + monthly optimization calls
 - Book a call: calendly.com/stevengarcia/30min
 
-THE DEALERSHIP PLAYBOOK ($197):
+THE DEALERSHIP PLAYBOOK ($297):
 - 37-page PDF, 12 chapters covering dealership operations and AI adoption
 - Available at stevengarcia.me/playbook/
 - Includes coaching upsell ($500 for 1-on-1 coaching call)
