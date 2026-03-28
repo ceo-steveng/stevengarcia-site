@@ -5,8 +5,15 @@
     <link>https://stevengarcia.me/blog/</link>
     <description>Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Mar 2026 06:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 06:00:00 -0500</lastBuildDate>
     <atom:link href="https://stevengarcia.me/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>5 Ways I Save 2 Hours a Day as a Car Sales Manager</title>
+      <link>https://stevengarcia.me/blog/5-ways-save-time-car-sales-manager/</link>
+      <guid>https://stevengarcia.me/blog/5-ways-save-time-car-sales-manager/</guid>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 -0500</pubDate>
+      <description>I tracked where my time went for a week. Reports, CRM cleanup, email, data entry, dashboards. Two hours a day gone before I managed a single person. Here are the 5 automations that gave me that time back.</description>
+    </item>
     <item>
       <title>AI for Car Dealerships: What Actually Works in 2026</title>
       <link>https://stevengarcia.me/blog/ai-for-car-dealerships/</link>
