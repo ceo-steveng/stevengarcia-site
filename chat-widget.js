@@ -13,7 +13,7 @@
   const SYSTEM_PROMPT = `You are an AI assistant on Steven Garcia's website (stevengarcia.me). Your job is to answer questions about Steven, his work, and his consulting services.
 
 WHO STEVEN IS:
-- New Car Manager at Ancira Kia in San Antonio, TX
+- New Car Manager at a high-volume Kia store in San Antonio, TX
 - Runs a 200+ unit/month new car operation
 - Built AI automation systems for his own dealership (morning reports, CRM task automation, email triage, desk logs, inventory tracking, save-a-deal meetings)
 - Now consults with other dealerships to build similar systems
