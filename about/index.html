@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Steven Garcia — New Car Manager & AI Automation Builder</title>
+<meta name="description" content="Steven Garcia is a New Car Manager at Ancira Kia in San Antonio, TX running 200+ units/month. Military veteran. He built AI automation systems for dealership operations and now helps other managers do the same.">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/about/">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XKFXV07FHV');
+</script>
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About Steven Garcia — New Car Manager & AI Automation Builder">
+<meta property="og:description" content="New Car Manager at Ancira Kia, San Antonio. 200+ units/month. Military veteran. Built AI automation for dealership operations. Now builds it for other managers.">
+<meta property="og:url" content="https://stevengarcia.me/about/">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:title" content="About Steven Garcia — New Car Manager & AI Automation">
+<meta name="twitter:description" content="New Car Manager at Ancira Kia. 200+ units/month. Built AI systems for dealership operations.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "givenName": "Steven",
+    "familyName": "Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia",
+      "url": "https://www.ancirakia.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX"
+      }
+    },
+    "url": "https://stevengarcia.me",
+    "description": "New Car Manager running 200+ units/month at Ancira Kia. Built AI automation for dealership operations including morning reports, CRM cleanup, email triage, and desk operations.",
+    "knowsAbout": [
+      "Dealership AI Automation",
+      "Automotive Sales Management",
+      "VinSolutions CRM",
+      "BDC Automation",
+      "Dealership Operations"
+    ],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Military Service",
+      "name": "U.S. Military Veteran"
+    },
+    "sameAs": [
+      "https://x.com/ceo_steveng",
+      "https://www.linkedin.com/in/stevengarcia4/",
+      "https://www.instagram.com/ceo.steveng/",
+      "https://www.facebook.com/stevengarcia4",
+      "https://www.youtube.com/@ceosteveng",
+      "https://www.tiktok.com/@ceo_steveng"
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--crimson); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+  .nav-hamburger span { width: 100%; height: 2px; background: var(--white); }
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+  .nav-mobile-menu.show { display: block; }
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── SHARED ── */
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+  .section-h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.5vw, 52px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--white);
+  }
+  .section-h2 em { font-style: normal; color: var(--crimson); }
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid var(--mid);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--white); }
+
+  .section {
+    padding: 88px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ── HERO ── */
+  .about-hero {
+    margin-top: 60px;
+    border-top: 2px solid var(--crimson);
+    padding: 96px 48px 88px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-name-block {}
+  .about-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .about-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 6px;
+  }
+  .about-location {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+  .about-bio {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .about-bio strong { color: var(--white); font-weight: 400; }
+
+  .social-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .social-row a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .social-row a:hover { color: var(--white); }
+
+  /* ── STATS ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    padding: 40px 48px;
+    border-right: 1px solid var(--border);
+    border-top: 2px solid var(--crimson);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  .stat-num .unit { font-size: 22px; color: var(--crimson); font-weight: 600; }
+  .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+  }
+
+  /* ── AIDEN SECTION ── */
+  .aiden-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .aiden-card {
+    background: var(--black);
+    padding: 40px 36px;
+    border-top: 2px solid var(--border);
+    transition: border-color 0.15s;
+  }
+  .aiden-card:hover { border-top-color: var(--crimson); }
+  .aiden-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .aiden-card-desc {
+    font-size: 13px;
+    color: var(--body);
+    line-height: 1.65;
+  }
+
+  /* ── TAGS ── */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--label);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    border-top: 2px solid var(--crimson);
+    padding: 88px 48px;
+    text-align: center;
+  }
+  .cta-section p {
+    font-size: 16px;
+    color: var(--body);
+    max-width: 520px;
+    margin: 20px auto 40px;
+    line-height: 1.75;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--crimson); }
+  .footer-links { display: flex; gap: 32px; list-style: none; }
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .about-hero { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 28px 24px; }
+    .section { padding: 64px 24px; }
+    .aiden-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 64px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">Consulting</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+  <a href="/ai-setup" class="nav-cta">AI Consulting</a>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Consulting</a>
+</div>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-name-block">
+    <div class="about-name">Steven<br>Garcia</div>
+    <div class="about-title">New Car Manager</div>
+    <div class="about-location">Ancira Kia · San Antonio, TX</div>
+  </div>
+  <div>
+    <p class="about-bio">
+      Military veteran. Over a decade in automotive retail. I've run BDC, internet sales, and full new car operations. Currently managing new car sales at <strong>Ancira Kia</strong> in San Antonio, pushing <strong>200+ units a month</strong>.
+    </p>
+    <p class="about-bio">
+      I got tired of spending my mornings pulling reports, clearing CRM tasks, and sorting email instead of being on the floor selling cars. So I started building AI systems that handle the admin automatically. Morning reports land on my phone before I wake up. CRM tasks clear themselves. Email gets triaged. Desk logs get filled. <strong>I got 3 hours of my day back.</strong>
+    </p>
+    <p class="about-bio">
+      That system is called <strong>AIDEN</strong> — it's an AI executive assistant purpose-built for how dealerships actually work. Not some vendor demo. It runs at my store, every day, in production. Now I help other managers build the same thing.
+    </p>
+    <p class="about-bio">
+      Everything on this site — the <a href="/playbook" style="color:var(--crimson);text-decoration:none;">playbook</a>, the <a href="/ai-setup" style="color:var(--crimson);text-decoration:none;">consulting</a>, the <a href="/blog" style="color:var(--crimson);text-decoration:none;">blog</a> — comes from systems I've <strong>built, tested, and run myself</strong>. No theory. No vendor partnerships. Just what works on the floor.
+    </p>
+    <div class="social-row">
+      <a href="https://x.com/ceo_steveng" target="_blank" rel="noopener">𝕏</a>
+      <a href="https://www.linkedin.com/in/stevengarcia4/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/ceo.steveng/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@ceosteveng" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@ceo_steveng" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">10<span class="unit">+</span></div>
+    <div class="stat-label">Years in Automotive</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">200<span class="unit">+</span></div>
+    <div class="stat-label">Units / Month</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3<span class="unit">hrs</span></div>
+    <div class="stat-label">Daily Admin Automated</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10<span class="unit">+</span></div>
+    <div class="stat-label">Automations Running</div>
+  </div>
+</div>
+
+<!-- AIDEN SYSTEM -->
+<section class="section">
+  <div class="eyebrow">The System</div>
+  <h2 class="section-h2">What <em>AIDEN</em> Does</h2>
+  <p style="font-size:15px;color:var(--body);margin-top:12px;margin-bottom:0;max-width:660px;line-height:1.75;">AIDEN is the AI operations layer running my desk. It connects to VinSolutions, vAuto, kDealer, email, and Google Sheets to automate the work that used to eat my mornings. Here's what runs every day:</p>
+  <div class="aiden-grid">
+    <div class="aiden-card">
+      <div class="aiden-card-title">Morning Report</div>
+      <div class="aiden-card-desc">Pulls MTD sales, gross, close rate, NPS, showroom traffic, and inventory data from 4 systems. Builds a PDF. Delivered to my phone by 6:30am.</div>
+    </div>
+    <div class="aiden-card">
+      <div class="aiden-card-title">CRM Task Automation</div>
+      <div class="aiden-card-desc">Reads every pending task in VinSolutions. Auto-clears routine ones, sends re-engagement texts to stale leads, flags deals needing a manager T/O.</div>
+    </div>
+    <div class="aiden-card">
+      <div class="aiden-card-title">Email Triage</div>
+      <div class="aiden-card-desc">Scans inbox 4x daily. Classifies by urgency. Drafts replies for routine items. Surfaces the 3-5 emails that actually need my attention.</div>
+    </div>
+    <div class="aiden-card">
+      <div class="aiden-card-title">Pace Alerts</div>
+      <div class="aiden-card-desc">Monitors MTD pace against objective twice daily. If we're falling behind, I get a notification with the gap and what needs to happen.</div>
+    </div>
+    <div class="aiden-card">
+      <div class="aiden-card-title">Desk Log & Paperwork</div>
+      <div class="aiden-card-desc">Desk log auto-filled from sold data. Dealer trade worksheets generated from invoice PDFs. Zero manual typing.</div>
+    </div>
+    <div class="aiden-card">
+      <div class="aiden-card-title">Content Engine</div>
+      <div class="aiden-card-desc">Weekly social content batches generated from real dealership data and insights. Written in my voice, ready to post across X, Instagram, and Facebook.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="section">
+  <div class="eyebrow">Background</div>
+  <h2 class="section-h2">The <em>Short</em> Version</h2>
+  <div style="max-width:660px;margin-top:32px;">
+    <p class="about-bio">
+      Started in the military. Learned discipline, systems thinking, and how to lead people who don't want to be led. Transitioned to automotive retail and spent the next decade working every role — BDC agent, internet director, finance, new car manager.
+    </p>
+    <p class="about-bio">
+      At Ancira Kia, I took over new car operations and built the team and process to push past 200 units a month. But the admin was killing me. Reports, emails, CRM tasks, desk logs — hours of work that didn't sell a single car.
+    </p>
+    <p class="about-bio">
+      So I started building. First the morning report. Then CRM automation. Then email triage. Then pace alerts, desk logs, content generation, paperwork automation. Piece by piece, I built an AI system that handles the admin so I can stay on the floor.
+    </p>
+    <p class="about-bio">
+      Other managers started asking how I did it. That's where the <a href="/playbook" style="color:var(--crimson);text-decoration:none;">playbook</a> and <a href="/ai-setup" style="color:var(--crimson);text-decoration:none;">consulting</a> came from — not from a business plan, but from other people in the business saying <strong>"build that for me."</strong>
+    </p>
+  </div>
+  <div class="tag-row">
+    <span class="tag">VinSolutions</span>
+    <span class="tag">n8n</span>
+    <span class="tag">AI Automation</span>
+    <span class="tag">Browser Automation</span>
+    <span class="tag">Supabase</span>
+    <span class="tag">Dealership Ops</span>
+    <span class="tag">Military Veteran</span>
+    <span class="tag">Sales Process</span>
+    <span class="tag">Claude AI</span>
+    <span class="tag">Playwright</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="eyebrow">What's Next</div>
+  <h2 class="section-h2">Want the Same <em>System?</em></h2>
+  <p>I'm taking on a limited number of consulting clients. If you're a dealership manager drowning in admin, let's talk about what AI can take off your plate.</p>
+  <div class="cta-buttons">
+    <a href="/ai-setup" class="btn-primary">AI Consulting</a>
+    <a href="/playbook" class="btn-outline">Get the Playbook — $297</a>
+    <a href="/blog" class="btn-outline">Read the Blog</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">Consulting</a></li>
+    <li><a href="https://x.com/ceo_steveng">𝕏</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Steven Garcia · Last updated March 2026</div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('show');
+}
+</script>
+
+<script src="/chat-widget.js" defer></script>
+</body>
+</html>
