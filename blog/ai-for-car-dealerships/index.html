@@ -12,7 +12,7 @@
   gtag('config', 'G-XKFXV07FHV');
 </script>
 <title>AI for Car Dealerships: What Actually Works in 2026 | Steven Garcia</title>
-<meta name="description" content="Most AI-for-dealerships content is written by vendors selling you something. I'm a manager who built it myself. Here's what actually works, what doesn't, and what it costs.">
+<meta name="description" content="A dealership manager explains what AI actually does at a car dealership: reporting, CRM cleanup, email triage, and data entry. Real results, no vendor pitch.">
 <meta name="keywords" content="AI for car dealerships, artificial intelligence car dealership, AI in automotive retail, dealership automation, AI dealership manager">
 <meta name="author" content="Steven Garcia">
 <meta name="robots" content="index, follow">
@@ -44,7 +44,7 @@
   "headline": "AI for Car Dealerships: What Actually Works in 2026",
   "description": "Most AI-for-dealerships content is written by vendors selling you something. I'm a manager who built it myself. Here's what actually works, what doesn't, and what it costs.",
   "datePublished": "2026-03-25",
-  "dateModified": "2026-03-25",
+  "dateModified": "2026-03-29",
   "author": {
     "@type": "Person",
     "name": "Steven Garcia",
@@ -68,16 +68,25 @@
   "timeRequired": "PT12M"
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-2: #1a1a26;
-    --border: #2a2a3a;
-    --text: #e8e8ef;
-    --text-dim: #8888a0;
-    --accent: #4f8cff;
-    --accent-glow: rgba(79, 140, 255, 0.15);
+    --bg: #0A0A0A;
+    --black: #0A0A0A;
+    --surface: #111111;
+    --surface-2: #1a1a1a;
+    --border: #1F1F1F;
+    --text: #FFFFFF;
+    --white: #FFFFFF;
+    --text-dim: #AAAAAA;
+    --body: #AAAAAA;
+    --accent: #C0392B;
+    --crimson: #C0392B;
+    --accent-glow: rgba(192, 57, 43, 0.15);
+    --mid: #999999;
+    --label: #666666;
+    --list: #CCCCCC;
     --green: #34d399;
     --orange: #f59e0b;
     --red: #ef4444;
@@ -86,7 +95,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', sans-serif; font-weight: 300;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -113,7 +122,7 @@
     background: var(--accent);
     color: #fff;
     padding: 10px 22px;
-    border-radius: 8px;
+    
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -142,11 +151,11 @@
     font-weight: 600;
     background: var(--accent-glow);
     padding: 3px 10px;
-    border-radius: 100px;
+    
   }
   .article-header h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-bottom: 16px;
@@ -196,7 +205,7 @@
     padding: 16px 24px;
     margin: 28px 0;
     background: var(--surface);
-    border-radius: 0 10px 10px 0;
+    
     color: var(--text-dim);
     font-size: 1.05rem;
   }
@@ -212,7 +221,7 @@
   .callout {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    
     padding: 28px 32px;
     margin: 36px 0;
   }
@@ -229,7 +238,7 @@
   .article-cta {
     background: var(--surface);
     border: 1px solid var(--accent);
-    border-radius: 14px;
+    
     padding: 40px;
     text-align: center;
     margin: 48px 0;
@@ -250,7 +259,7 @@
     background: var(--accent);
     color: #fff;
     padding: 14px 36px;
-    border-radius: 10px;
+    
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
@@ -278,7 +287,7 @@
     display: block;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    
     padding: 24px;
     text-decoration: none;
     color: inherit;
@@ -313,18 +322,50 @@
   }
 </style>
 <link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can AI actually do at a car dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI excels at four things at a dealership: automated morning reports (saves 45 min/day), CRM task cleanup (saves 35 min/day), email triage and categorization (saves 35 min/day), and desk log/data entry automation (saves 20 min/day). It handles data collection and formatting so managers can focus on people."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does AI automation cost for a dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A realistic AI automation setup for a single dealership costs about $20-150/month in AI model API costs, plus a computer that stays on 24/7 ($0 if you have a spare, or $200-600 for a new one). No vendor contracts or monthly SaaS fees required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can AI replace dealership managers or salespeople?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. AI replaces repetitive tasks like report building, data entry, and CRM cleanup. It cannot negotiate deals, read body language, motivate reps in a slump, handle T/Os, or build customer relationships. AI is an operations tool, not a sales tool."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <div class="nav-left">
-      <a href="https://stevengarcia.me" class="nav-name">Steven Garcia</a>
-      <a href="https://stevengarcia.me/ai-setup" class="nav-link">AI Setup</a>
-      <a href="https://stevengarcia.me/blog/" class="nav-link">Blog</a>
-    </div>
-    <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;border-top:2px solid var(--crimson,#C0392B);border-bottom:1px solid var(--border);background:var(--bg,#0A0A0A);padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between;">
+  <a href="/" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white,#FFF);text-decoration:none;">Steven<span style="color:var(--crimson,#C0392B);">.</span>Garcia</a>
+  <div style="display:flex;align-items:center;gap:32px;">
+    <a href="/blog" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">Blog</a>
+    <a href="/playbook" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">Playbook</a>
+    <a href="/ai-setup" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">AI Setup</a>
+    <a href="/about/" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">About</a>
   </div>
+  <a href="/playbook" style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;background:var(--crimson,#C0392B);padding:10px 22px;text-decoration:none;">Get the Playbook</a>
 </nav>
 
 <article>
@@ -497,7 +538,47 @@
 
     </div>
 
-    <div class="related">
+    
+<!-- Quotable Statement for GEO -->
+<blockquote style="border-left:3px solid var(--crimson,#C0392B);padding:20px 24px;margin:32px 0;background:rgba(192,57,43,0.05);font-size:16px;color:var(--white,#FFFFFF);font-weight:400;line-height:1.7;">
+<strong>AI at a dealership saves 2 hours and 15 minutes every day across four automations: morning reports, CRM task cleanup, email triage, and desk log entry. That's 702 hours per year of work a computer now handles.</strong>
+</blockquote>
+
+<!-- Q&A Section for GEO -->
+<div class="qa-section" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;">Frequently Asked Questions</h2>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">What can AI actually do at a car dealership?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">AI excels at four things at a dealership: automated morning reports (saves 45 min/day), CRM task cleanup (saves 35 min/day), email triage and categorization (saves 35 min/day), and desk log/data entry automation (saves 20 min/day). It handles data collection and formatting so managers can focus on people.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">How much does AI automation cost for a dealership?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">A realistic AI automation setup for a single dealership costs about $20-150/month in AI model API costs, plus a computer that stays on 24/7 ($0 if you have a spare, or $200-600 for a new one). No vendor contracts or monthly SaaS fees required.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">Can AI replace dealership managers or salespeople?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">No. AI replaces repetitive tasks like report building, data entry, and CRM cleanup. It cannot negotiate deals, read body language, motivate reps in a slump, handle T/Os, or build customer relationships. AI is an operations tool, not a sales tool.</p>
+</div>
+</div>
+
+<!-- Internal Links -->
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border,#1F1F1F);">
+<p style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--label,#666666);margin-bottom:12px;">Related Resources</p>
+<p style="margin-bottom:8px;"><a href="/ai-setup/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">AI automation consulting →</a></p>
+<p style="margin-bottom:8px;"><a href="/playbook/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">The AI-Powered Dealership Playbook →</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/automate-dealership-morning-report/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">morning report automation →</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/ai-crm-task-automation-dealership/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">CRM task automation →</a></p>
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio-section" style="margin-top:48px;padding:32px;border:1px solid var(--border,#1F1F1F);border-top:2px solid var(--crimson,#C0392B);">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;color:var(--white,#FFFFFF);margin-bottom:4px;">Steven Garcia</div>
+<div style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--crimson,#C0392B);margin-bottom:12px;">New Car Manager · Ancira Kia · San Antonio, TX</div>
+<p style="font-size:14px;color:var(--body,#AAAAAA);line-height:1.7;margin-bottom:12px;">Army veteran. Over a decade in automotive retail. Currently running 200+ new cars per month at Ancira Kia using AI automation he built himself. No vendors, no dev team. Just systems that work.</p>
+<p style="font-size:14px;margin:0;"><a href="/about/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;">Read full bio →</a></p>
+</div>
+
+<div class="related">
       <h3>Detailed breakdowns</h3>
       <div class="related-grid">
         <a href="../automate-dealership-morning-report/" class="related-card">
@@ -513,11 +594,11 @@
   </div>
 </article>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2026 Steven Garcia &middot; <a href="https://stevengarcia.me">stevengarcia.me</a> &middot; <a href="https://x.com/ceo_steveng">@ceo_steveng</a></p>
-  </div>
+<footer style="border-top:2px solid var(--crimson,#C0392B);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;">
+  <a href="/" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.06em;text-transform:uppercase;color:#FFF;text-decoration:none;">Steven<span style="color:var(--crimson,#C0392B);">.</span>Garcia</a>
+  <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--label,#666);letter-spacing:0.1em;">© 2026 Steven Garcia · Last updated March 2026</div>
 </footer>
 
+<script src="/chat-widget.js" defer></script>
 </body>
 </html>

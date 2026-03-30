@@ -6,17 +6,22 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');
 document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&a.href){if(a.href.includes('gumroad.com')){gtag('event','playbook_click',{event_category:'conversion',event_label:a.textContent.trim(),value:297});}}});</script>
-<title>The AI-Powered Dealership Playbook — Steven Garcia</title>
-<meta name="description" content="The exact system a 200+ unit manager uses to automate morning reports, enforce process, and close more deals — without adding headcount. $297.">
+<title>The AI-Powered Dealership Playbook: AI Automation for Car Dealers | Steven Garcia</title>
+<meta name="description" content="The dealership playbook for AI automation. 55+ pages, 13 chapters, 8 production-ready prompts. Written by the manager running 200+ units/month with AI. $297.">
+<meta name="keywords" content="dealership playbook, AI automation dealership, car dealer AI playbook, dealership morning report, CRM automation, VinSolutions automation, dealership management playbook">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://stevengarcia.me/playbook/">
 <meta property="og:title" content="The AI-Powered Dealership Playbook — $297">
-<meta property="og:description" content="55+ pages. 13 chapters. 8 production-ready AI prompts. The system a 200+ unit manager uses to automate morning reports, enforce process, and close more deals.">
+<meta property="og:description" content="55+ pages. 13 chapters. 8 production-ready AI prompts. The dealership playbook for AI automation, written by a manager running 200+ units/month.">
 <meta property="og:type" content="product">
 <meta property="og:url" content="https://stevengarcia.me/playbook/">
 <meta property="og:image" content="https://stevengarcia.me/og-playbook.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
 <meta name="twitter:title" content="The AI-Powered Dealership Playbook — $297">
-<meta name="twitter:description" content="55+ pages. 13 chapters. 8 copy-paste AI prompts. The system a 200+ unit manager uses to automate morning reports, enforce process, and close more deals.">
+<meta name="twitter:description" content="55+ pages. 13 chapters. 8 copy-paste AI prompts. The dealership playbook for AI automation from a manager running 200+ units/month.">
 <meta name="twitter:image" content="https://stevengarcia.me/og-playbook.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -59,6 +64,13 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
     color: var(--white); text-decoration: none;
   }
   .nav-logo span { color: var(--crimson); }
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+  .nav-link {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid);
+    text-decoration: none; transition: color 0.15s;
+  }
+  .nav-link:hover { color: var(--white); }
   .nav-cta {
     font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--white);
@@ -67,52 +79,24 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   }
   .nav-cta:hover { opacity: 0.85; }
 
-  /* Hamburger menu for mobile */
   .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    width: 24px;
-    height: 18px;
-    justify-content: space-between;
+    display: none; flex-direction: column; cursor: pointer;
+    width: 24px; height: 18px; justify-content: space-between;
   }
-
-  .nav-hamburger span {
-    width: 100%;
-    height: 2px;
-    background: var(--white);
-    transition: 0.3s;
-  }
+  .nav-hamburger span { width: 100%; height: 2px; background: var(--white); transition: 0.3s; }
 
   .nav-mobile-menu {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--black);
-    border-bottom: 1px solid var(--border);
-    display: none;
-    padding: 20px;
-    z-index: 199;
+    position: fixed; top: 60px; left: 0; right: 0;
+    background: var(--black); border-bottom: 1px solid var(--border);
+    display: none; padding: 20px; z-index: 199;
   }
-
-  .nav-mobile-menu.show {
-    display: block;
-  }
-
+  .nav-mobile-menu.show { display: block; }
   .nav-mobile-menu a {
-    display: block;
-    padding: 12px 0;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
+    display: block; padding: 12px 0;
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid);
+    text-decoration: none; border-bottom: 1px solid var(--border);
   }
-
   .nav-mobile-menu a:hover { color: var(--white); }
 
   /* HERO */
@@ -194,6 +178,26 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   p { font-size: 15px; color: var(--body); line-height: 1.8; margin-bottom: 16px; }
   p strong { color: var(--white); font-weight: 400; }
 
+  /* SOCIAL PROOF BAR */
+  .proof-bar {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 40px auto; max-width: 900px;
+  }
+  .proof-card {
+    background: var(--black); padding: 32px; text-align: center;
+    border-top: 2px solid var(--crimson);
+  }
+  .proof-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 48px; color: var(--white); line-height: 1; margin-bottom: 8px;
+  }
+  .proof-num .sym { font-size: 24px; color: var(--crimson); }
+  .proof-label {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--label);
+  }
+
   /* PAIN POINTS */
   .pain-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
@@ -252,10 +256,6 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   .ch-desc { font-size: 13px; color: var(--body); line-height: 1.6; margin: 0; }
 
   /* ROI BOX */
-  .roi-box {
-    border: 1px solid var(--border); border-top: 2px solid var(--crimson);
-    padding: 48px; margin: 40px 0; text-align: center;
-  }
   .roi-num {
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
     font-size: 64px; color: var(--white); line-height: 1; margin-bottom: 8px;
@@ -265,7 +265,6 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
     font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--label); margin-bottom: 20px;
   }
-  .roi-desc { font-size: 15px; color: var(--body); max-width: 500px; margin: 0 auto; }
 
   /* WHO THIS IS FOR */
   .for-grid {
@@ -283,7 +282,24 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   .for-no li::before { content: '✗'; color: var(--label); }
   .for-no li { color: var(--label); }
 
-  /* ABOUT AUTHOR */
+  /* OBJECTION GRID */
+  .objection-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 32px 0;
+  }
+  .objection-card {
+    background: var(--black); padding: 32px;
+    border-top: 2px solid var(--crimson);
+  }
+  .objection-q {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 16px; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .objection-a { font-size: 14px; color: var(--body); line-height: 1.7; margin: 0; }
+
+  /* AUTHOR BOX */
   .author-box {
     border: 1px solid var(--border); border-top: 2px solid var(--crimson);
     padding: 48px; display: flex; gap: 40px; align-items: flex-start;
@@ -314,6 +330,55 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
     border-bottom: 1px solid var(--border);
   }
 
+  /* URGENCY BAR */
+  .urgency-bar {
+    background: rgba(192, 57, 43, 0.08);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    padding: 16px 32px; text-align: center;
+    margin: 24px auto 0; max-width: 600px;
+  }
+  .urgency-bar p {
+    font-size: 13px; color: var(--white); margin: 0;
+    letter-spacing: 0.05em;
+  }
+  .urgency-bar strong { color: var(--crimson); font-weight: 500; }
+
+  /* PRICE ANCHOR */
+  .anchor-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  .anchor-card {
+    background: var(--black); padding: 32px; text-align: center;
+  }
+  .anchor-compare {
+    font-size: 13px; color: var(--label); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .anchor-val {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 36px; color: var(--white); margin-bottom: 4px;
+  }
+  .anchor-val .sym { color: var(--crimson); font-size: 18px; }
+  .anchor-desc { font-size: 12px; color: var(--body); }
+
+  /* MID CTA */
+  .mid-cta {
+    text-align: center; padding: 48px; margin: 0;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* FAQ */
+  .faq-item { padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .faq-q {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 18px; text-transform: uppercase; letter-spacing: 0.03em;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .faq-a { font-size: 14px; color: var(--body); line-height: 1.7; margin: 0; }
+
   /* FOOTER */
   footer {
     border-top: 2px solid var(--crimson);
@@ -338,31 +403,89 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
     .pain-grid { grid-template-columns: 1fr; }
     .chapter-grid { grid-template-columns: 1fr; }
     .for-grid { grid-template-columns: 1fr; gap: 24px; }
+    .objection-grid { grid-template-columns: 1fr; }
+    .anchor-grid { grid-template-columns: 1fr; }
+    .proof-bar { grid-template-columns: 1fr; }
     .author-box { flex-direction: column; }
     .cta-section { padding: 64px 24px; }
+    .mid-cta { padding: 48px 24px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .price-hero .amount { font-size: 48px; }
   }
 </style>
+
+<!-- Product Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "The AI-Powered Dealership Playbook",
-  "description": "The exact system a 200+ unit manager uses to automate morning reports, enforce process, and close more deals — without adding headcount.",
+  "description": "The complete dealership playbook for AI automation. 55+ pages, 13 chapters, 8 production-ready AI prompts. Written by a New Car Manager running 200+ units/month with AI automation.",
+  "image": "https://stevengarcia.me/og-playbook.png",
   "brand": {
     "@type": "Person",
-    "name": "Steven Garcia"
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia"
+    },
+    "url": "https://stevengarcia.me/about/"
   },
+  "category": "Business & Automotive",
   "offers": {
     "@type": "Offer",
     "price": "297",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://stevencoach4.gumroad.com/l/dealership-playbook"
+    "url": "https://stevencoach4.gumroad.com/l/dealership-playbook",
+    "priceValidUntil": "2026-12-31"
   }
 }
 </script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this playbook for my size dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The playbook was built at a 200+ unit store, but the frameworks scale down to 50-unit stores and up to 500+ unit groups. The automations work with the same tools most dealerships already use: VinSolutions, vAuto, kDealer, Google Sheets, and email."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will this work with my CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The playbook covers VinSolutions in detail, but the frameworks (morning report, task triage, follow-up automation) apply to any CRM. The AI prompts work with any browser-based CRM. DealerSocket, ELEAD, and DealerTrack users have successfully adapted the system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I'm not technical?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You don't need to code. The playbook includes 8 copy-paste AI prompts you can use directly in Claude or ChatGPT. The 4-week implementation roadmap starts with the simplest automation (morning report) and builds from there. If you can use a spreadsheet, you can use this playbook."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between the playbook and the consulting service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The playbook ($297) gives you the complete system: frameworks, templates, prompts, and a 4-week roadmap to build it yourself. The consulting service ($1,000-$7,500) means Steven builds the automations for your store, customized to your tools and workflows."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
 </head>
 <body>
@@ -370,9 +493,11 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
-  <div style="display:flex;align-items:center;gap:32px;" class="nav-right">
-    <a href="/ai-setup" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mid);text-decoration:none;" class="nav-link-inline">AI Setup</a>
-    <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="nav-cta">Get the Playbook — $297</a>
+  <div class="nav-right">
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/ai-setup" class="nav-link">AI Setup</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="nav-cta">Buy Now — $297</a>
   </div>
   <div class="nav-hamburger" onclick="toggleMobileMenu()">
     <span></span>
@@ -382,24 +507,44 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
 </nav>
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="/">Home</a>
-  <a href="/ai-setup">AI Setup</a>
   <a href="/blog">Blog</a>
-  <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" style="color:var(--white);background:var(--crimson);text-align:center;margin-top:8px;padding:14px 0;">Get the Playbook — $297</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/about/">About</a>
+  <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" style="color:var(--white);background:var(--crimson);text-align:center;margin-top:8px;padding:14px 0;">Buy Now — $297</a>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="eyebrow">Digital Product</div>
-  <h1>The AI-Powered<br>Dealership <em>Playbook</em></h1>
+  <div class="eyebrow">Written by the manager running 200+ units/month with AI</div>
+  <h1>The <em>Dealership Playbook</em><br>for AI <em>Automation</em></h1>
   <p class="hero-sub">
-    The exact system I use to run morning reports, automate BDC follow-up, enforce process, and close more units — <strong>without adding headcount.</strong>
+    The exact system I use to automate morning reports, clean up 847 CRM tasks, enforce follow-up process, and close more units — <strong>without adding headcount or buying vendor software.</strong>
   </p>
   <div class="price-hero">
     <span class="currency">$</span>
     <span class="amount">297</span>
   </div>
-  <div class="price-note">One-time purchase · Instant PDF download · 55+ pages</div>
+  <div class="price-note">One-time purchase · Instant PDF download · 55+ pages · Free lifetime updates</div>
   <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="btn-primary large">Buy Now — Instant Download</a>
+  <div class="urgency-bar">
+    <p><strong>Includes free updates for life.</strong> Price increases when V3 launches.</p>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-bar">
+  <div class="proof-card">
+    <div class="proof-num">200<span class="sym">+</span></div>
+    <div class="proof-label">Units Per Month</div>
+  </div>
+  <div class="proof-card">
+    <div class="proof-num">3<span class="sym">hrs</span></div>
+    <div class="proof-label">Daily Admin Eliminated</div>
+  </div>
+  <div class="proof-card">
+    <div class="proof-num">790</div>
+    <div class="proof-label">CRM Tasks Auto-Cleared</div>
+  </div>
 </div>
 
 <!-- THE PROBLEM -->
@@ -441,6 +586,16 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   </p>
 </div>
 
+<!-- CTA #2 -->
+<div class="mid-cta">
+  <div class="price-hero">
+    <span class="currency">$</span>
+    <span class="amount">297</span>
+  </div>
+  <div class="price-note" style="margin-bottom:24px;">Less than one deal's front gross. The cost of 2 hours with a consultant.</div>
+  <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="btn-primary large">Buy the Playbook — $297</a>
+</div>
+
 <!-- WHAT YOU GET -->
 <div class="section">
   <div class="section-eyebrow">What's Inside</div>
@@ -460,9 +615,9 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
     <li><span class="num">08</span><span><strong>10-Category Performance Review Scorecard</strong> — Consistent, data-driven, tied to consequences. Same 10 categories for every rep, every month. A through F.</span></li>
     <li><span class="num">09</span><span><strong>Complete Pay Plan Architecture</strong> — 30% commission base, tiered spiffs, fast-start bonuses, employment minimums, and bonus qualifiers that force the right behaviors.</span></li>
     <li><span class="num">10</span><span><strong>4-Week Implementation Roadmap</strong> — Not "someday." Week by week. What to build, in what order, with realistic expectations for each phase.</span></li>
-    <li><span class="num">11</span><span><strong>8 Production-Ready AI Prompts</strong> — Copy these directly into Claude or ChatGPT. Morning report, save-a-deal, CRM sorting, SMS generation, performance reviews, desk log, EOD journal, appointment confirmations. The exact instructions that power the system.</span></li>
-    <li><span class="num">12</span><span><strong>System Architecture Guide</strong> — How the five layers connect: access, extraction, processing, output, delivery. With a visual diagram and a practical walkthrough of how your morning actually works.</span></li>
-    <li><span class="num">13</span><span><strong>90-Day Results</strong> — Honest before-and-after. Time saved, deals recovered, CRM tasks eliminated, NPS trajectory. What actually changed after building the system.</span></li>
+    <li><span class="num">11</span><span><strong>8 Production-Ready AI Prompts</strong> — Copy these directly into Claude or ChatGPT. Morning report, save-a-deal, CRM sorting, SMS generation, performance reviews, desk log, EOD journal, appointment confirmations.</span></li>
+    <li><span class="num">12</span><span><strong>System Architecture Guide</strong> — How the five layers connect: access, extraction, processing, output, delivery. With a visual diagram and practical walkthrough.</span></li>
+    <li><span class="num">13</span><span><strong>90-Day Results</strong> — Honest before-and-after. Time saved, deals recovered, CRM tasks eliminated, NPS trajectory. What actually changed.</span></li>
   </ol>
 </div>
 
@@ -490,15 +645,30 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   </div>
 </div>
 
-<!-- ROI -->
+<!-- PRICE ANCHORING -->
 <div class="section" style="text-align:center;">
   <div class="section-eyebrow">The Math</div>
-  <h2>What This System Is <em>Worth</em></h2>
-  <p style="max-width:600px;margin:0 auto 40px;">
-    One extra deal per month from better follow-up. One pending finance deal that doesn't fall through. One be-back that comes in because the Save-a-Deal meeting caught them.
-  </p>
+  <h2>What <em>$297</em> Gets You</h2>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);">
+  <div class="anchor-grid">
+    <div class="anchor-card" style="border-top:2px solid var(--crimson);">
+      <div class="anchor-compare">The Playbook</div>
+      <div class="anchor-val"><span class="sym">$</span>297</div>
+      <div class="anchor-desc">Complete system. Yours forever. Free updates.</div>
+    </div>
+    <div class="anchor-card">
+      <div class="anchor-compare">2 Hours With a Consultant</div>
+      <div class="anchor-val"><span class="sym">$</span>500<span class="sym">+</span></div>
+      <div class="anchor-desc">Generic advice. No templates. No prompts.</div>
+    </div>
+    <div class="anchor-card">
+      <div class="anchor-compare">One Deal's Front Gross</div>
+      <div class="anchor-val"><span class="sym">$</span>3-5K</div>
+      <div class="anchor-desc">One recovered deal pays for the playbook 10x.</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:32px;">
     <div style="background:var(--black);padding:40px;text-align:center;border-top:2px solid var(--crimson);">
       <div class="roi-num"><span class="currency">$</span>3-5K</div>
       <div class="roi-label">Per recovered deal</div>
@@ -516,6 +686,52 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   <p style="margin-top:32px;text-align:center;">
     Conservatively, this system is worth <strong>$10,000 to $20,000 per month</strong> in recovered revenue and operational efficiency. You're paying $297 for the blueprint. The ROI hits in the first week.
   </p>
+</div>
+
+<!-- CTA #3 -->
+<div class="mid-cta">
+  <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="btn-primary large">Get the Playbook — $297</a>
+  <p style="font-size:12px;color:var(--label);margin-top:16px;letter-spacing:0.1em;">Secure checkout via Gumroad. Instant PDF delivery.</p>
+</div>
+
+<!-- OBJECTION HANDLING -->
+<div class="section">
+  <div class="section-eyebrow">Common Questions</div>
+  <h2>Before You <em>Decide</em></h2>
+
+  <div class="objection-grid">
+    <div class="objection-card">
+      <div class="objection-q">"Is this for my size dealership?"</div>
+      <div class="objection-a">Built at a 200+ unit store, but the frameworks scale. Whether you're running 50 units or 500, the morning report, task triage, and follow-up systems work the same. The tools are the same ones you already have.</div>
+    </div>
+    <div class="objection-card">
+      <div class="objection-q">"Will this work with my CRM?"</div>
+      <div class="objection-a">The playbook covers VinSolutions in detail, but the frameworks apply to any CRM. DealerSocket, ELEAD, DealerTrack users have adapted the system. The AI prompts work with any browser-based CRM.</div>
+    </div>
+    <div class="objection-card">
+      <div class="objection-q">"What if I'm not technical?"</div>
+      <div class="objection-a">You don't need to code. The playbook includes 8 copy-paste prompts for Claude or ChatGPT. Start with the morning report (week 1 of the roadmap) and build from there. If you can use a spreadsheet, you can use this.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;">
+    <div class="faq-item">
+      <div class="faq-q">What format is the playbook?</div>
+      <div class="faq-a">PDF. 55+ pages, formatted for both screen reading and printing. Delivered instantly to your email via Gumroad after purchase.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I get updates?</div>
+      <div class="faq-a">Yes. Free lifetime updates. When new chapters, prompts, or frameworks are added, you get the updated PDF automatically through Gumroad. Currently on V2.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I want someone to build it for me?</div>
+      <div class="faq-a">That's the consulting service. <a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;">Book a free call</a> and I'll audit your operation, map your data sources, and build the automations for your store. Starts at $1,000.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a refund policy?</div>
+      <div class="faq-a">Digital product, so no refunds. But the 4-week roadmap is designed so you see results by week 1 (morning report alone saves 30+ minutes daily). If you implement chapter 3 and it doesn't save you time, email me.</div>
+    </div>
+  </div>
 </div>
 
 <!-- WHO THIS IS FOR -->
@@ -562,7 +778,22 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
       <p class="author-bio">
         Army veteran. Over a decade in automotive retail. Currently running 200+ units per month at Ancira Kia. Built every system in this playbook himself, using AI tools available to anyone. No vendor contracts. No development team. Just a manager who got tired of spending his first two hours every morning on reports instead of revenue.
       </p>
+      <p style="margin-top:12px;"><a href="/about/" style="color:var(--crimson);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;">Read full bio →</a></p>
     </div>
+  </div>
+</div>
+
+<!-- READ MORE -->
+<div class="section">
+  <div class="section-eyebrow">From the Blog</div>
+  <h2>See the System in <em>Action</em></h2>
+  <p>These articles break down individual parts of the playbook. The playbook gives you the complete system with implementation details, templates, and prompts.</p>
+  <div style="margin-top:24px;">
+    <p style="margin-bottom:12px;"><a href="/blog/how-i-use-ai-to-run-200-unit-store/" style="color:var(--crimson);text-decoration:none;">How I Use AI to Run a 200-Unit Kia Store →</a></p>
+    <p style="margin-bottom:12px;"><a href="/blog/automate-dealership-morning-report/" style="color:var(--crimson);text-decoration:none;">How I Automated My Morning Report →</a></p>
+    <p style="margin-bottom:12px;"><a href="/blog/ai-crm-task-automation-dealership/" style="color:var(--crimson);text-decoration:none;">I Had 847 CRM Tasks. AI Cleared 790. →</a></p>
+    <p style="margin-bottom:12px;"><a href="/blog/save-a-deal-meeting-format/" style="color:var(--crimson);text-decoration:none;">The Save-a-Deal Meeting Format →</a></p>
+    <p style="margin-bottom:12px;"><a href="/blog/vinsolutions-automation-stack/" style="color:var(--crimson);text-decoration:none;">The VinSolutions Automation Stack →</a></p>
   </div>
 </div>
 
@@ -571,10 +802,10 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   <div class="section-eyebrow">Go Further</div>
   <h2>Want Me to Build It <em>With</em> You?</h2>
   <p style="max-width:560px;margin:0 auto 32px;">
-    90-minute 1-on-1 strategy call. We audit your operation, map your data sources, and build a custom implementation plan for your store. <strong>$500.</strong>
+    The playbook teaches the system. The consulting service builds it. I'll audit your operation, map your data sources, and deploy the automations for your store.
   </p>
   <p style="max-width:560px;margin:0 auto 32px;font-size:14px;">
-    <a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;">Book a free call →</a> or email <strong style="color:var(--crimson);">coachstevengarcia@gmail.com</strong> with "Playbook Implementation" in the subject line. Limited availability — I run a store full-time.
+    <a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;">See consulting packages →</a> or email <strong style="color:var(--crimson);">coachstevengarcia@gmail.com</strong>
   </p>
 </div>
 
@@ -583,24 +814,26 @@ document.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&
   <div class="eyebrow" style="margin-bottom:20px;">Get the Playbook</div>
   <h2 style="margin-bottom:8px;">Stop Building Reports.<br>Start <em>Reading</em> Them.</h2>
   <p style="max-width:500px;margin:0 auto 40px;">
-    55+ pages. 13 chapters. 8 copy-paste AI prompts. 8 SMS templates. The complete system to automate your morning, clean up your CRM, enforce process, and get back on the floor.
+    55+ pages. 13 chapters. 8 copy-paste AI prompts. 8 SMS templates. The complete dealership playbook for AI automation. Free lifetime updates included.
   </p>
   <div class="price-hero">
     <span class="currency">$</span>
     <span class="amount">297</span>
   </div>
-  <div class="price-note">One-time purchase · Instant PDF download</div>
-  <!-- REPLACE THIS HREF WITH YOUR GUMROAD PRODUCT URL -->
+  <div class="price-note">One-time purchase · Instant PDF download · Free updates for life</div>
   <a href="https://stevencoach4.gumroad.com/l/dealership-playbook" class="btn-primary large" id="buy-button">Buy Now — $297 Instant Download</a>
   <p style="font-size:12px;color:var(--label);margin-top:24px;letter-spacing:0.1em;">
     Secure checkout via Gumroad. Instant delivery to your email.
   </p>
+  <div class="urgency-bar" style="margin-top:24px;">
+    <p><strong>Currently V2.</strong> Price increases when V3 launches. Buy now, get every update free.</p>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
-  <div class="footer-copy">&copy; 2026 Steven Garcia. All rights reserved.</div>
+  <div class="footer-copy">&copy; 2026 Steven Garcia. All rights reserved. · Last updated March 2026</div>
 </footer>
 
 <script>

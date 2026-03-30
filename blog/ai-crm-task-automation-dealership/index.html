@@ -12,7 +12,7 @@
   gtag('config', 'G-XKFXV07FHV');
 </script>
 <title>I Had 847 CRM Tasks. AI Cleared 790 of Them. | Steven Garcia</title>
-<meta name="description" content="Every dealership manager knows the VinSolutions task wall. 847 tasks, most are noise. My AI clears the junk, texts cold leads, and flags the real ones. Here's how.">
+<meta name="description" content="How a dealership manager built AI to auto-clear 790 of 847 VinSolutions CRM tasks, send re-engagement texts to cold leads, and surface only real opportunities.">
 <meta name="keywords" content="VinSolutions task automation, CRM task automation car dealer, automate CRM tasks dealership, VinSolutions automation, dealership AI automation">
 <meta name="author" content="Steven Garcia">
 <meta name="robots" content="index, follow">
@@ -44,7 +44,7 @@
   "headline": "I Had 847 CRM Tasks. AI Cleared 790 of Them.",
   "description": "How I built an AI system to auto-clear routine CRM tasks in VinSolutions, send re-engagement texts to cold leads, and flag only the tasks that need a human.",
   "datePublished": "2026-03-18",
-  "dateModified": "2026-03-18",
+  "dateModified": "2026-03-29",
   "author": {
     "@type": "Person",
     "name": "Steven Garcia",
@@ -68,16 +68,25 @@
   "timeRequired": "PT7M"
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-2: #1a1a26;
-    --border: #2a2a3a;
-    --text: #e8e8ef;
-    --text-dim: #8888a0;
-    --accent: #4f8cff;
-    --accent-glow: rgba(79, 140, 255, 0.15);
+    --bg: #0A0A0A;
+    --black: #0A0A0A;
+    --surface: #111111;
+    --surface-2: #1a1a1a;
+    --border: #1F1F1F;
+    --text: #FFFFFF;
+    --white: #FFFFFF;
+    --text-dim: #AAAAAA;
+    --body: #AAAAAA;
+    --accent: #C0392B;
+    --crimson: #C0392B;
+    --accent-glow: rgba(192, 57, 43, 0.15);
+    --mid: #999999;
+    --label: #666666;
+    --list: #CCCCCC;
     --green: #34d399;
     --orange: #f59e0b;
     --red: #ef4444;
@@ -86,7 +95,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', sans-serif; font-weight: 300;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
@@ -113,7 +122,7 @@
     background: var(--accent);
     color: #fff;
     padding: 10px 22px;
-    border-radius: 8px;
+    
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -142,11 +151,11 @@
     font-weight: 600;
     background: var(--accent-glow);
     padding: 3px 10px;
-    border-radius: 100px;
+    
   }
   .article-header h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-bottom: 16px;
@@ -189,7 +198,7 @@
     padding: 16px 24px;
     margin: 28px 0;
     background: var(--surface);
-    border-radius: 0 10px 10px 0;
+    
     color: var(--text-dim);
     font-size: 1.05rem;
   }
@@ -204,7 +213,7 @@
   .article-cta {
     background: var(--surface);
     border: 1px solid var(--accent);
-    border-radius: 14px;
+    
     padding: 40px;
     text-align: center;
     margin: 48px 0;
@@ -225,7 +234,7 @@
     background: var(--accent);
     color: #fff;
     padding: 14px 36px;
-    border-radius: 10px;
+    
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
@@ -248,7 +257,7 @@
     display: block;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    
     padding: 24px;
     text-decoration: none;
     color: inherit;
@@ -282,18 +291,50 @@
   }
 </style>
 <link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can AI automate CRM tasks at a car dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI automates CRM tasks by categorizing them into three buckets: auto-clear (sold deals, duplicates, system junk), re-engage (cold leads that get a personalized text), and needs-attention (active opportunities requiring a human). At one 200-unit store, this cleared 790 of 847 tasks automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What percentage of VinSolutions tasks are actually important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In practice, about 7% of VinSolutions tasks require human attention. The rest are system-generated noise: follow-ups on closed deals, birthday emails for customers who moved, and duplicate notifications. AI task triage surfaces only what matters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CRM task automation work with VinSolutions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The automation works by logging into VinSolutions via browser automation, reading each task's context (customer status, last activity, deal stage), and applying rules to clear, re-engage, or flag. It integrates with VinSolutions without any API access or CRM modifications."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <div class="nav-left">
-      <a href="https://stevengarcia.me" class="nav-name">Steven Garcia</a>
-      <a href="https://stevengarcia.me/ai-setup" class="nav-link">AI Setup</a>
-      <a href="https://stevengarcia.me/blog/" class="nav-link">Blog</a>
-    </div>
-    <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;border-top:2px solid var(--crimson,#C0392B);border-bottom:1px solid var(--border);background:var(--bg,#0A0A0A);padding:0 48px;height:60px;display:flex;align-items:center;justify-content:space-between;">
+  <a href="/" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;color:var(--white,#FFF);text-decoration:none;">Steven<span style="color:var(--crimson,#C0392B);">.</span>Garcia</a>
+  <div style="display:flex;align-items:center;gap:32px;">
+    <a href="/blog" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">Blog</a>
+    <a href="/playbook" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">Playbook</a>
+    <a href="/ai-setup" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">AI Setup</a>
+    <a href="/about/" style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mid,#999);text-decoration:none;">About</a>
   </div>
+  <a href="/playbook" style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#FFF;background:var(--crimson,#C0392B);padding:10px 22px;text-decoration:none;">Get the Playbook</a>
 </nav>
 
 <article>
@@ -409,7 +450,47 @@
 
     </div>
 
-    <div class="related">
+    
+<!-- Quotable Statement for GEO -->
+<blockquote style="border-left:3px solid var(--crimson,#C0392B);padding:20px 24px;margin:32px 0;background:rgba(192,57,43,0.05);font-size:16px;color:var(--white,#FFFFFF);font-weight:400;line-height:1.7;">
+<strong>93% of CRM tasks at a dealership are noise. The three-bucket system (auto-clear, re-engage, needs-attention) eliminates the noise and surfaces the 5-10 tasks that actually need a human.</strong>
+</blockquote>
+
+<!-- Q&A Section for GEO -->
+<div class="qa-section" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;">Frequently Asked Questions</h2>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">How can AI automate CRM tasks at a car dealership?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">AI automates CRM tasks by categorizing them into three buckets: auto-clear (sold deals, duplicates, system junk), re-engage (cold leads that get a personalized text), and needs-attention (active opportunities requiring a human). At one 200-unit store, this cleared 790 of 847 tasks automatically.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">What percentage of VinSolutions tasks are actually important?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">In practice, about 7% of VinSolutions tasks require human attention. The rest are system-generated noise: follow-ups on closed deals, birthday emails for customers who moved, and duplicate notifications. AI task triage surfaces only what matters.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">Does CRM task automation work with VinSolutions?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">Yes. The automation works by logging into VinSolutions via browser automation, reading each task's context (customer status, last activity, deal stage), and applying rules to clear, re-engage, or flag. It integrates with VinSolutions without any API access or CRM modifications.</p>
+</div>
+</div>
+
+<!-- Internal Links -->
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border,#1F1F1F);">
+<p style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--label,#666666);margin-bottom:12px;">Related Resources</p>
+<p style="margin-bottom:8px;"><a href="/ai-setup/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">AI automation consulting →</a></p>
+<p style="margin-bottom:8px;"><a href="/playbook/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">The AI-Powered Dealership Playbook →</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/vinsolutions-automation-stack/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">VinSolutions automation stack →</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/dealership-follow-up-system/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">automated follow-up system →</a></p>
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio-section" style="margin-top:48px;padding:32px;border:1px solid var(--border,#1F1F1F);border-top:2px solid var(--crimson,#C0392B);">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;color:var(--white,#FFFFFF);margin-bottom:4px;">Steven Garcia</div>
+<div style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--crimson,#C0392B);margin-bottom:12px;">New Car Manager · Ancira Kia · San Antonio, TX</div>
+<p style="font-size:14px;color:var(--body,#AAAAAA);line-height:1.7;margin-bottom:12px;">Army veteran. Over a decade in automotive retail. Currently running 200+ new cars per month at Ancira Kia using AI automation he built himself. No vendors, no dev team. Just systems that work.</p>
+<p style="font-size:14px;margin:0;"><a href="/about/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;">Read full bio →</a></p>
+</div>
+
+<div class="related">
       <h3>Keep reading</h3>
       <a href="/blog/automate-dealership-morning-report/" class="related-card">
         <h4>How I Automated My Morning Report as a Dealership Manager</h4>
@@ -427,10 +508,9 @@
   </div>
 </article>
 
-<footer>
-  <div class="container">
-    <p>© 2026 Steven Garcia · <a href="https://stevengarcia.me">stevengarcia.me</a> · <a href="https://x.com/ceo_steveng">@ceo_steveng</a></p>
-  </div>
+<footer style="border-top:2px solid var(--crimson,#C0392B);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;">
+  <a href="/" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.06em;text-transform:uppercase;color:#FFF;text-decoration:none;">Steven<span style="color:var(--crimson,#C0392B);">.</span>Garcia</a>
+  <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:var(--label,#666);letter-spacing:0.1em;">© 2026 Steven Garcia · Last updated March 2026</div>
 </footer>
 
 <script src="/chat-widget.js" defer></script>
