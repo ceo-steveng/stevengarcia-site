@@ -1,0 +1,26 @@
+# Steven Garcia
+> Automotive operator, AI automation consultant, and disciplined investor.
+
+## About
+Steven Garcia is the New Car Sales Manager at Ancira Kia in San Antonio, TX, managing 200+ monthly new car sales. He builds AI-powered systems that automate dealership operations — from morning reports to CRM task management to proactive sales alerts.
+
+## Consulting
+Steven offers AI automation consulting for car dealerships at three tiers:
+- Starter ($1,000): Morning report + CRM automation setup
+- Full Desk ($3,500): Complete sales desk automation
+- Full Stack ($7,500): Enterprise dealership AI implementation
+
+Book a consultation: https://calendly.com/stevengarcia/30min
+
+## Content
+- Website: https://stevengarcia.me
+- Blog: https://stevengarcia.me/blog/
+- Playbook: https://stevengarcia.me/playbook
+- Consulting: https://stevengarcia.me/ai-setup/
+
+## Key Topics
+- AI automation for car dealerships
+- CRM task automation (VinSolutions)
+- Automated morning reports and sales tracking
+- Dealership operations management
+- Personal brand building for managers
