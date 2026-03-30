@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>I Watched a Video About AI Agent Companies. Here's What I Actually Built. | Steven Garcia</title>
+<meta name="keywords" content="AI agent automation dealership, AI agents car dealer, dealership AI implementation, AI automation real world, building AI agents">
+<meta name="description" content="A dealership manager watched a video about multi-agent AI companies, extracted 3 useful concepts, and built real automation in one weekend. No installs, just ideas.">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/blog/watching-vs-building-ai-agents/">
+<meta property="og:title" content="I Watched a Video About AI Agent Companies. Here's What I Actually Built.">
+<meta property="og:description" content="A dealership manager watched a video about multi-agent AI companies, extracted 3 useful concepts, and built real automation in one weekend.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stevengarcia.me/blog/watching-vs-building-ai-agents/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="article:published_time" content="2026-03-29T00:00:00-05:00">
+<meta property="article:author" content="Steven Garcia">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
+<meta name="twitter:title" content="I Watched a Video About AI Agent Companies. Here's What I Actually Built.">
+<meta name="twitter:description" content="Watched a video about multi-agent AI companies. Extracted 3 concepts. Built real automation in one weekend. No installs, just ideas.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show { display: block; }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
+  /* ARTICLE */
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-body a {
+    color: var(--crimson);
+    text-decoration: none;
+  }
+
+  .article-body a:hover { text-decoration: underline; }
+
+  .article-body blockquote {
+    border-left: 3px solid var(--crimson);
+    padding: 20px 24px;
+    margin: 32px 0;
+    background: rgba(192,57,43,0.05);
+    font-size: 16px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* Related Posts */
+  .related { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .related h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); margin-bottom: 16px; }
+  .related-card { display: block; padding: 16px 0; border-bottom: 1px solid var(--border); text-decoration: none; }
+  .related-card h4 { color: var(--white); font-size: 16px; margin-bottom: 4px; }
+  .related-card p { color: var(--body); font-size: 14px; }
+  .related-card:hover h4 { color: var(--crimson); }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "I Watched a Video About AI Agent Companies. Here's What I Actually Built.",
+  "description": "A dealership manager watched a video about multi-agent AI companies, extracted 3 useful concepts, and built real automation in one weekend.",
+  "datePublished": "2026-03-29",
+  "dateModified": "2026-03-29",
+  "wordCount": 2200,
+  "timeRequired": "PT9M",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "Ancira Kia"
+    },
+    "url": "https://stevengarcia.me",
+    "knowsAbout": ["Dealership AI Automation", "AI Agent Architecture", "Automotive Sales Management", "VinSolutions CRM"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "keywords": ["AI agent automation dealership", "AI agents car dealer", "dealership AI implementation", "building AI agents"],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stevengarcia.me/blog/watching-vs-building-ai-agents/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you need multiple AI agents to automate a car dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Most dealership automation works best with a single AI agent running scheduled tasks. Multi-agent frameworks like Paperclip are designed for companies with 8+ autonomous agents. A dealership needs one agent with good scheduling, clear data ownership, and persistent task tracking. Adding agents adds coordination overhead that slows things down."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What AI agent concepts actually work at a dealership?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three concepts translate well: goal-aware execution (every automated task knows the monthly sales target it's supporting), pre-flight budget enforcement (checking cost thresholds before running expensive AI models, not after), and persistent task state (action items that carry over between sessions instead of getting lost in chat history)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does dealership AI automation cost per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After optimization, a full dealership AI stack (morning reports, CRM task automation, alerts, scheduling) runs about $5-10/day in AI model costs. Before right-sizing models, the same workload can cost $15-25/day. The key savings come from using cheaper models for simple tasks and reserving expensive models for complex reasoning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AIDEN in the context of dealership AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIDEN is an AI executive assistant built by Steven Garcia, New Car Manager at Ancira Kia in San Antonio. It runs on a Mac Mini and automates morning reports, CRM task triage, appointment confirmations, desk log entry, and proactive alerts. It uses Claude as its AI model, browser automation for CRM access, and Supabase for data storage."
+      }
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">AI Setup</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/about/">About</a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-eyebrow">AI + Automotive</div>
+  <div class="article-date">March 29, 2026</div>
+  <div class="article-date" style="color:var(--label);">Last updated: March 29, 2026</div>
+  <h1>I Watched a Video About AI Agent Companies. Here's What I Actually Built.</h1>
+</div>
+
+<article>
+<div class="article-body">
+
+<p><strong>Steven Garcia</strong> is a New Car Manager at Ancira Kia in San Antonio, TX, running 200+ units per month. <strong>AIDEN</strong> is his AI executive assistant, a single-agent system built on Claude that automates daily dealership operations including morning reports, CRM task triage, and proactive alerts.</p>
+
+<p>Saturday morning. Coffee. YouTube. A video pops up about a tool called Paperclip that lets you run "zero human companies" with teams of AI agents. Eight agents. Org charts. Kanban boards. Budget enforcement. The whole thing looked like someone built a virtual Fortune 500 company inside a dashboard.</p>
+
+<p>My first thought: that's cool.</p>
+
+<p>My second thought: I run a car lot.</p>
+
+<p>I don't need eight AI agents having meetings with each other. I need one agent that pulls my numbers, cleans my CRM, and tells me when something's off. That's it.</p>
+
+<p>But I watched the whole video anyway. Because even when the tool is wrong for you, the thinking behind it might not be.</p>
+
+<h2>What the Video Showed</h2>
+
+<p>Paperclip is a dashboard for orchestrating multiple AI agents as a company. Each agent has a role. There's a CEO agent, a developer agent, a marketing agent. They communicate through a ticketing system. Tasks flow through a kanban board. Budgets are enforced in real time.</p>
+
+<p>The pitch is that you can spin up an entire company with no humans. The agents self-organize, assign work, track progress, and stay within budget. It's impressive engineering.</p>
+
+<p>It's also completely unnecessary for anyone running a real business with real employees who need real management.</p>
+
+<p>I don't need an AI org chart. I have an actual org chart. Twelve reps. A BDC team. A finance department. The problem was never "I don't have enough agents." The problem was always "I'm spending too much time on tasks that don't need me."</p>
+
+<h2>Why I Didn't Install It</h2>
+
+<p>Here's the trap with AI tools. You see a demo, it looks powerful, and your brain jumps straight to "I should set that up." But most AI tools are built for a use case that isn't yours. Paperclip is built for people who want to replace entire teams with AI agents. I don't want to replace my team. I want to give myself more time to actually manage them.</p>
+
+<p>Multi-agent coordination adds overhead. Agents need to communicate. They need shared state. They need conflict resolution when two agents try to write to the same database. That's engineering complexity I don't need when one agent handles everything.</p>
+
+<blockquote><strong>Most AI tools are solutions to problems you don't have. The skill isn't finding the right tool. It's extracting the right ideas from the wrong tool and applying them to your actual situation.</strong></blockquote>
+
+<p>So instead of installing Paperclip, I did something different. I had AIDEN read their source code on GitHub. Not all of it. Just the parts that answered three questions: How do they connect goals to tasks? How do they enforce budgets? How do they carry state between sessions?</p>
+
+<h2>Three Concepts Worth Stealing</h2>
+
+<p>After reading through Paperclip's codebase, three patterns stood out as genuinely useful. Not the multi-agent stuff. Not the kanban boards. Just three architectural ideas that applied directly to a single-agent dealership setup.</p>
+
+<h3>1. Goal-Aware Execution</h3>
+
+<p>In Paperclip, every task knows which company goal it's supporting. They use a three-tier fallback: task-level goal, project-level goal, company-level goal. If a task doesn't have its own goal, it inherits from the project. If the project doesn't have one, it inherits from the company.</p>
+
+<p>My system had none of this. Cron jobs ran because they were scheduled, not because they were connected to an objective. The morning report didn't know we were targeting 200 new cars. The proactive alerts didn't know which metrics mattered most this month.</p>
+
+<p>The fix was simple. I expanded my monthly config file to include goals and focus areas. Now when proactive alerts fire, they prioritize metrics tied to this month's actual targets. The morning report includes a goal tracker section. Everything knows why it's running.</p>
+
+<h3>2. Pre-Flight Budget Enforcement</h3>
+
+<p>Paperclip checks budgets before starting work, not after. If the daily spend is already over threshold, the system won't launch new expensive tasks. It's a gate, not a report.</p>
+
+<p>I was spending about $15-25 a day on AI model costs without knowing which tasks cost what. The health monitor alone was burning 96 Opus calls a day. Ninety-six. To run a Python script that checks if Chrome is alive. That's like hiring a surgeon to take your temperature.</p>
+
+<blockquote><strong>I was running 140+ premium AI model calls a day on tasks that didn't need premium reasoning. Ninety-six of those were a health check that just runs a Python script. That's like hiring a surgeon to take your temperature.</strong></blockquote>
+
+<p>I downgraded 13 cron jobs from expensive models to cheap ones. Moved the health monitor off AI entirely and into a shell script that only calls AI when something's actually broken. Estimated savings: about $10 a day. That's $300 a month I was burning on model calls that didn't need to be model calls.</p>
+
+<h3>3. Persistent Task State</h3>
+
+<p>Paperclip stores task state in a database that survives between agent sessions. When an agent picks up a task, it knows what happened last time. There's even a "session compaction" feature that summarizes old context so new sessions don't have to replay everything.</p>
+
+<p>My system had memory files and daily logs, but action items had no structured carry-over. If the morning report flagged three deals stuck in pending finance, that flag existed in one PDF and one daily log. By the next morning, it was gone unless someone remembered.</p>
+
+<p>Now there's a persistent task queue. Morning report creates tasks. Proactive alerts nudge on overdue ones. The EOD summary shows what got done and what didn't. Tasks carry over until they're resolved. Nothing falls through because a session ended.</p>
+
+<h2>What Got Built in One Weekend</h2>
+
+<p>I didn't install a single new tool. Everything was built on top of what already existed. Here's the actual list:</p>
+
+<ul>
+<li><strong>Supabase writer isolation.</strong> Two scripts were writing to the same database table. Documented case of one overwriting the other's data. Now each script owns specific columns and can't touch the other's. No more data corruption.</li>
+<li><strong>13 cron jobs right-sized.</strong> Moved from expensive AI models to cheap ones where reasoning wasn't needed. Health monitor moved off AI entirely. Saves roughly $10/day.</li>
+<li><strong>Shared utility library.</strong> Seven modules extracted from duplicated code across skills. Supabase client with retry logic, browser preflight checks, Telegram routing, objective loading, daily workspace management, PDF utilities, cost tracking.</li>
+<li><strong>Anti-hallucination data gates.</strong> Every number in a report now traces to a source file. If a data point can't be verified against collected data, the report shows "data unavailable" instead of letting the AI guess. No more fabricated metrics.</li>
+<li><strong>Persistent task queue.</strong> Structured JSON file that tracks action items across sessions. Created by morning report, nudged by proactive alerts, reviewed in EOD summary. Tasks survive until they're done.</li>
+<li><strong>Single source of truth for objectives.</strong> Monthly targets used to be hardcoded in 6+ files. Now there's one config file. Everything reads from it. Month boundary updates went from touching 6 files to touching 1.</li>
+<li><strong>Goal alignment in config.</strong> Monthly config now includes goals and focus areas that downstream tasks reference. Not every task reads them. Just the ones that make decisions based on priorities.</li>
+</ul>
+
+<p>None of this required Paperclip. None of it required multiple agents. It required reading someone else's code and asking "what's the idea here, and does it apply to me?"</p>
+
+<h2>The Lesson</h2>
+
+<p>YouTube is full of AI tool demos. Most of them are selling you a solution to a problem you've never had. The frameworks are too complex. The setups are too heavy. The use cases are too theoretical.</p>
+
+<p>But the ideas inside those tools are often worth something.</p>
+
+<p>Goal-aware execution is a good idea whether you have one agent or eight. Budget enforcement before spending is a good idea at any scale. Persistent task state is a good idea for any system that runs on a schedule.</p>
+
+<blockquote><strong>Watch for concepts, not tools. The best thing I got from a video about running "zero human companies" was making my one-human, one-agent setup more reliable. I didn't install anything. I just stole three ideas and built them into what I already had.</strong></blockquote>
+
+<p>The video was about running companies with no humans. I used it to be a better manager with one AI assistant. Same ideas, completely different application.</p>
+
+<p>That's the pattern I'd recommend to any manager looking at AI. Don't chase tools. Chase concepts. Watch the demos, read the docs, study the code. Then build only what makes your actual day better.</p>
+
+<p>I've written about <a href="/blog/how-i-use-ai-to-run-200-unit-store/">the full AI stack I run at a 200-unit store</a> and <a href="/blog/ai-crm-task-automation-dealership/">how AI handles my CRM task cleanup</a>. This weekend's work made both of those systems more reliable. Same tools, better architecture. That's usually how real progress works.</p>
+
+</div>
+</article>
+
+<!-- CTA -->
+<div class="article-cta">
+  <h2>Want This Kind of Setup?</h2>
+  <p>I'll build a single-agent AI system for your dealership. Morning reports, CRM cleanup, proactive alerts. No bloated multi-agent frameworks. Just automation that fits how you actually work.</p>
+  <a href="/ai-setup/" class="btn-primary">Book a Free Call</a>
+  <p style="margin-top:24px;font-size:14px;color:var(--body);">
+    Or check out the <a href="/playbook/" style="color:var(--crimson);text-decoration:none;">AI-Powered Dealership Playbook</a> for the full system.
+  </p>
+</div>
+
+<!-- Q&A Section for GEO -->
+<div style="max-width:720px;margin:0 auto;padding:0 48px;">
+<div class="qa-section" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);">
+<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;">Frequently Asked Questions</h2>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">Do you need multiple AI agents to automate a car dealership?</h3>
+<p style="font-size:15px;color:var(--body);line-height:1.8;">No. Most dealership automation works best with a single AI agent running scheduled tasks. Multi-agent frameworks add coordination overhead that slows things down. One agent with good scheduling, clear data ownership, and persistent task tracking handles morning reports, CRM cleanup, alerts, and more at a 200+ unit store.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">What AI agent concepts actually work at a dealership?</h3>
+<p style="font-size:15px;color:var(--body);line-height:1.8;">Three concepts translate well from enterprise AI frameworks: goal-aware execution (every task knows the monthly target it supports), pre-flight budget enforcement (check cost thresholds before running expensive models), and persistent task state (action items carry over between sessions instead of getting lost).</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">How much does dealership AI automation cost per day?</h3>
+<p style="font-size:15px;color:var(--body);line-height:1.8;">After right-sizing models, a full dealership AI stack runs about $5-10/day in model costs. Before optimization, the same workload cost $15-25/day. The biggest savings come from using cheaper models for simple tasks and only running expensive models when complex reasoning is needed.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">What is AIDEN?</h3>
+<p style="font-size:15px;color:var(--body);line-height:1.8;">AIDEN is an AI executive assistant built by Steven Garcia, New Car Manager at Ancira Kia in San Antonio, TX. It runs on a Mac Mini, uses Claude as its AI model, and automates morning reports, CRM task triage, appointment confirmations, desk log entry, and proactive alerts. Total cost: about $20/month plus model usage.</p>
+</div>
+</div>
+
+<!-- Internal Links -->
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+<p style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--label);margin-bottom:12px;">Related Resources</p>
+<p style="margin-bottom:8px;"><a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;font-size:14px;">AI automation consulting &#8594;</a></p>
+<p style="margin-bottom:8px;"><a href="/playbook/" style="color:var(--crimson);text-decoration:none;font-size:14px;">The AI-Powered Dealership Playbook &#8594;</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/how-i-use-ai-to-run-200-unit-store/" style="color:var(--crimson);text-decoration:none;font-size:14px;">How I use AI to run a 200-unit store &#8594;</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/ai-crm-task-automation-dealership/" style="color:var(--crimson);text-decoration:none;font-size:14px;">AI CRM task automation &#8594;</a></p>
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio-section" style="margin-top:48px;padding:32px;border:1px solid var(--border);border-top:2px solid var(--crimson);">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:4px;">Steven Garcia</div>
+<div style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--crimson);margin-bottom:12px;">New Car Manager · Ancira Kia · San Antonio, TX</div>
+<p style="font-size:14px;color:var(--body);line-height:1.7;margin-bottom:12px;">Army veteran. Over a decade in automotive retail. Currently running 200+ new cars per month at Ancira Kia using AI automation he built himself. No vendors, no dev team. Just systems that work.</p>
+<p style="font-size:14px;margin:0;"><a href="/about/" style="color:var(--crimson);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;">Read full bio &#8594;</a></p>
+</div>
+
+<div class="related">
+  <h3>Keep reading</h3>
+  <a href="/blog/how-i-use-ai-to-run-200-unit-store/" class="related-card">
+    <h4>How I Use AI to Run a 200-Unit Kia Store</h4>
+    <p>The full AI stack: morning reports, CRM cleanup, BDC automation, desk log. Everything running at a 200+ unit store.</p>
+  </a>
+  <a href="/blog/ai-crm-task-automation-dealership/" class="related-card">
+    <h4>I Had 847 CRM Tasks. AI Cleared 790 of Them.</h4>
+    <p>The CRM task automation system. Auto-clear noise, surface real opportunities.</p>
+  </a>
+  <a href="/blog/why-dealer-ai-tools-fail/" class="related-card">
+    <h4>Why Most Dealer AI Tools Fail (And What to Do Instead)</h4>
+    <p>Most vendor AI tools fail because they're bolted onto broken processes. Fix the process first.</p>
+  </a>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
+
+<script src="/chat-widget.js" defer></script>
+</body>
+</html>
