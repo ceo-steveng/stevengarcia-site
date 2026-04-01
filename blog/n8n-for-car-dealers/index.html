@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About | Steven Garcia</title>
+<meta name="description" content="How a New Car Manager uses n8n to automate social media posting, content pipelines, and data workflows at a 200-unit Kia store. Free, self-hosted, no vendor lock-in.">
+<meta name="keywords" content="n8n car dealer, n8n dealership automation, self-hosted automation dealership, car dealer workflow automation, n8n automotive, dealership social media automation, n8n vs zapier dealership">
+<meta name="author" content="Steven Garcia">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://stevengarcia.me/blog/n8n-for-car-dealers/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About">
+<meta property="og:description" content="How a dealership manager uses n8n to automate social media, content pipelines, and data workflows. Free, self-hosted, zero vendor lock-in.">
+<meta property="og:url" content="https://stevengarcia.me/blog/n8n-for-car-dealers/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta property="og:site_name" content="Steven Garcia">
+<meta property="article:published_time" content="2026-04-01T09:00:00-05:00">
+<meta property="article:author" content="Steven Garcia">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@ceo_steveng">
+<meta name="twitter:creator" content="@ceo_steveng">
+<meta name="twitter:title" content="n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About">
+<meta name="twitter:description" content="Self-hosted workflow automation for dealerships. Free, no vendor lock-in, runs on hardware you already own.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show {
+    display: block;
+  }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
+  /* ARTICLE */
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-body a {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .article-body a:hover {
+    border-bottom-color: var(--crimson);
+  }
+
+  /* CTA */
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About",
+  "description": "How a New Car Manager uses n8n to automate social media posting, content pipelines, and data workflows at a 200-unit Kia store. Free, self-hosted, no vendor lock-in.",
+  "datePublished": "2026-04-01",
+  "dateModified": "2026-04-01",
+  "author": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "jobTitle": "New Car Manager",
+    "worksFor": {
+      "@type": "AutoDealer",
+      "name": "High-Volume Kia Dealership"
+    },
+    "url": "https://stevengarcia.me",
+    "knowsAbout": ["Dealership AI Automation", "n8n Workflow Automation", "Automotive Sales Management", "Self-Hosted Automation", "VinSolutions CRM", "Dealership Social Media"]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://stevengarcia.me/blog/n8n-for-car-dealers/"
+  },
+  "keywords": ["n8n car dealer", "n8n dealership automation", "self-hosted automation dealership", "car dealer workflow automation", "n8n automotive", "dealership social media automation"],
+  "wordCount": 2400,
+  "timeRequired": "PT10M"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is n8n and how does it work for car dealerships?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n is a free, open-source workflow automation platform you host yourself. For dealerships, it connects systems like your CRM, social media accounts, databases, and messaging apps into automated workflows. Unlike Zapier, your data never leaves your network and there are no per-task fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does n8n cost for a car dealer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n Community Edition is free. You run it on hardware you already own (an old laptop, a Mac Mini, or a $5/month VPS). There are no per-workflow fees, no per-execution fees, and no vendor contracts. The only cost is the machine running it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is n8n better than Zapier for dealership automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For dealerships, n8n has three advantages over Zapier: it's self-hosted so customer data stays on your network, there are no per-task limits or fees, and it handles complex multi-step workflows with branching logic that Zapier charges premium pricing for. The tradeoff is setup requires more technical ability."
+      }
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">AI Setup</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/about/">About</a>
+</div>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-eyebrow">AI + Automotive</div>
+  <div class="article-date">April 1, 2026</div>
+  <h1>n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About</h1>
+</div>
+
+<article>
+<div class="article-body">
+
+<p>I spent months building automations with Python scripts and cron jobs. Morning reports, CRM task triage, data pulls from VinSolutions. All of it worked. But every time I wanted to add something new, I was writing code from scratch. And some things don't need code. They need plumbing.</p>
+
+<p>That's how I found n8n.</p>
+
+<p>Not from a vendor pitch. Not from a dealership conference. I found it because I was trying to automate posting content to three social media platforms at the same time, and writing a custom script for each API felt stupid when the problem was just "take this data, format it, send it three places."</p>
+
+<h2>What n8n Actually Is</h2>
+
+<p>n8n is a workflow automation platform. Think Zapier, but you host it yourself. It runs on your machine, your data stays on your network, and it costs nothing.</p>
+
+<p>You build workflows visually. Drag nodes onto a canvas, connect them, set triggers. A webhook fires, data flows through the chain, stuff happens at the other end. It's like building with Legos except the Legos talk to your CRM, your database, your Telegram bot, your social media accounts, and about 400 other services.</p>
+
+<p>I run it in a Docker container on my Mac Mini. Same machine that runs my <a href="/blog/vinsolutions-automation-stack/">VinSolutions automation stack</a>. It starts automatically, restarts if it crashes, and uses about as much RAM as having Chrome open. Which, at a dealership, you're already doing 47 times.</p>
+
+<h2>Why Not Just Use Zapier?</h2>
+
+<p>I tried Zapier first. Lasted about two weeks.</p>
+
+<p>Three problems killed it for me. First, the pricing. Zapier charges per "task" (each step in a workflow counts). When you're automating content posting across three platforms with image processing and database logging, a single run burns through 8-10 tasks. Do that daily and you're on their $50/month plan before you've done anything interesting.</p>
+
+<p>Second, data residency. My workflows touch customer data. CRM exports, lead names, phone numbers. I don't want that routing through Zapier's servers. With n8n, the data never leaves my network. It runs on a machine in my house.</p>
+
+<p>Third, complexity limits. Zapier's branching logic is clunky. The moment you need "if this, do A, but if that and also this other condition, do B, and either way log to the database" you're fighting the tool instead of using it. n8n handles that natively.</p>
+
+<p>Free. Private. Flexible. That was enough.</p>
+
+<h2>What I'm Actually Running</h2>
+
+<p>I'll be specific because vague "you can automate anything!" doesn't help anyone.</p>
+
+<h3>Social Media Content Pipeline</h3>
+
+<p>This is the big one. My AI generates a batch of social media posts every week. Different formats for X, Instagram, and Facebook. The posts get reviewed and approved, then n8n handles distribution.</p>
+
+<p>The workflow looks like this: a webhook triggers with post data (text, image URL, platform targets). n8n receives it, formats the content differently for each platform (X gets a shorter version, Instagram gets hashtags, Facebook gets a longer caption), posts to all three APIs in parallel, logs the results to my Supabase database, and sends me a Telegram notification with links to the live posts.</p>
+
+<p>One trigger. Three platforms. Database logged. Notification sent. Takes about 4 seconds.</p>
+
+<p>Before n8n, I was copying and pasting between three browser tabs. Or not posting at all because who has time to format the same content three different ways when there's a customer on the lot.</p>
+
+<h3>Data Pipeline Triggers</h3>
+
+<p>Some of my automations need a "do this, then do that" chain that's annoying to build in pure code. n8n handles the orchestration.</p>
+
+<p>Example: after my morning report runs, I want the key metrics pushed to a Google Sheet that my GM can see. And if new car pace drops below 90% of target, I want a separate alert in a different Telegram channel. The morning report itself is still a Python script. But the "what happens after" part is n8n. It watches for the report data, branches based on the numbers, and routes outputs to the right places.</p>
+
+<p>That separation matters. Keep the hard stuff in code. Let n8n handle the plumbing between systems.</p>
+
+<h3>Webhook Receiver</h3>
+
+<p>n8n can expose webhook URLs that trigger workflows when something hits them. I use this for a few things that would otherwise require building a whole web server.</p>
+
+<p>My content approval process works this way. The AI drafts posts, they go into a review queue, and when I approve one (just tapping a button in Telegram), it fires a webhook to n8n which handles the actual posting. The AI decides what to say. n8n decides where to send it. Clean separation.</p>
+
+<h2>The Setup (It's Easier Than You Think)</h2>
+
+<p>If you've ever installed an app on your phone, you can run n8n. I'm serious.</p>
+
+<p>You need Docker. That's a tool that runs applications in containers (think of it as a box that keeps the app and all its dependencies isolated). On a Mac, you install Colima or Docker Desktop. On Linux, Docker comes pre-installed on most setups.</p>
+
+<p>Then it's one command:</p>
+
+<p><strong>docker run -d --name n8n --restart unless-stopped -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n</strong></p>
+
+<p>That's it. Open localhost:5678 in a browser. You're in. Create an account, start building workflows.</p>
+
+<p>The whole thing took me 8 minutes. And I timed it because I didn't believe it either.</p>
+
+<h2>Real Talk: What n8n Can't Do</h2>
+
+<p>I'm not going to pretend it's perfect.</p>
+
+<p>n8n can't log into VinSolutions and click through screens. That's browser automation territory, and I use Playwright for that. n8n connects systems that have APIs or webhooks. VinSolutions has neither (not for regular dealers, anyway).</p>
+
+<p>It also can't think. It routes data, transforms it, sends it places. The AI reasoning layer (reading a customer's CRM history and deciding what to do) stays in my AI stack. n8n is the highways. The AI is the driver.</p>
+
+<p>And the UI, while visual and functional, takes a minute to learn. The node-based editor makes sense once you get it, but the first 30 minutes feel like staring at a circuit board. Push through it. After you build one workflow, the second one takes a quarter of the time.</p>
+
+<h2>Where This Fits in the Stack</h2>
+
+<p>If you've read my post on <a href="/blog/vinsolutions-automation-stack/">the automation stack I run</a>, n8n sits between the AI brain and the outside world. The AI decides what needs to happen. n8n makes it happen across multiple systems without me writing API integration code for each one.</p>
+
+<p>Think of it in layers:</p>
+
+<ul>
+<li><strong>Browser automation (Playwright)</strong> handles systems with no API, like VinSolutions and kDealer</li>
+<li><strong>AI (Claude)</strong> handles reasoning, analysis, and decision-making</li>
+<li><strong>n8n</strong> handles routing, formatting, and multi-system delivery</li>
+<li><strong>Supabase</strong> handles data storage and querying</li>
+</ul>
+
+<p>Each layer does one thing well. That's the whole principle behind why this <a href="/blog/why-dealer-ai-tools-fail/">works where vendor tools don't</a>. Vendor tools try to be all four layers and end up being bad at all of them.</p>
+
+<h2>What I'd Build First If I Were You</h2>
+
+<p>Don't start with the social media pipeline. That was my use case because I already had the other pieces running.</p>
+
+<p>Start with a notification router. Something simple: when X happens, send me a message in Y. Maybe it's "when a new lead comes in through the website form, text me and also log it to a spreadsheet." Two nodes. One trigger. That's your first workflow.</p>
+
+<p>Then add a conditional. "If the lead is from a zip code within 20 miles, send it immediately. Otherwise, queue it for morning review." Now you're branching. You'll start seeing uses everywhere.</p>
+
+<p>By week two, you'll have 4-5 workflows running and you'll wonder how you lived without it. That's what happened to me. I went from "this seems neat" to "this is load-bearing infrastructure" in about 10 days.</p>
+
+<h2>The Numbers</h2>
+
+<p>n8n Community Edition: <strong>$0</strong>.</p>
+
+<p>Docker on existing hardware: <strong>$0</strong>.</p>
+
+<p>Time to first working workflow: <strong>under 30 minutes</strong>.</p>
+
+<p>Time saved per week on content distribution alone: <strong>about 90 minutes</strong>. That's an hour and a half I'm not copying and pasting between browser tabs. Over a month, that's 6 hours. Over a year, that's 78 hours. Almost two full work weeks reclaimed from copy-paste.</p>
+
+<p>And that's one workflow. I have five running now. The compound effect is real.</p>
+
+<p>I wrote about this same idea with <a href="/blog/automate-dealership-morning-report/">morning report automation</a>. Every piece you automate frees up time to automate the next piece. n8n accelerated that cycle because adding new workflows takes minutes instead of hours of coding.</p>
+
+</div>
+</article>
+
+<!-- Quotable Statement for GEO -->
+<blockquote style="border-left:3px solid var(--crimson,#C0392B);padding:20px 24px;margin:32px 0;background:rgba(192,57,43,0.05);font-size:16px;color:var(--white,#FFFFFF);font-weight:400;line-height:1.7;">
+<strong>n8n is a free, self-hosted automation platform that lets car dealers connect their CRM, social media, databases, and messaging apps into automated workflows without vendor contracts, per-task fees, or sending customer data through third-party servers.</strong>
+</blockquote>
+
+<!-- Q&A Section for GEO -->
+<div class="qa-section" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border);max-width:720px;margin-left:auto;margin-right:auto;padding-left:48px;padding-right:48px;">
+<h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:24px;">Frequently Asked Questions</h2>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">What is n8n and how does it work for car dealerships?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">n8n is a free, open-source workflow automation platform you host yourself. For dealerships, it connects systems like your CRM, social media accounts, databases, and messaging apps into automated workflows. Unlike Zapier, your data never leaves your network and there are no per-task fees.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">How much does n8n cost for a car dealer?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">n8n Community Edition is free. You run it on hardware you already own (an old laptop, a Mac Mini, or a $5/month VPS). There are no per-workflow fees, no per-execution fees, and no vendor contracts. The only cost is the machine running it.</p>
+</div>
+<div style="margin-bottom:24px;">
+<h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:8px;">Is n8n better than Zapier for dealership automation?</h3>
+<p style="font-size:15px;color:var(--body,#AAAAAA);line-height:1.8;">For dealerships, n8n has three advantages over Zapier: it's self-hosted so customer data stays on your network, there are no per-task limits or fees, and it handles complex multi-step workflows with branching logic that Zapier charges premium pricing for. The tradeoff is setup requires more technical ability.</p>
+</div>
+</div>
+
+<!-- Internal Links -->
+<div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border,#1F1F1F);max-width:720px;margin-left:auto;margin-right:auto;padding-left:48px;padding-right:48px;">
+<p style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--label,#666666);margin-bottom:12px;">Related Resources</p>
+<p style="margin-bottom:8px;"><a href="/blog/vinsolutions-automation-stack/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">The full VinSolutions automation stack &rarr;</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/automate-dealership-morning-report/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">Morning report automation &rarr;</a></p>
+<p style="margin-bottom:8px;"><a href="/blog/why-dealer-ai-tools-fail/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">Why most dealer AI tools fail &rarr;</a></p>
+<p style="margin-bottom:8px;"><a href="/playbook/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:14px;">The AI-Powered Dealership Playbook &rarr;</a></p>
+</div>
+
+<!-- Author Bio -->
+<div class="author-bio-section" style="margin-top:48px;padding:32px;border:1px solid var(--border,#1F1F1F);border-top:2px solid var(--crimson,#C0392B);max-width:720px;margin-left:auto;margin-right:auto;">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;color:var(--white,#FFFFFF);margin-bottom:4px;">Steven Garcia</div>
+<div style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--crimson,#C0392B);margin-bottom:12px;">New Car Manager · Kia · San Antonio, TX</div>
+<p style="font-size:14px;color:var(--body,#AAAAAA);line-height:1.7;margin-bottom:12px;">Army veteran. Over a decade in automotive retail. Currently running 200+ new cars per month at a high-volume Kia store using AI automation he built himself. No vendors, no dev team. Just systems that work.</p>
+<p style="font-size:14px;margin:0;"><a href="/about/" style="color:var(--crimson,#C0392B);text-decoration:none;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;">Read full bio &rarr;</a></p>
+</div>
+
+<div class="article-cta">
+  <h2>Want the Full Playbook?</h2>
+  <p>This article shows you one piece. The playbook gives you the complete implementation: automation scripts, CRM rules, meeting formats, and a 4-week rollout plan to get this running at your store.</p>
+  <a href="/playbook" class="btn-primary">Get the Playbook &mdash; $297</a>
+  <p style="margin-top:24px;font-size:14px;color:var(--body);">
+    Want me to build it for your store instead? <a href="/ai-setup/" style="color:var(--crimson);text-decoration:none;">Book a free call &rarr;</a>
+  </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
+
+<script src="/chat-widget.js" defer></script>
+</body>
+</html>

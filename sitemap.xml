@@ -29,6 +29,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://stevengarcia.me/blog/n8n-for-car-dealers/</loc>
+    <lastmod>2026-04-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://stevengarcia.me/blog/watching-vs-building-ai-agents/</loc>
     <lastmod>2026-03-29</lastmod>
     <priority>0.8</priority>

@@ -5,8 +5,15 @@
     <link>https://stevengarcia.me/blog/</link>
     <description>Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2026 06:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 09:00:00 -0500</lastBuildDate>
     <atom:link href="https://stevengarcia.me/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>n8n for Car Dealers: The Self-Hosted Automation Platform Nobody Talks About</title>
+      <link>https://stevengarcia.me/blog/n8n-for-car-dealers/</link>
+      <guid>https://stevengarcia.me/blog/n8n-for-car-dealers/</guid>
+      <pubDate>Wed, 01 Apr 2026 09:00:00 -0500</pubDate>
+      <description>How a New Car Manager uses n8n to automate social media posting, content pipelines, and data workflows at a 200-unit Kia store. Free, self-hosted, no vendor lock-in.</description>
+    </item>
     <item>
       <title>5 Ways I Save 2 Hours a Day as a Car Sales Manager</title>
       <link>https://stevengarcia.me/blog/5-ways-save-time-car-sales-manager/</link>
