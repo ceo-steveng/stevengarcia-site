@@ -29,6 +29,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://stevengarcia.me/blog/why-most-dealership-ai-projects-die-in-the-back-room/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://stevengarcia.me/blog/what-id-build-day-one-if-i-opened-a-dealership-from-scratch/</loc>
     <lastmod>2026-04-01</lastmod>
     <priority>0.8</priority>
