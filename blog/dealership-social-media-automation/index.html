@@ -3,16 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XKFXV07FHV');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
 <title>How I Use AI to Post on Social Media Without Thinking About It | Steven Garcia</title>
-<meta name="description" content="I didn't need more content ideas. I needed a system. Here's how I built an AI-assisted social media process that actually sounds like me and saves time.">
+<meta name="description" content="Most managers don't need more content ideas. They need a system. Here's how I built an AI-assisted social media process that actually sounds like me and saves time.">
 <meta name="keywords" content="dealership social media automation, AI social media car dealer, auto dealer social media content, social media automation dealership">
 <meta name="author" content="Steven Garcia">
 <meta name="robots" content="index, follow">
@@ -20,8 +14,9 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="How I Use AI to Post on Social Media Without Thinking About It">
-<meta property="og:description" content="Most managers don't need more content ideas. They need a system that takes the pressure off the blank page.">
+<meta property="og:description" content="I stopped treating content like a motivation problem and fixed the process instead.">
 <meta property="og:url" content="https://stevengarcia.me/blog/dealership-social-media-automation/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
 <meta property="og:site_name" content="Steven Garcia">
 <meta property="article:published_time" content="2026-04-22T23:15:00-05:00">
 <meta property="article:author" content="Steven Garcia">
@@ -30,14 +25,352 @@
 <meta name="twitter:site" content="@ceo_steveng">
 <meta name="twitter:creator" content="@ceo_steveng">
 <meta name="twitter:title" content="How I Use AI to Post on Social Media Without Thinking About It">
-<meta name="twitter:description" content="I stopped treating content like a motivation problem and fixed the process instead.">
+<meta name="twitter:description" content="Most managers don't need more content ideas. They need a system that takes the pressure off the blank page.">
+<meta name="twitter:image" content="https://stevengarcia.me/og-image.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+    --text:    #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 24px;
+    height: 18px;
+    justify-content: space-between;
+  }
+
+  .nav-hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    display: none;
+    padding: 20px;
+    z-index: 199;
+  }
+
+  .nav-mobile-menu.show { display: block; }
+
+  .nav-mobile-menu a {
+    display: block;
+    padding: 12px 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-mobile-menu a:hover { color: var(--white); }
+
+  .article-header {
+    margin-top: 60px;
+    padding: 88px 48px 48px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 16px;
+  }
+
+  .article-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 20px;
+  }
+
+  article h1 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px;
+  }
+
+  .article-body p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .article-body p strong {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .article-body h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 48px;
+    margin-bottom: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-body ul {
+    margin-bottom: 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .article-body li {
+    font-size: 15px;
+    color: var(--list);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .article-body li::before {
+    content: '\2014';
+    color: var(--crimson);
+    flex-shrink: 0;
+  }
+
+  .article-body a {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .article-body a:hover { border-bottom-color: var(--crimson); }
+
+  .article-cta {
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 48px;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .article-cta h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  footer {
+    border-top: 2px solid var(--crimson);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--label);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .article-header { padding: 64px 24px 36px; }
+    .article-body { padding: 36px 24px; }
+    .article-cta { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "How I Use AI to Post on Social Media Without Thinking About It",
-  "description": "I didn't need more content ideas. I needed a system. Here's how I built an AI-assisted social media process that actually sounds like me and saves time.",
+  "description": "Most managers don't need more content ideas. They need a system. Here's how I built an AI-assisted social media process that actually sounds like me and saves time.",
   "datePublished": "2026-04-22",
   "dateModified": "2026-04-22",
   "author": {
@@ -52,7 +385,8 @@
   },
   "publisher": {
     "@type": "Person",
-    "name": "Steven Garcia"
+    "name": "Steven Garcia",
+    "url": "https://stevengarcia.me"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -63,250 +397,145 @@
   "timeRequired": "PT5M"
 }
 </script>
-<style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-2: #1a1a26;
-    --border: #2a2a3a;
-    --text: #e8e8ef;
-    --text-dim: #8888a0;
-    --accent: #4f8cff;
-    --accent-glow: rgba(79, 140, 255, 0.15);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-  nav {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(12px);
-    z-index: 100;
-  }
-  nav .container { display: flex; justify-content: space-between; align-items: center; }
-  .nav-left { display: flex; align-items: center; gap: 24px; }
-  .nav-name { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; text-decoration: none; color: var(--text); }
-  .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-  .nav-link:hover { color: var(--text); }
-  .nav-cta {
-    background: var(--accent);
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: opacity 0.2s;
-  }
-  .nav-cta:hover { opacity: 0.85; }
-  .article-header { padding: 80px 0 48px; max-width: 720px; }
-  .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-  .article-date { color: var(--text-dim); font-size: 0.85rem; font-weight: 500; }
-  .article-reading-time {
-    color: var(--accent);
-    font-size: 0.82rem;
-    font-weight: 600;
-    background: var(--accent-glow);
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-  .article-header h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .article-subtitle { color: var(--text-dim); font-size: 1.1rem; }
-  .article-body { max-width: 720px; padding-bottom: 80px; }
-  .article-body p { margin-bottom: 20px; font-size: 1.05rem; color: var(--text); }
-  .article-body h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 20px; }
-  .article-body ul { margin: 0 0 20px 22px; color: var(--text); font-size: 1.05rem; }
-  .article-body li { margin-bottom: 8px; }
-  .article-body strong { color: var(--text); font-weight: 700; }
-  .article-body a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-color: rgba(79, 140, 255, 0.4);
-    text-underline-offset: 3px;
-  }
-  .article-body a:hover { text-decoration-color: var(--accent); }
-  .article-cta {
-    background: var(--surface);
-    border: 1px solid var(--accent);
-    border-radius: 14px;
-    padding: 40px;
-    text-align: center;
-    margin: 48px 0;
-    max-width: 720px;
-  }
-  .article-cta h3 { font-size: 1.3rem; font-weight: 700; margin: 0 0 12px; }
-  .article-cta p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
-  .article-cta a {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    padding: 14px 36px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-  .related { border-top: 1px solid var(--border); padding: 60px 0; max-width: 720px; }
-  .related h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-dim); }
-  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .related-card {
-    display: block;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    text-decoration: none;
-    color: inherit;
-  }
-  .related-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-  .related-card p { color: var(--text-dim); font-size: 0.88rem; margin: 0; }
-  footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
-  footer a { color: var(--accent); text-decoration: none; }
-  @media (max-width: 768px) {
-    .article-header { padding: 50px 0 32px; }
-    .article-body { padding-bottom: 50px; }
-    .article-cta { padding: 28px; }
-    .related-grid { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="alternate" type="application/rss+xml" title="Steven Garcia Blog" href="https://stevengarcia.me/blog/feed.xml">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7702788696394849" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <nav>
-  <div class="container">
-    <div class="nav-left">
-      <a href="https://stevengarcia.me" class="nav-name">Steven Garcia</a>
-      <a href="https://stevengarcia.me/ai-setup" class="nav-link">AI Setup</a>
-      <a href="https://stevengarcia.me/blog/" class="nav-link">Blog</a>
-    </div>
-    <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
+  <a href="/" class="nav-logo">Steven<span>.</span>Garcia</a>
+  <ul class="nav-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/ai-setup">AI Setup</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMobileMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+  <a href="/playbook" class="nav-cta">Get the Playbook</a>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/blog">Blog</a>
+  <a href="/playbook">Playbook</a>
+  <a href="/ai-setup">AI Setup</a>
+  <a href="/about/">About</a>
+</div>
+
+<div class="article-header">
+  <div class="article-eyebrow">AI + Content Systems</div>
+  <div class="article-date">April 22, 2026</div>
+  <div class="article-date" style="color:var(--label);">Last updated: April 22, 2026</div>
+  <h1>How I Use AI to Post on Social Media Without Thinking About It</h1>
+</div>
 
 <article>
-  <div class="container">
-    <div class="article-header">
-      <div class="article-meta">
-        <span class="article-date">April 22, 2026</span>
-        <span class="article-reading-time">5 min read</span>
-      </div>
-      <h1>How I Use AI to Post on Social Media Without Thinking About It</h1>
-      <p class="article-subtitle">I didn’t need more content ideas. I needed a system that took the pressure off the blank page.</p>
-    </div>
+<div class="article-body">
 
-    <div class="article-body">
-      <p>I disappeared from social media for a while.</p>
-      <p>Not because I had nothing to say. I just didn’t have the space to think about what to post after a full day at the dealership.</p>
-      <p>That’s the part a lot of people miss.</p>
-      <p>Most managers don’t need more content ideas. They need a system that takes the pressure off the blank page.</p>
-      <p>Because when you’ve already dealt with inventory problems, CRM mess, customer issues, and a rep who needs help penciling a deal, sitting down at 8:47pm to “build your brand” feels ridiculous.</p>
-      <p>So I fixed the process instead.</p>
+<p>I disappeared from social media for a while.</p>
+<p>Not because I had nothing to say. I just didn’t have the space to think about what to post after a full day at the dealership.</p>
+<p>That’s the part a lot of people miss.</p>
+<p>Most managers don’t need more content ideas. They need a system that takes the pressure off the blank page.</p>
+<p>Because when you’ve already dealt with inventory problems, CRM mess, customer issues, and a rep who needs help penciling a deal, sitting down at 8:47pm to “build your brand” feels ridiculous.</p>
+<p>So I fixed the process instead.</p>
 
-      <h2>The old way was fake productivity</h2>
-      <p>For a while my content process looked productive from the outside.</p>
-      <p>Open Notes. Open X. Open LinkedIn. Type a few lines. Delete them. Save three rough ideas. Post nothing.</p>
-      <p>That cycle will waste an hour fast.</p>
-      <p>And it’s worse than not having a system because it tricks you into feeling like you worked on content when you really just stared at it.</p>
+<h2>The old way was fake productivity</h2>
+<p>For a while my content process looked productive from the outside.</p>
+<p>Open Notes. Open X. Open LinkedIn. Type a few lines. Delete them. Save three rough ideas. Post nothing.</p>
+<p>That cycle will waste an hour fast.</p>
+<p>And it’s worse than not having a system because it tricks you into feeling like you worked on content when you really just stared at it.</p>
 
-      <h2>Most dealership content is forgettable for a reason</h2>
-      <p>A lot of dealer content sounds like it was approved by a committee.</p>
-      <p>Too polished. Too safe. Too much “come see us” energy. Or the other version, which is AI slop with all the usual dead words baked into it.</p>
-      <p>Nobody cares.</p>
-      <p>People respond to actual observations. Real opinions. Stuff that sounds like it came from someone who was on the floor that day.</p>
-      <p>Not another post about leadership with a stock photo behind it.</p>
+<h2>Most dealership content is forgettable for a reason</h2>
+<p>A lot of dealer content sounds like it was approved by a committee.</p>
+<p>Too polished. Too safe. Too much “come see us” energy. Or the other version, which is AI slop with all the usual dead words baked into it.</p>
+<p>Nobody cares.</p>
+<p>People respond to actual observations. Real opinions. Stuff that sounds like it came from someone who was on the floor that day.</p>
+<p>Not another post about leadership with a stock photo behind it.</p>
 
-      <h2>What I built instead</h2>
-      <p>I built a content system that gives me a starting point before I ever have to think.</p>
-      <ul>
-        <li>manager bottlenecks</li>
-        <li>dealership friction</li>
-        <li>CRM discipline</li>
-        <li>process problems that get blamed on people</li>
-        <li>AI that actually saves time</li>
-      </ul>
-      <p>Then it turns those into draft posts for the platforms I care about.</p>
-      <p>Not random generic posts. My angles. My tone. My lane.</p>
-      <p>Because AI is useful for first drafts. It’s terrible if you let it sound like itself.</p>
+<h2>What I built instead</h2>
+<p>I built a content system that gives me a starting point before I ever have to think.</p>
+<ul>
+<li>manager bottlenecks</li>
+<li>dealership friction</li>
+<li>CRM discipline</li>
+<li>process problems that get blamed on people</li>
+<li>AI that actually saves time</li>
+</ul>
+<p>Then it turns those into draft posts for the platforms I care about.</p>
+<p>Not random generic posts. My angles. My tone. My lane.</p>
+<p>Because AI is useful for first drafts. It’s terrible if you let it sound like itself.</p>
 
-      <h2>The rule that changed everything</h2>
-      <p>This is the rule now: if I wouldn’t actually say it out loud, it doesn’t get posted.</p>
-      <p>That one filter kills most of the garbage.</p>
-      <p>If a draft says things like leverage, streamline, elevate, or “at the end of the day,” it’s not close. I don’t edit those lines. I rewrite them. Whole sentence. From scratch.</p>
-      <p>The problem usually isn’t that AI gave you a bad idea. It’s that it gave you a sentence no normal person would say.</p>
+<h2>The rule that changed everything</h2>
+<p>This is the rule now: if I wouldn’t actually say it out loud, it doesn’t get posted.</p>
+<p>That one filter kills most of the garbage.</p>
+<p>If a draft says things like leverage, streamline, elevate, or “at the end of the day,” it’s not close. I don’t edit those lines. I rewrite them. Whole sentence. From scratch.</p>
+<p>The problem usually isn’t that AI gave you a bad idea. It’s that it gave you a sentence no normal person would say.</p>
 
-      <h2>What the system actually does</h2>
-      <p>Right now the content engine helps me do four things:</p>
-      <ul>
-        <li>turn rough ideas into usable first drafts</li>
-        <li>keep the voice closer to how I actually talk</li>
-        <li>create visual posts when the idea is better as an image than plain text</li>
-        <li>make posting consistent without me having to manufacture inspiration</li>
-      </ul>
-      <p>That’s the real win.</p>
-      <p>Consistency without having to feel creative every day. Because I don’t need more work. I need less friction. Same principle as the dealership.</p>
+<h2>What the system actually does</h2>
+<p>Right now the content engine helps me do four things:</p>
+<ul>
+<li>turn rough ideas into usable first drafts</li>
+<li>keep the voice closer to how I actually talk</li>
+<li>create visual posts when the idea is better as an image than plain text</li>
+<li>make posting consistent without me having to manufacture inspiration</li>
+</ul>
+<p>That’s the real win.</p>
+<p>Consistency without having to feel creative every day.</p>
+<p>Because I don’t need more work. I need less friction. Same principle as the dealership.</p>
 
-      <h2>The difference between AI content and useful content</h2>
-      <p>Useful content sounds like a person who noticed something and decided to say it clearly.</p>
-      <p>Bad AI content sounds like a person trying to sound like a person.</p>
-      <p>The fix isn’t to avoid AI completely. The fix is to use it for structure, speed, and packaging, then force the writing back into a real human voice before anything goes live.</p>
-      <p>That’s where most people mess this up. They automate the production. But they never build a quality filter.</p>
-      <p>So the volume goes up and the trust goes down. Terrible trade.</p>
+<h2>The difference between AI content and useful content</h2>
+<p>Useful content sounds like a person who noticed something and decided to say it clearly.</p>
+<p>Bad AI content sounds like a person trying to sound like a person.</p>
+<p>The fix isn’t to avoid AI completely. The fix is to use it for structure, speed, and packaging, then force the writing back into a real human voice before anything goes live.</p>
+<p>That’s where most people mess this up.</p>
+<p>They automate the production. But they never build a quality filter.</p>
+<p>So the volume goes up and the trust goes down.</p>
+<p>Terrible trade.</p>
 
-      <h2>What this changed for me</h2>
-      <p>The biggest change isn’t that I post more.</p>
-      <p>It’s that posting doesn’t hang over my head anymore.</p>
-      <p>I don’t spend all week thinking I need to put something out. I don’t keep half-written drafts sitting in Notes. I don’t burn time trying to find the perfect hook after a 12-hour day.</p>
-      <p>Now the system gives me something to react to. That’s easier.</p>
-      <p>And honestly, that’s true in a lot of management work. A clean starting point changes everything.</p>
+<h2>What this changed for me</h2>
+<p>The biggest change isn’t that I post more.</p>
+<p>It’s that posting doesn’t hang over my head anymore.</p>
+<p>I don’t spend all week thinking I need to put something out. I don’t keep half-written drafts sitting in Notes. I don’t burn time trying to find the perfect hook after a 12-hour day.</p>
+<p>Now the system gives me something to react to.</p>
+<p>That’s easier.</p>
+<p>And honestly, that’s true in a lot of management work. A clean starting point changes everything.</p>
 
-      <h2>If you’re trying to post more, stop relying on motivation</h2>
-      <p>That’s the wrong fuel source.</p>
-      <p>Build a repeatable system instead. Use your real observations. Keep the voice human. Kill the garbage words. And make it easier to start.</p>
-      <p>That’s what actually gets content out.</p>
-      <p>Not motivation. Not pressure. Not guilt. Just a better process.</p>
+<h2>If you’re trying to post more, stop relying on motivation</h2>
+<p>That’s the wrong fuel source.</p>
+<p>Build a repeatable system instead. Use your real observations. Keep the voice human. Kill the garbage words. And make it easier to start.</p>
+<p>That’s what actually gets content out.</p>
+<p>Not motivation. Not pressure. Not guilt.</p>
+<p>Just a better process.</p>
 
-      <div class="article-cta">
-        <h3>I build these systems for dealership managers too</h3>
-        <p>If you want a content system built around your voice, your ideas, and your actual day-to-day work, I can help with that.</p>
-        <a href="https://stevengarcia.me/ai-setup/">See the setup →</a>
-      </div>
-
-      <div class="related">
-        <h3>Related reading</h3>
-        <div class="related-grid">
-          <a class="related-card" href="https://stevengarcia.me/blog/ai-for-car-dealerships">
-            <h4>AI for Car Dealerships: What Actually Works in 2026</h4>
-            <p>The broad view of what AI is actually useful for inside a store.</p>
-          </a>
-          <a class="related-card" href="https://stevengarcia.me/blog/why-most-dealership-ai-projects-die-in-the-back-room/">
-            <h4>Why Most Dealership AI Projects Die in the Back Room</h4>
-            <p>Why most dealership AI projects fail before they ever become useful.</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </article>
 
+<div class="article-cta">
+  <h2>Build a Content System That Sounds Like You</h2>
+  <p>If you want a content engine built around your voice, your ideas, and your real day-to-day work, I can help with that too.</p>
+  <a href="https://stevengarcia.me/ai-setup/" class="btn-primary" style="color:#FFFFFF; font-size:14px; line-height:1.2; text-align:center; min-width:280px;">See the Setup</a>
+  <p style="margin-top:24px;font-size:14px;color:var(--body);">Start with the bigger picture: <a href="/blog/ai-for-car-dealerships/" style="color:var(--crimson);text-decoration:none;">AI for Car Dealerships &rarr;</a></p>
+</div>
+
 <footer>
-  <div class="container">
-    <p>© 2026 Steven Garcia. Built for managers who'd rather fix the process than talk about it.</p>
-  </div>
+  <a href="/" class="footer-logo">Steven<span>.</span>Garcia</a>
+  <ul class="footer-links">
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/playbook">Playbook</a></li>
+    <li><a href="/about/">About</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2026 Steven Garcia</div>
 </footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('show');
+}
+</script>
+
+<script src="/chat-widget.js" defer></script>
 </body>
 </html>
