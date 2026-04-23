@@ -5,8 +5,15 @@
     <link>https://stevengarcia.me/blog/</link>
     <description>Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2026 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 23:15:00 -0500</lastBuildDate>
     <atom:link href="https://stevengarcia.me/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How I Use AI to Post on Social Media Without Thinking About It</title>
+      <link>https://stevengarcia.me/blog/dealership-social-media-automation/</link>
+      <guid>https://stevengarcia.me/blog/dealership-social-media-automation/</guid>
+      <pubDate>Wed, 22 Apr 2026 23:15:00 -0500</pubDate>
+      <description>I didn't need more content ideas. I needed a system. Here's how I built an AI-assisted social media process that actually sounds like me and saves time.</description>
+    </item>
     <item>
       <title>What I'd Build Day One If I Opened a Dealership From Scratch</title>
       <link>https://stevengarcia.me/blog/what-id-build-day-one-if-i-opened-a-dealership-from-scratch/</link>
