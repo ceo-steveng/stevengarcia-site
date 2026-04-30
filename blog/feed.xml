@@ -5,8 +5,15 @@
     <link>https://stevengarcia.me/blog/</link>
     <description>Articles on dealership management, AI automation for car dealers, and sales process from a New Car Manager running 200+ units/month.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2026 23:15:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 20:55:00 -0500</lastBuildDate>
     <atom:link href="https://stevengarcia.me/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The System Got Better When I Stopped Trusting It</title>
+      <link>https://stevengarcia.me/blog/the-system-got-better-when-i-stopped-trusting-it/</link>
+      <guid>https://stevengarcia.me/blog/the-system-got-better-when-i-stopped-trusting-it/</guid>
+      <pubDate>Wed, 29 Apr 2026 20:55:00 -0500</pubDate>
+      <description>The biggest automation improvements came from treating every report, login, and workflow like it could fail. That&#x27;s where the real time savings started.</description>
+    </item>
     <item>
       <title>How I Use AI to Post on Social Media Without Thinking About It</title>
       <link>https://stevengarcia.me/blog/dealership-social-media-automation/</link>
