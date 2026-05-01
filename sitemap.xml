@@ -24,9 +24,15 @@
   </url>
   <url>
     <loc>https://stevengarcia.me/blog/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://stevengarcia.me/blog/ai-wont-fix-broken-sales-process/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://stevengarcia.me/blog/the-system-got-better-when-i-stopped-trusting-it/</loc>
