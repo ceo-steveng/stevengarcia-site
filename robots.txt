@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://stevengarcia.me/sitemap.xml
+
+# Protected internal dashboard
+Disallow: /ancira-dashboard/
