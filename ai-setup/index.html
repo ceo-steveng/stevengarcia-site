@@ -63,7 +63,7 @@
     "@type": "Country",
     "name": "US"
   },
-  "priceRange": "$1,000 - $7,500",
+  "priceRange": "$500 - $7,500",
   "founder": {
     "@type": "Person",
     "name": "Steven Garcia",
@@ -584,7 +584,7 @@
   /* ── PRICING ── */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
@@ -844,23 +844,23 @@
   <div class="nav-hamburger" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </div>
-  <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book a Call</a>
+  <a href="https://calendly.com/stevengarcia/30min" class="nav-cta">Book Audit</a>
 </nav>
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="/">Home</a>
   <a href="/blog">Blog</a>
   <a href="/playbook">Playbook</a>
   <a href="/about">About</a>
-  <a href="https://calendly.com/stevengarcia/30min" style="color:var(--white);background:var(--crimson);text-align:center;margin-top:8px;padding:14px 0;">Book a Call</a>
+  <a href="https://calendly.com/stevengarcia/30min" style="color:var(--white);background:var(--crimson);text-align:center;margin-top:8px;padding:14px 0;">Book Audit</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow fade d1">Dealership AI Setup</div>
   <h1 class="fade d2">I Build AI Systems<br>for the Work That<br>Slows the <em>Store Down</em></h1>
-  <p class="hero-sub fade d3">Reporting, CRM cleanup, email triage, desk logs, alerts, and follow-up workflows. <strong>I built these systems for my own store first.</strong> Now I help other managers put the right ones in place.</p>
+  <p class="hero-sub fade d3">Reporting, CRM cleanup, email triage, desk logs, alerts, and follow-up workflows. <strong>I built these systems for my own store first.</strong> Start with a $500 workflow audit, then credit it toward setup if we build.</p>
   <div class="hero-cta-row fade d3">
-    <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Call</a>
+    <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Workflow Audit</a>
     <a href="/playbook" class="btn-outline">Get the Playbook — $297</a>
   </div>
   <div class="hero-proof fade d3">Built from live store work in San Antonio • 200+ new cars/month</div>
@@ -921,7 +921,7 @@
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-num">01</div>
-      <div class="step-title">Book a Call</div>
+      <div class="step-title">Book the Audit</div>
       <div class="step-desc">30 minutes. You walk me through your workflow, your tools, and what keeps backing up. I’ll tell you what I’d automate first and what it would take.</div>
     </div>
     <div class="step-card">
@@ -936,7 +936,7 @@
     </div>
   </div>
   <div style="text-align:center;margin-top:48px;">
-    <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Call</a>
+    <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book Audit</a>
   </div>
 </section>
 
@@ -1010,8 +1010,26 @@
 <section class="section" id="pricing">
   <div class="eyebrow">Pricing</div>
   <h2 class="section-h2">Choose the Right<br><em>Starting Point</em></h2>
-  <p style="font-size:15px;color:var(--body);margin-top:12px;margin-bottom:0;max-width:600px;">Every setup is done by me. Same operator, same standards, same systems I trust in my own store.</p>
+  <p style="font-size:15px;color:var(--body);margin-top:12px;margin-bottom:0;max-width:600px;">Start with the audit if you want clarity before committing. If we build, the audit credits toward setup.</p>
   <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-card-top"></div>
+      <div class="price-inner">
+        <div class="price-tier">Fastest Start</div>
+        <div class="price-name">Workflow Audit</div>
+        <div class="price-amount"><span class="currency">$</span>500</div>
+        <div class="price-note">Credited toward setup if we build</div>
+        <ul class="price-list">
+          <li>30-minute workflow review</li>
+          <li>Automation priority map</li>
+          <li>What to build first</li>
+          <li>What not to automate yet</li>
+          <li>Setup recommendation and quote</li>
+        </ul>
+        <a href="https://calendly.com/stevengarcia/30min" class="btn-primary" style="text-align:center;">Book Audit</a>
+      </div>
+    </div>
 
     <div class="price-card">
       <div class="price-card-top"></div>
@@ -1105,8 +1123,8 @@
       <div class="faq-a">Yes. Everything is done remotely by screen share, so location is not the issue. The main question is whether the workflow is worth fixing.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">What happens on the free call?</div>
-      <div class="faq-a">30 minutes. You walk me through your workflow, what tools you use, and where time is getting lost. I’ll tell you what I’d automate first, how long it should take, and what it would cost.</div>
+      <div class="faq-q">What happens on the audit call?</div>
+      <div class="faq-a">30 minutes. You walk me through your workflow, what tools you use, and where time is getting lost. I’ll tell you what I’d automate first, what I would avoid, how long setup should take, and what it would cost. If we build, the audit credits toward setup.</div>
     </div>
   </div>
 </section>
@@ -1140,8 +1158,8 @@
 <section class="final-cta">
   <div class="eyebrow">Ready?</div>
   <h2 class="section-h2">30 Minutes.<br>A Clear Look at <em>What to Fix First.</em></h2>
-  <p>Tell me what is slowing the store down. I’ll tell you what I’d fix first, what the setup would look like, and whether it’s worth doing.</p>
-  <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Call</a>
+  <p>Tell me what is slowing the store down. I’ll map the first automation wins and show you whether a setup is worth doing.</p>
+  <a href="https://calendly.com/stevengarcia/30min" class="btn-primary">Book a Workflow Audit</a>
 </section>
 
 <!-- FOOTER -->
@@ -1158,8 +1176,8 @@
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="stickyCta">
-  <div class="sticky-cta-text"><strong>Limited to 3 active clients.</strong> Currently accepting Q2 2026 engagements.</div>
-  <a href="https://calendly.com/stevengarcia/30min" class="btn-primary" style="padding:12px 28px;white-space:nowrap;">Book a Call</a>
+  <div class="sticky-cta-text"><strong>$500 workflow audit.</strong> Credited toward setup if we build.</div>
+  <a href="https://calendly.com/stevengarcia/30min" class="btn-primary" style="padding:12px 28px;white-space:nowrap;">Book Audit</a>
 </div>
 
 <script>
