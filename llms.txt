@@ -24,3 +24,12 @@ Book a consultation: https://calendly.com/stevengarcia/30min
 - Automated morning reports and sales tracking
 - Dealership operations management
 - Personal brand building for managers
+
+## Inventory
+Steven Garcia publishes a transparent new and used vehicle inventory guide for vehicles available through Ancira Kia in San Antonio.
+- Inventory hub: https://stevengarcia.me/inventory/
+- New Kia inventory: https://stevengarcia.me/inventory/new-kia/
+- Used cars: https://stevengarcia.me/inventory/used-cars/
+- Current generated inventory count: 434 vehicles
+- Vehicle pages are generated from the vAuto inventory feed and include price, photos, VIN, stock number, specs, and clear availability/pricing disclaimers.
+- Payment estimates are intentionally withheld until compliance review confirms taxes, fees, APR assumptions, rebates, and finance disclosures.
