@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XKFXV07FHV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XKFXV07FHV');</script>
+<title>Start Investing | Free Robinhood Beginner Guide — Steven Garcia</title>
+<meta name="description" content="Free PDF for first-time investors: open your Robinhood account the right way, learn the basic terms, and follow a simple first-week checklist. Educational only — not financial advice.">
+<link rel="canonical" href="https://stevengarcia.me/start/">
+<meta property="og:title" content="Getting Started on Robinhood — Free Beginner Starter Guide">
+<meta property="og:description" content="A short, plain-English starter guide for first-time investors. Free PDF from Steven Garcia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stevengarcia.me/start/">
+<meta property="og:image" content="https://stevengarcia.me/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0A0A0A;
+    --white:   #FFFFFF;
+    --crimson: #C0392B;
+    --mid:     #999999;
+    --label:   #666666;
+    --body:    #AAAAAA;
+    --list:    #CCCCCC;
+    --border:  #1F1F1F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  /* Keep anchored sections clear of the fixed nav */
+  [id] { scroll-margin-top: 76px; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--crimson); }
+
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* ── SHARED ── */
+  .section { padding: 88px 48px; border-bottom: 1px solid var(--border); }
+  .top-rule { border-top: 2px solid var(--crimson); }
+
+  .eyebrow, .section-eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 20px;
+  }
+
+  .section-h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 3.5vw, 52px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  .section-body strong { color: var(--white); font-weight: 400; }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--crimson);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-outline {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white);
+    border: 1px solid var(--mid);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .btn-outline:hover { border-color: var(--white); }
+
+  .fine-print { font-size: 12px; color: var(--label); line-height: 1.7; }
+
+  /* ── HERO / GUIDE ── */
+  .hero {
+    margin-top: 60px;
+    border-top: 2px solid var(--crimson);
+    border-bottom: 1px solid var(--border);
+    padding: 88px 48px;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "intro form"
+      "list form";
+    column-gap: 80px;
+    align-items: start;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .hero-intro { grid-area: intro; }
+  .hero-list { grid-area: list; }
+  .form-box { grid-area: form; }
+
+  .free-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    border: 1px solid var(--crimson);
+    padding: 4px 10px;
+    margin-bottom: 24px;
+  }
+
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .hero-h1 em { font-style: normal; color: var(--crimson); }
+
+  .hero-body {
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.75;
+    max-width: 460px;
+    margin-bottom: 8px;
+  }
+
+  .hero-body strong { color: var(--white); font-weight: 400; }
+
+  .guide-checklist { list-style: none; margin-top: 28px; }
+
+  .guide-checklist li {
+    font-size: 14px;
+    color: var(--list);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+  }
+
+  .guide-checklist li .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--crimson);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  /* ── FORM BOX ── */
+  .form-box {
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--crimson);
+    padding: 48px;
+  }
+
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .form-sub { font-size: 13px; color: var(--body); margin-bottom: 32px; line-height: 1.6; }
+
+  .form-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--label);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 13px 16px;
+    outline: none;
+    margin-bottom: 16px;
+    -webkit-appearance: none;
+  }
+
+  .form-input::placeholder { color: #333; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--crimson);
+    color: var(--white);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+
+  .form-note { font-size: 11px; color: var(--label); margin-top: 14px; text-align: center; letter-spacing: 0.05em; }
+
+  /* ── STEPS ── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .step-card { background: var(--black); padding: 36px 40px; border-top: 2px solid var(--border); }
+  .step-card.active { border-top-color: var(--crimson); }
+
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--crimson);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .step-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .step-desc { font-size: 13px; color: var(--body); line-height: 1.65; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; }
+
+  .cta-row { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+  .disclosure-box {
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--crimson);
+    padding: 20px 24px;
+    margin-top: 32px;
+    max-width: 640px;
+  }
+
+  .disclosure-box p { font-size: 13px; color: var(--body); line-height: 1.7; }
+  .disclosure-box strong { color: var(--white); font-weight: 400; }
+
+  /* ── FOOTER ── */
+  footer { border-top: 2px solid var(--crimson); padding: 40px 48px; }
+
+  .footer-inner { max-width: 1240px; margin: 0 auto; }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--crimson); }
+
+  .footer-disclosures { margin-top: 24px; display: grid; gap: 10px; }
+
+  .footer-disclosures p { font-size: 12px; color: var(--label); line-height: 1.7; max-width: 860px; }
+
+  .footer-copy { font-size: 11px; color: var(--label); letter-spacing: 0.1em; margin-top: 24px; }
+
+  /* ── CLOSING CTA BAND ── */
+  .closing-cta { text-align: center; }
+  .closing-cta .section-body { margin: 0 auto; }
+  .closing-cta .cta-row { justify-content: center; }
+
+  /* ── STICKY MOBILE CTA (hidden on desktop) ── */
+  .sticky-cta { display: none; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hero { padding: 40px 24px 56px; }
+    .section { padding: 64px 24px; }
+    /* Mobile order: intro → form → checklist, so the form is on the first screens */
+    .hero-layout {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "intro"
+        "form"
+        "list";
+      column-gap: 0;
+    }
+    .form-box { margin-top: 36px; }
+    .guide-checklist { margin-top: 36px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .form-box { padding: 32px 24px; }
+    footer { padding: 32px 24px; }
+    body { padding-bottom: 76px; }
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 300;
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+    .sticky-cta a {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--crimson);
+      padding: 15px;
+      text-decoration: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <!-- Landing page: no nav links or competing CTAs — one goal, one action (attention ratio 1:1). Logo is text only, not a link. -->
+  <span class="nav-logo">Steven Garcia<span>.</span></span>
+</nav>
+
+<!-- ── HERO + EMAIL CAPTURE ── -->
+<header class="hero" id="guide">
+  <div class="hero-layout">
+    <div class="hero-intro">
+      <span class="free-label">Free PDF</span>
+      <p class="eyebrow">For first-time investors</p>
+      <h1 class="hero-h1">Getting started on Robinhood, <em>step by step.</em></h1>
+      <p class="hero-body">I'm Steven Garcia. I post my dividend payouts every day, and I get the same question over and over: <strong>"How do I even start?"</strong></p>
+      <p class="hero-body">So I wrote it down. A short guide — <strong>about ten minutes to read</strong> — and you finish it with your account open and a checklist for week one.</p>
+    </div>
+    <div class="hero-list">
+      <ul class="guide-checklist">
+        <li><span class="num">01</span>How to open and set up your Robinhood account, step by step</li>
+        <li><span class="num">02</span>Why people invest at all — in plain words, no hype</li>
+        <li><span class="num">03</span>The beginner terms you'll actually run into: stock, ETF, dividend, payout</li>
+        <li><span class="num">04</span>A first-week checklist so you know what to do after you sign up</li>
+      </ul>
+    </div>
+
+    <div class="form-box">
+      <p class="form-title">Get the free guide</p>
+      <p class="form-sub">"Getting Started on Robinhood — Beginner Starter Guide." Put your email in and I'll send it over, plus a few short follow-up emails while you get set up.</p>
+
+      <!-- AWeber signup form — list "Robinhood Beginner Starter Guide" (form 460623062) -->
+      <div class="AW-Form-460623062"></div>
+      <script type="text/javascript">(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//forms.aweber.com/form/62/460623062.js"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "aweber-wjs-zkt56f2yb")); </script>
+
+      <p class="form-note">Free. Your email stays private — I don't sell it or share it. Unsubscribe anytime.<br>It's me sending these, not a company.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">How this works</p>
+    <h2 class="section-h2">Three steps. That's it.</h2>
+    <div class="steps-grid" style="margin-top:40px;">
+      <div class="step-card active">
+        <p class="step-num">STEP 01</p>
+        <p class="step-name">Get the guide</p>
+        <p class="step-desc">Sign up above and read the PDF. It takes about ten minutes and it answers the questions everybody asks first.</p>
+      </div>
+      <div class="step-card">
+        <p class="step-num">STEP 02</p>
+        <p class="step-name">Open your account</p>
+        <p class="step-desc">When you're ready, open your Robinhood account through my link below. New accounts can pick a free stock for signing up.</p>
+      </div>
+      <div class="step-card">
+        <p class="step-num">STEP 03</p>
+        <p class="step-name">Follow along</p>
+        <p class="step-desc">Follow me on Facebook. I post my real payouts as they land — the good days and the red days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROBINHOOD ── -->
+<section class="section top-rule" id="robinhood">
+  <div class="wrap">
+    <p class="section-eyebrow">Step 02 — Robinhood</p>
+    <h2 class="section-h2">Open your account here</h2>
+    <p class="section-body">Robinhood is the app I use, and it's the one the guide is written for. If you sign up through my link, link a bank account or debit card, and fund your account, <strong>you can pick a free stock worth $5–$200</strong>. Straight with you: most people — about 99% — get the $5 one. It's a small head start, not a windfall.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="https://join.robinhood.com/steveng621" target="_blank" rel="sponsored noopener">Open My Account, Pick My Free Stock</a>
+    </div>
+    <p class="fine-print" style="margin-top:14px;">Free to open. Link a bank account or debit card, fund any amount over $0, and you can pick a free stock worth $5–$200 — straight with you, most people get the $5.</p>
+    <div class="disclosure-box">
+      <p><strong>Disclosure:</strong> That's my referral link. When people sign up and fund an account through it, I earn referral rewards as I hit milestones. That's how the guide stays free. Robinhood's offer terms can change — the details in the app are the ones that count.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FACEBOOK ── -->
+<section class="section" id="follow">
+  <div class="wrap">
+    <p class="section-eyebrow">Step 03 — Follow along</p>
+    <h2 class="section-h2">See the payouts as they land</h2>
+    <p class="section-body">The guide gets you started. My Facebook page is where you see it play out in real time — <strong>daily payout posts, beginner lessons, and the honest red days too.</strong> No highlight reel.</p>
+    <p class="section-body" style="margin-top:16px;">Subscriptions open up at 5,000 followers, and that's when I'll be able to offer subscriber-only extras. Following now is how we get there.</p>
+    <div class="cta-row">
+      <a class="btn-outline" href="https://www.facebook.com/stevengarcia4" target="_blank" rel="noopener">Follow Me on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING CTA ── -->
+<section class="section closing-cta">
+  <div class="wrap">
+    <p class="section-eyebrow">Start here</p>
+    <h2 class="section-h2">Still need the guide?</h2>
+    <p class="section-body">It's free, it takes about ten minutes to read, and it's the same starting point I point everybody to. Get it first — the other two steps make more sense after.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="#guide">Send Me My Free Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Steven Garcia<span>.</span></span>
+    <div class="footer-disclosures">
+      <p><strong style="color:#999;">Educational content only.</strong> This page and the guide are for education. They are not financial advice, and I'm not a financial advisor. Nothing here is a recommendation to buy or sell any stock or fund.</p>
+      <p>Investing involves risk, including losing money you put in. No returns are promised or guaranteed — payouts and prices go up and down. Do your own research and make your own calls.</p>
+      <p>Referral disclosure: the Robinhood link on this page is a referral link. New users who sign up, link a bank account or debit card, and fund an account can pick a free stock worth $5–$200 (about 99% receive $5), and Steven Garcia earns referral rewards at milestones when people sign up and fund through the link. Offer terms are set by Robinhood and can change at any time.</p>
+    </div>
+    <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Steven Garcia &middot; stevengarcia.me</p>
+  </div>
+</footer>
+
+<!-- Sticky CTA — mobile only, always one tap back to the form -->
+<div class="sticky-cta">
+  <a href="#guide">Send Me My Free Guide</a>
+</div>
+
+</body>
+</html>
